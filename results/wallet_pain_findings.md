@@ -169,7 +169,28 @@ The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block 
 
 **Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
 
-## Finding 15 - S5 batch vs individual: speedup is only 1.07x, not 5-10x
+## Finding 16 - S5 batch vs individual: FEE ratio is 10.65x even when throughput multiplier is 1.07x
+
+**This is the headline measurement once both numbers are on the table.**
+
+Per-recipient cost from the same S5 run (post-facto `GetTransactionInfo` poll for fee field):
+
+| Metric | Arm A batch (10 recipients/tx) | Arm B individual (1 recipient/tx) | Ratio B/A |
+|---|---|---|---|
+| Wall clock per recipient | 88 ms | 93 ms | **1.07x** |
+| Fee per recipient | **74 µT** | **788 µT** | **10.65x** |
+| Total fees for 100 recipients | 7,400 µT (0.0074 tXTM) | 78,775 µT (0.0788 tXTM) | 10.65x |
+
+**Implication**:
+The bounty's `T_individual / T_batch` throughput multiplier asks the wrong question if you stop there. Batch processing on Mode 1 does NOT meaningfully reduce wall-clock to deliver M payments. It DOES reduce the fee paid per recipient by ~10x. For a payment processor moving high recipient volume, the operating-cost case for batching is real; the throughput case largely isn't.
+
+**Why the fee ratio is what it is**:
+- Arm A: 10 batch txs ≈ 10 inputs + 100 outputs + 10 signatures + 10 tx structures on chain
+- Arm B: 100 individual txs ≈ 100 inputs + 100 outputs + 100 signatures + 100 tx structures on chain
+
+The per-byte fee plus per-output range-proof weight applies once per output regardless of arm, but per-input/per-signature/per-structure cost amortises 10x more in the batch arm. So fees scale roughly with tx count, not output count, in this regime.
+
+## Finding 15 - S5 batch vs individual throughput speedup (initial framing, superseded by #16)
 
 **Headline measurement** (Mode 1, console_wallet via gRPC Transfer, fresh wallet with ~470 UTXOs from S1):
 
