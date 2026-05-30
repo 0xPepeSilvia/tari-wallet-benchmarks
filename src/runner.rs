@@ -1,50 +1,69 @@
 // Orchestrates mode × scenario execution and accumulates results.
-//
-// The runner iterates over the configured modes and scenarios, builds a
-// WalletMode instance for each, runs each scenario in order, and collects
-// ScenarioResults into a BenchmarkReport.
 
 use crate::config::BenchmarkConfig;
-use crate::metrics::BenchmarkReport;
+use crate::helpers::{capture_binary_versions, sha256_file};
+use crate::metrics::{BenchmarkReport, EnvironmentInfo, ScenarioStatus};
 use crate::modes::build_mode;
 use crate::scenarios::run_scenario;
 use anyhow::Result;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use tracing::{error, info, warn};
 use uuid::Uuid;
 
-// Ordered scenario list from the spec.  We always run in this order even if
-// only a subset is selected - scenarios have implicit ordering dependencies
-// (S1 must precede S2, S2 must precede S4, etc.).
+// Canonical scenario order per spec.  Scenarios that wipe the wallet data dir
+// (B0, S2, S3, S6, S7) are tagged here so the runner can invoke
+// `wipe_and_reinit` before them.
 const SCENARIO_ORDER: &[&str] = &["B0", "S0", "S1", "S2", "S3", "S4", "S5", "S6", "S7"];
+const SCENARIOS_REQUIRING_WIPE: &[&str] = &["B0", "S2", "S3", "S6", "S7"];
 
 pub struct Runner {
     config: BenchmarkConfig,
+    config_path: PathBuf,
     run_id: String,
     results_dir: PathBuf,
 }
 
 impl Runner {
-    pub fn new(config: BenchmarkConfig) -> Result<Self> {
+    pub fn new(config: BenchmarkConfig, config_path: PathBuf) -> Result<Self> {
         let run_id = Uuid::new_v4().to_string();
         let results_dir = config.work_dir.join("results");
         std::fs::create_dir_all(&results_dir)?;
-        Ok(Self { config, run_id, results_dir })
+        Ok(Self { config, config_path, run_id, results_dir })
     }
 
     pub async fn run(&self) -> Result<BenchmarkReport> {
-        let config_sha = sha256_config_file()?;
+        // ── Capture run metadata ──────────────────────────────────────────────
+        let config_sha = sha256_file(&self.config_path)
+            .unwrap_or_else(|_| "unknown".to_string());
+
+        let network_path = if self.config.node.http_url.contains("127.0.0.1")
+            || self.config.node.http_url.contains("localhost")
+        {
+            "local".to_string()
+        } else {
+            self.config.node.http_url.clone()
+        };
+        let environment = EnvironmentInfo::capture(network_path);
+        let binary_versions = capture_binary_versions(&self.config);
+        let config_snapshot = serde_json::to_value(&self.config)?;
+
         let mut report = BenchmarkReport::new(
             self.run_id.clone(),
             self.config.network.clone(),
             config_sha,
+            environment,
+            binary_versions,
+            config_snapshot,
         );
 
         info!("=== Tari Wallet Benchmark Harness ===");
-        info!("Run ID:   {}", self.run_id);
-        info!("Network:  {}", self.config.network);
-        info!("Modes:    {:?}", self.config.modes);
+        info!("Run ID:    {}", self.run_id);
+        info!("Network:   {}", self.config.network);
+        info!("Modes:     {:?}", self.config.modes);
         info!("Scenarios: {:?}", self.config.scenarios);
+        info!("CPU:       {} ({} cores)", report.environment.cpu_model, report.environment.cpu_cores);
+        info!("RAM:       {} MB", report.environment.total_ram_mb);
+        info!("OS:        {}", report.environment.os);
 
         for &mode_num in &self.config.modes {
             info!("─── Mode {} ───────────────────────────────", mode_num);
@@ -63,23 +82,35 @@ impl Runner {
             }
 
             for &scenario_name in SCENARIO_ORDER {
-                // Skip scenarios not in the configured list.
                 if !self.config.scenarios.iter().any(|s| s == scenario_name) {
                     continue;
+                }
+
+                // SPEC: wipe wallet data dir before B0, S2, S3, S6, S7.
+                if SCENARIOS_REQUIRING_WIPE.contains(&scenario_name) {
+                    info!("[{}/{}] wiping wallet data dir before scan scenario", scenario_name, mode.name());
+                    if let Err(e) = mode.wipe_and_reinit().await {
+                        warn!("wipe_and_reinit failed for {}/{}: {}", scenario_name, mode.name(), e);
+                    }
+                    // For B0 birthday must be 0 (genesis).
+                    // For S2/S6 birthday = 0; for S3/S7 birthday = H_birth.
+                    let birthday = match scenario_name {
+                        "B0" | "S2" | "S6" => 0u64,
+                        "S3" | "S7" => parse_env_birthday().unwrap_or(0),
+                        _ => 0,
+                    };
+                    let _ = mode.set_birthday(birthday).await;
                 }
 
                 let result = run_scenario(scenario_name, mode.as_mut(), &self.config).await;
                 let status = result.status;
                 report.push(result);
 
-                // Persist an intermediate result file after each scenario in case
-                // the run aborts partway through.
                 if let Err(e) = self.write_intermediate(&report) {
                     warn!("Failed to write intermediate results: {}", e);
                 }
 
-                // If S0 failed (funding), no point running S1-S7.
-                if scenario_name == "S0" && status == crate::metrics::ScenarioStatus::Failed {
+                if scenario_name == "S0" && status == ScenarioStatus::Failed {
                     error!("S0 (funding) failed for mode {} - skipping remaining scenarios for this mode", mode_num);
                     break;
                 }
@@ -104,7 +135,6 @@ impl Runner {
     }
 
     fn write_final(&self, report: &BenchmarkReport) -> Result<()> {
-        // Remove partial file if it exists.
         let partial = self.results_dir.join(format!("run-{}-partial.json", self.run_id));
         let _ = std::fs::remove_file(&partial);
 
@@ -112,6 +142,11 @@ impl Runner {
         let json = report.to_json_pretty()?;
         std::fs::write(&path, &json)?;
         info!("Results written to {:?}", path);
+
+        // Also update the canonical baseline pointer.
+        let baseline = self.results_dir.join("latest.json");
+        let _ = std::fs::copy(&path, &baseline);
+
         Ok(())
     }
 
@@ -130,18 +165,17 @@ impl Runner {
             "{:<width$}  Mode  Status   Wall(s)   Blocks  TxSent  Notes",
             "Scenario", width = max_scenario
         );
-        println!("{}", "─".repeat(80));
+        println!("{}", "-".repeat(80));
 
         for r in &report.results {
             let notes = if let Some(ref e) = r.error {
                 e.chars().take(40).collect::<String>()
             } else if let Some(ref cr) = r.concurrency_results {
-                let best = cr.iter()
+                cr.iter()
                     .filter(|c| c.txs_constructed > 0)
                     .map(|c| format!("N{}={:.1}tx/s", c.workers, c.txs_per_sec))
                     .collect::<Vec<_>>()
-                    .join(", ");
-                best
+                    .join(", ")
             } else {
                 String::new()
             };
@@ -158,12 +192,25 @@ impl Runner {
                 width = max_scenario,
             );
         }
+
+        if !report.deltas.is_empty() {
+            println!("\nDeltas:");
+            for (k, v) in &report.deltas {
+                println!("  {} = {:.3}", k, v);
+            }
+        }
         println!();
     }
 }
 
-fn sha256_config_file() -> Result<String> {
-    // Placeholder - in a real run we'd hash the actual config file path.
-    // This is populated by main() where the path is known.
-    Ok("unknown".to_string())
+fn parse_env_birthday() -> Option<u64> {
+    std::env::var("TARI_BENCH_BIRTHDAY_HEIGHT")
+        .ok()
+        .and_then(|s| s.parse().ok())
+}
+
+// Suppress unused warning - retained for future API stability.
+#[allow(dead_code)]
+fn _ensure_path_is_owned(p: &Path) {
+    let _ = p;
 }

@@ -45,6 +45,10 @@ rand = "0.8"
 tempfile = "3"
 bs58 = "0.5"
 async-trait = "0.1"
+sysinfo = "0.32"
+sha2 = "0.10"
+hex = "0.4"
+futures = "0.3"
 
 [build-dependencies]
 tonic-build = "0.11"

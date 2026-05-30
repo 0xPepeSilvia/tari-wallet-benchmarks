@@ -14,6 +14,7 @@ use std::path::PathBuf;
 use tracing_subscriber::{fmt, EnvFilter};
 
 mod config;
+mod helpers;
 mod metrics;
 mod modes;
 mod runner;
@@ -105,7 +106,7 @@ async fn main() -> Result<()> {
     // Ensure work_dir exists.
     std::fs::create_dir_all(&cfg.work_dir)?;
 
-    let runner = Runner::new(cfg)?;
+    let runner = Runner::new(cfg, args.config.clone())?;
     let report = runner.run().await?;
 
     // Exit non-zero if any scenario failed.

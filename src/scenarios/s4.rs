@@ -52,8 +52,12 @@ pub async fn run(
             concurrency_results.push(ConcurrencyResult {
                 workers,
                 txs_constructed: 0,
+                txs_confirmed: 0,
                 wall_secs: 0.0,
                 txs_per_sec: 0.0,
+                max_serialisation_gap_secs: None,
+                double_selection_rejections: 0,
+                success_rate: 0.0,
             });
             continue;
         }
@@ -98,11 +102,16 @@ pub async fn run(
             workers, constructed, elapsed, txs_per_sec
         );
 
+        let success_rate = if workers > 0 { constructed as f64 / workers as f64 } else { 0.0 };
         concurrency_results.push(ConcurrencyResult {
             workers,
             txs_constructed: constructed,
+            txs_confirmed: 0,                       // TODO: poll confirmation after batch
             wall_secs: elapsed.as_secs_f64(),
             txs_per_sec,
+            max_serialisation_gap_secs: None,       // TODO: instrument per-tx timestamps
+            double_selection_rejections: 0,         // TODO: parse error strings
+            success_rate,
         });
     }
 

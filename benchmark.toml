@@ -33,6 +33,11 @@ base_node = "C:/tari/minotari_node.exe"
 # Path to minotari (minotari-cli) executable
 minotari_cli = "C:/tari/minotari.exe"
 
+# Path to minotari_payment_processor executable (Mode 3).
+# Build from https://github.com/tari-project/minotari_payment_processor.
+# Leave commented to skip Mode 3.
+# payment_processor = "C:/tari/minotari_payment_processor.exe"
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Node connectivity
 # ─────────────────────────────────────────────────────────────────────────────

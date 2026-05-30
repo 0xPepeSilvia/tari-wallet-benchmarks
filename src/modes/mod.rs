@@ -62,6 +62,24 @@ pub trait WalletMode: Send + Sync {
     /// Trigger a full rescan from `from_height`.
     async fn rescan_from(&self, from_height: u64) -> Result<()>;
 
+    /// Wipe the wallet's local data directory and reinitialise from scratch.
+    /// Required before B0 (fresh seed, never funded) and before each scan
+    /// scenario (S2, S3, S6, S7) per spec.
+    /// Default implementation: stop, return Ok(()) - mode must override.
+    async fn wipe_and_reinit(&mut self) -> Result<()> {
+        Ok(())
+    }
+
+    /// Change the encoded birthday in the wallet's seed.  Used for genesis
+    /// rescans (set to 0) vs birthday rescans (set to H_birth).
+    /// Spec: "When you need to rescan from genesis, use the api to change the
+    /// seed words so that the encoded birthday reflects 0."
+    /// Default: no-op; mode-specific overrides should reset the wallet DB and
+    /// re-import with the appropriate birthday.
+    async fn set_birthday(&mut self, _height: u64) -> Result<()> {
+        Ok(())
+    }
+
     /// Split the wallet's largest UTXO into `count` outputs of `amount_per_split` µT each.
     async fn coin_split(&self, amount_per_split: u64, count: u32) -> Result<String>;
 

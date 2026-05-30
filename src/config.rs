@@ -50,6 +50,12 @@ pub struct BinariesConfig {
 
     /// `minotari` (minotari-cli) binary (Mode 2 unsigned-transaction creation).
     pub minotari_cli: PathBuf,
+
+    /// `minotari_payment_processor` binary (Mode 3).
+    /// See https://github.com/tari-project/minotari_payment_processor.
+    /// Optional - if not set, Mode 3 will be skipped with a clear error.
+    #[serde(default)]
+    pub payment_processor: Option<PathBuf>,
 }
 
 /// Base-node connection.

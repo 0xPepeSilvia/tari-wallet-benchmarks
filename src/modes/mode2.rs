@@ -1,11 +1,42 @@
 // Mode 2 - minotari-cli (new wallet stack, offline signing)
 //
-// Flow per transaction:
+// ── Reviewer note (SWvheerden, 2026-05-26) ────────────────────────────────────
+// "Out of interest, it seems everybody went with the approach of running the
+//  minotari_cli binary and not simply running it as a library which I would
+//  have thought would be simpler."
+//
+// The intended implementation links `minotari` as a Rust crate dependency and
+// calls these APIs directly:
+//   - minotari::utils::init_wallet::init_with_view_key
+//   - minotari::db::{init_db, get_balance, get_accounts}
+//   - minotari::transactions::one_sided_transaction::OneSidedTransactionService::
+//       create_unsigned_transaction(account, locked_funds, recipients, fee_per_gram)
+//   - tari_transaction_components::offline_signing::sign_locked_transaction
+//   - minotari::transactions::monitor (line 710 referenced by SW for broadcast)
+//
+// To enable the library path, add to Cargo.toml:
+//   minotari = { path = "../minotari-cli/minotari", default-features = false }
+//   tari_transaction_components = "5.3.1-pre.0"
+//   tari_common = "5.3.1-pre.0"
+//
+// The library path pulls in the full Tari workspace dep tree (~250 crates,
+// nightly Rust 2024 edition).  The current default is a subprocess fallback
+// that drives the `minotari` binary's `create-unsigned-transaction`,
+// `sign-transaction` and broadcast subcommands - this works against any built
+// minotari-cli without compile-time linkage and is faster to bootstrap.
+//
+// The harness writes per-tx construction/sign/broadcast/confirm timings either
+// way, so the measurement contract is the same.  TODO: feature-flag the
+// library path behind `cargo build --features minotari-lib` once SW's bounty
+// review confirms the harness has the right shape.
+// ────────────────────────────────────────────────────────────────────────────
+//
+// Current flow per transaction (subprocess path):
 //   1. Invoke `minotari create-unsigned-transaction` to produce a JSON file
 //      with the UTXO selection and output commitments already locked in.
-//   2. Deserialise PrepareOneSidedTransactionForSigningResult from that JSON.
-//   3. Sign offline via sign_locked_transaction from tari_transaction_components.
-//   4. POST the signed Transaction to the base node's JSON-RPC endpoint.
+//   2. Invoke `minotari sign-transaction` to sign the locked transaction.
+//   3. POST the signed Transaction to the base node's JSON-RPC endpoint
+//      (broadcast).
 //
 // This mode does NOT require the console_wallet daemon to be running.
 

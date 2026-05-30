@@ -100,11 +100,16 @@ pub async fn run(
     };
 
     result.batch_result = Some(BatchResult {
-        batch_size: p.s5_m,
+        batch_size: p.s5_m / p.s5_k.max(1),         // K outputs per batch tx
+        batch_tx_count: p.s5_m / p.s5_k.max(1),     // M/K batch txs
         batch_wall_secs: batch_elapsed.as_secs_f64(),
+        batch_total_fees_ut: 0,                     // TODO: capture per-tx fees once exposed
         individual_count: indiv_sent,
         individual_wall_secs: indiv_elapsed.as_secs_f64(),
+        individual_total_fees_ut: 0,
         speedup_factor: speedup,
+        fee_per_recipient_batch_ut: 0.0,
+        fee_per_recipient_individual_ut: 0.0,
     });
 
     result.txs_sent = Some(1 + indiv_sent);
