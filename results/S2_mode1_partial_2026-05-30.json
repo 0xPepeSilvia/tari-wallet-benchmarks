@@ -1,0 +1,32 @@
+{
+  "scenario": "S2",
+  "mode": 1,
+  "mode_name": "Mode1/ConsoleWallet (via --recovery + --seed-words)",
+  "status": "partial_measurement_with_caveats",
+  "summary": "Captured incidentally during a Mode 2 sign attempt: console_wallet was invoked with --seed-words (Mode 2's seed), which triggered recovery against a fresh base-path. The wallet rescanned from height 0 to tip 670,998. Detected 1 UTXO of 30,000 tXTM (Mode 2's S0 funding had been received against this seed).",
+  "measurements": {
+    "binary": "minotari_console_wallet 5.4.0-pre.0-74cc1b8e3a6c88f3982003464885e3829b575d39-release",
+    "scan_from_height": 0,
+    "h_tip_end": 670998,
+    "blocks_scanned": 670998,
+    "wall_secs": 27.56,
+    "blocks_per_sec": 24344.16,
+    "utxos_detected": 1,
+    "balance_detected_ut": 30000000000
+  },
+  "comparison_to_B0": {
+    "B0_blocks_per_sec": 81970.6,
+    "S2_partial_blocks_per_sec": 24344.16,
+    "ratio_B0_over_S2": 3.37,
+    "interpretation": "Recovery with 1 UTXO is 3.37x slower than empty-wallet scan. The extra cost is view-key matching against every block's outputs plus DB writes for the 1 detected output. Note this is a different code path (--recovery flag) from B0's daemon-mode scan; some of the difference may be code-path overhead rather than per-UTXO work."
+  },
+  "caveats": [
+    "Only 1 UTXO detected, not the spec's 512-UTXO pool. Extrapolating to 512 UTXOs assumes per-UTXO cost is constant which we have not verified.",
+    "Recovery code path differs from the daemon-mode scan that produced the B0 measurement. The 24,344 vs 82,000 blocks/sec gap may include code-path overhead, not just per-UTXO cost.",
+    "Did not capture peak RSS or peak CPU% during recovery."
+  ],
+  "what_would_make_this_a_real_S2": [
+    "Recover console_wallet with the seed of the Mode 1 fresh wallet at port 18243 (which has ~470 UTXOs from S1 doubling+fanout). That wallet's seed words have not been extracted - console_wallet has no documented CLI command to dump them and TUI extraction is interactive.",
+    "Recommended upstream change: add `minotari_console_wallet show-seed-words --password ... --base-path ...` (mirrors the `show-seed-words` command minotari-cli already has) to enable scriptable seed extraction."
+  ]
+}

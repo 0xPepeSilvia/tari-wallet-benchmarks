@@ -169,6 +169,25 @@ The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block 
 
 **Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
 
+## Finding 17 - Mode 1 console_wallet has no scriptable seed-word export
+
+**Component**: `minotari_console_wallet`
+
+**Behaviour observed**: the wallet creates a 24-word seed during first launch and stores it encrypted in its DB. The TUI exposes a menu to reveal it interactively. Non-interactive mode has no equivalent command.
+
+Available console_wallet subcommands inspected:
+- `export-view-key-and-spend-key` → emits keys, not seed words
+- `whois <PUBLIC_KEY>` → public-key lookup, not seed export
+- `show-pay-ref` → payment ID lookup, not seed export
+- `--seed-words-file-name <PATH>` → only writes the seed during wallet CREATION, not for an existing wallet
+
+**Impact on the bounty spec**:
+S2 (genesis rescan after S1) on Mode 1 wants the *same* wallet recovered against the *same* chain. Without scriptable seed export, the harness operator must either:
+1. Run console_wallet interactively, navigate to the seed-words menu, copy-paste — not reproducible.
+2. Skip Mode 1's S2/S6 entirely and accept the partial measurement we have (S2 with N=1 UTXO, captured incidentally during a Mode 2 sign attempt).
+
+**Recommended upstream**: `minotari_console_wallet show-seed-words --password ... --base-path ...` mirroring `minotari-cli show-seed-words` which already exists.
+
 ## Finding 16 - S5 batch vs individual: FEE ratio is 10.65x even when throughput multiplier is 1.07x
 
 **This is the headline measurement once both numbers are on the table.**
