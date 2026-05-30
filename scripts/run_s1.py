@@ -182,9 +182,13 @@ def main():
 
         b = get_balance(ch)
         avail_before = b.get(1, 0)
-        # Pick a split amount that uses small fraction of balance
-        # so we don't run out as UTXOs multiply.
-        split_amount = avail_before // (txs_this_round * 8)
+        # FIXED small split amount: 50 tXTM per output.  Critical finding:
+        # the wallet does not auto-aggregate small UTXOs to fund a coin_split,
+        # so each round's per-output amount must be << the smallest UTXO from
+        # any prior round.  Using a fixed small value keeps headroom across
+        # all rounds (each tx consumes ~100 tXTM + fee from the wallet's
+        # largest available UTXO via change).
+        split_amount = 50_000_000  # 50 tXTM in µT
 
         tx_ids = []
         construct_times = []
@@ -236,7 +240,7 @@ def main():
     fan_start = time.time()
     b = get_balance(ch)
     avail_before_fan = b.get(1, 0)
-    per_output = avail_before_fan // (args.fanout_tx * args.fanout_outputs * 2)
+    per_output = 10_000_000  # 10 tXTM per fanout output (small to preserve headroom)
 
     fanout_tx_ids = []
     fan_construct = []

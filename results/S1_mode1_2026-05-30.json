@@ -1,28 +1,64 @@
 {
   "scenario": "S1",
   "mode": 1,
-  "started_at": "2026-05-30T01:17:35.554439+00:00",
-  "initial_balance_ut": 30000000000,
+  "started_at": "2026-05-30T01:25:14.569590+00:00",
+  "initial_balance_ut": 22499997870,
   "doubling_rounds": [
     {
       "round": 1,
       "txs_count": 1,
       "tx_ids": [
-        12486758809614534283
+        16895819931091512899
       ],
       "construct_times_secs": [
-        0.03244280815124512
+        0.033574581146240234
       ],
-      "total_construct_secs": 0.03244280815124512,
-      "round_wall_secs": 0.03346896171569824,
-      "settle_wait_secs": 0.0,
-      "balance_after_ut": 30000000000
+      "total_construct_secs": 0.033574581146240234,
+      "round_wall_secs": 45.04166007041931,
+      "settle_wait_secs": 45.00808548927307,
+      "balance_after_ut": 14999997602
     },
     {
       "round": 2,
-      "txs_attempted": 2,
-      "txs_succeeded": 0,
-      "error": "<_InactiveRpcError of RPC that terminated with:\n\tstatus = StatusCode.INTERNAL\n\tdetails = \"OutputManagerError(FundsPending)\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_message:\"OutputManagerError(FundsPending)\", grpc_status:13}\"\n>"
+      "txs_count": 2,
+      "tx_ids": [
+        10071572740143989729,
+        15852495633039314984
+      ],
+      "construct_times_secs": [
+        0.03551006317138672,
+        0.034722328186035156
+      ],
+      "total_construct_secs": 0.07023239135742188,
+      "round_wall_secs": 60.08237051963806,
+      "settle_wait_secs": 60.01110339164734,
+      "balance_after_ut": 7499997870
+    },
+    {
+      "round": 3,
+      "txs_count": 4,
+      "tx_ids": [
+        2797086847654465517,
+        2973869455961773848,
+        10485588360525771897,
+        7331028943138034629
+      ],
+      "construct_times_secs": [
+        0.03995370864868164,
+        0.03901171684265137,
+        0.051767587661743164,
+        0.03784990310668945
+      ],
+      "total_construct_secs": 0.16858291625976562,
+      "round_wall_secs": 60.18101239204407,
+      "settle_wait_secs": 60.0124294757843,
+      "balance_after_ut": 23437494675
+    },
+    {
+      "round": 4,
+      "txs_attempted": 8,
+      "txs_succeeded": 7,
+      "error": "<_InactiveRpcError of RPC that terminated with:\n\tstatus = StatusCode.INTERNAL\n\tdetails = \"OutputManagerError(FundsPending)\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_status:13, grpc_message:\"OutputManagerError(FundsPending)\"}\"\n>"
     }
   ],
   "fanout": {},

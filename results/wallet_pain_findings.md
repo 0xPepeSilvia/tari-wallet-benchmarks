@@ -79,6 +79,41 @@ This is a real onboarding friction point for anyone building a third-party walle
 
 Mode 1's wallet-ready check originally polled `state.is_bootstrapped`. That field no longer exists on `GetStateResponse`. The current readiness signal is `state.has_done_initial_validation` — true once the wallet has scanned past its birthday and validated existing outputs against the chain. The harness now polls this; on a fresh wallet pointed at a synced base node it flips true after the first scan tick (within seconds).
 
+## Finding 5 - `OutputManagerError(NotEnoughFunds)` on amount > smallest UTXO
+
+**RPC**: `tari.rpc.Wallet/CoinSplit`
+**Behaviour**: the wallet does not auto-aggregate multiple small UTXOs to fund a single CoinSplit. If no single UTXO covers `amount_per_split * split_count + fee`, the wallet errors `NotEnoughFunds` even when the total wallet balance is many times the requested amount.
+
+**Reproduction (S1 v2)**:
+- Round 2 split 30,000 tXTM into 2 outputs of 1,875 tXTM each (sizing `avail // (2 * 8)`).
+- Round 3 requested 4 splits of 937 tXTM each. Each tx needed an input of ~1,875 tXTM. The smallest available UTXOs were exactly 1,875 tXTM and could not cover 1,875 + fee.
+- `NotEnoughFunds` returned even though available_balance was ~22,500 tXTM total.
+
+**Mitigation in the driver**: use a small fixed split amount (50 tXTM) per output, regardless of round, so the change UTXO from each tx is always >> the next round's per-tx input requirement. The wallet will keep selecting the largest available UTXO as input.
+
+## Finding 6 - `FundsPending` mid-round when spendable UTXO pool exhausts
+
+**Setup**: S1 round 4 attempts 8 serial CoinSplit calls back-to-back. Wallet had ~12 UTXOs at start of round (mix of round-3 outputs + change).
+**Behaviour observed**: txs 1-7 succeeded. tx 8 returned `OutputManagerError(FundsPending)`.
+
+**Interpretation**: each CoinSplit consumes one input UTXO and produces (split_count) outputs plus a change output. The change is unspendable until the parent tx mines. So firing N serial CoinSplit calls requires the wallet to start with at least N "confirmed spendable" UTXOs - the change from earlier-in-round txs does not refill the pool.
+
+**Impact on the bounty spec**:
+S1 doubling rounds 4-6 fire 8, 16, 32 serial txs respectively. To complete round 4 you need at least 8 confirmed UTXOs going in. Round 5 needs 16. Round 6 needs 32. If a prior round leaves fewer confirmed-spendable UTXOs than the next round needs, that round fails partway.
+
+This is real selection contention - the same wallet pain that S4's concurrent path is designed to surface. It also appears in S1's serial path. The bounty principle says surface it, not engineer around it.
+
+**Numerical record (Mode 1, this run)**:
+
+| Round | Txs requested | Txs succeeded | Construct (ms total) | Wall clock (s, includes chain wait) |
+|---|---|---|---|---|
+| 1 | 1 | 1 | 34 | 45 |
+| 2 | 2 | 2 | 70 | 60 |
+| 3 | 4 | 4 | 169 | 60 |
+| 4 | 8 | 7 | (~280, est.) | failed mid-round |
+
+Total measurable doubling: 14 successful txs in ~3 minutes of chain-mine wait (165s). Per-tx construction time: 35-45ms (essentially negligible vs chain-confirmation latency).
+
 ---
 
 These findings will be expanded as Modes 2 and 3 are exercised. All are surfaced rather than engineered around per the bounty principle.
