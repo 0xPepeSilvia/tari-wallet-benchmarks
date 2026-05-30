@@ -169,7 +169,30 @@ The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block 
 
 **Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
 
-## Finding 12 - Sharp concurrency cliff at N=32: instant total failure
+## Finding 14 - The "N=32 cliff" was UTXO-pool exhaustion, NOT a wallet ceiling
+
+**This revises and re-frames the earlier observation in Finding #12.**
+
+Running S4 against the SAME wallet binary but with a deep UTXO pool (~470 UTXOs from S1 doubling + fanout) produces a dramatically different picture:
+
+| N | OK (deep pool) | tx/s | Max gap (ms) | OK (mining wallet, was Finding #12) |
+|---|---|---|---|---|
+| 8 | 8/8 | 16.4 | 78 | 8/8 |
+| 16 | 16/16 | 16.2 | 78 | 13/16 |
+| 32 | 32/32 | 15.6 | 81 | **0/32** |
+| 64 | 64/64 | 14.0 | 93 | **0/64** |
+| 128 | 128/128 | 12.9 | 245 | **0/128** |
+
+The wallet sustains 13-16 tx/s across N=8 through N=128 when each concurrent worker can grab its own UTXO. Throughput degrades gracefully (~20% drop from N=8 to N=128) - this is the expected per-call locking overhead, not a scaling failure.
+
+The earlier "cliff" at N=32 on the mining wallet happened because the mining wallet, despite holding 209k tXTM total, had a SHALLOW pool of confirmed-spendable UTXOs once the first 16-21 successful concurrent calls locked them. Subsequent calls saw "no spendable UTXOs" and all failed in the same millisecond burst.
+
+**Implication for the bounty spec**:
+The spec's correct execution sequence (S1 builds the 512-UTXO pool BEFORE S4 runs) is exactly the right shape. Running S4 against a fresh-funded single-UTXO wallet would have produced the misleading mining-wallet shape. The bounty author knew this - the spec mandates S1 -> S4 ordering for a reason.
+
+**For the result profile**: report the UTXO pool depth at the start of each S4 N-level so reviewers can correlate throughput with available work, and treat any "instant total failure" at high N as a pool-depth signal rather than a wallet-throughput claim.
+
+## Finding 12 - "N=32 cliff" on a shallow UTXO pool (initial observation)
 
 **RPC**: `tari.rpc.Wallet/CoinSplit` invoked from N concurrent threads.
 
