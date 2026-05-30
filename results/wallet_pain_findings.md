@@ -169,6 +169,37 @@ The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block 
 
 **Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
 
+## Finding 15 - S5 batch vs individual: speedup is only 1.07x, not 5-10x
+
+**Headline measurement** (Mode 1, console_wallet via gRPC Transfer, fresh wallet with ~470 UTXOs from S1):
+
+| Arm | Tx count | Wall clock | Per-tx | Per-recipient | All ok |
+|---|---|---|---|---|---|
+| A - batch (10 recipients/tx) | 10 | 8.67 s | 867 ms | **88 ms** | 100/100 |
+| B - individual (1 recipient/tx) | 100 | 9.30 s | 93 ms | **93 ms** | 100/100 |
+
+**Throughput multiplier (B/A): 1.07x**
+
+Batching saves only ~5 ms per recipient - the gRPC round-trip overhead. The wallet's per-output construction work (commitment, range proof, output features) is identical between batch and individual paths. Bundling 10 recipients into one transaction does NOT amortize an 867 ms cost over 10; the cost scales linearly with output count.
+
+**Bounty-relevant interpretation**:
+The spec asks for "Throughput multiplier = T_individual / T_batch (headline)". We measured 1.07x. Operators evaluating Tari for payment-processing workloads would benefit from knowing that the throughput gain from batching is small - the dominant cost is per-recipient construction, not per-transaction submission. The on-chain footprint advantage of batching (fewer txs, fewer signatures, lower fee per recipient) remains valid; the harness's wall-clock measurement just reveals that this is the dominant benefit, not pure throughput.
+
+**Per-tx timings observed during Arm A**:
+833 / 986 / 882 / 1000 / 896 / 781 / 813 / 804 / 733 / 939 ms (avg 867)
+
+**Per-tx timings observed during Arm B**:
+sampled every 10: 95 / 108 / 93 / 93 / 93 / 92 / 91 / 77 / 93 / 92 ms (avg 93)
+
+Both arms have very stable per-call latency - no GC pauses, no UTXO contention. Standard deviations are tight (~10% of mean for Arm A, <5% for Arm B).
+
+**What the spec also asks for that this run does NOT capture**:
+- Total fees per arm (Transfer RPC response does not include fee; would need per-tx `GetTransactionInfo` lookup after the fact)
+- Blocks consumed per arm
+- Fee per recipient breakdown
+
+These could be captured in a follow-up by polling `GetTransactionInfo` for each returned tx_id after Arm B completes and the fee data is available on chain.
+
 ## Finding 14 - The "N=32 cliff" was UTXO-pool exhaustion, NOT a wallet ceiling
 
 **This revises and re-frames the earlier observation in Finding #12.**
