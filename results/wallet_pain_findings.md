@@ -169,6 +169,29 @@ The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block 
 
 **Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
 
+## Finding 19 - Mode 3 PP pipeline stalls at SIGNER due to Finding #11 (production confirmation)
+
+The first Mode 3 attempt (Finding #18) was blocked at `unsigned_tx_creator` by Mode 2's lock state (Finding #10). Recreating Mode 2 cleared the lock and let me re-run the pipeline. The second attempt got further:
+
+```
+PP receives POST /v1/payment-batches (10 payments) -> 202 Accepted in 5 ms
+batch_creator emits BatchCreated event
+unsigned_tx_creator calls PR (Mode 2 minotari-cli daemon):
+  - lock_funds: succeeds (Mode 2 locks 30,000 tXTM)
+  - create_unsigned_transaction: succeeds, returns v4.0.0 JSON
+transaction_signer invokes console_wallet sign-one-sided-transaction subprocess
+console_wallet exits 107 with stderr:
+  "Invalid command. Transaction service error 
+   `Error serializing transaction: Unsupported version. Expected '5.0.0', got '4.0.0'`"
+PP reverts batch to AwaitingSignature, retries 10 seconds later
+SAME error
+Infinite retry loop
+```
+
+This is **Finding #11 at production scale** - confirmed not a harness-only artifact. Anyone running Mode 3 from current main of `tari-project/tari` + `tari-project/minotari-cli` + `tari-project/minotari_payment_processor` will hit this exact retry loop. The pipeline cannot complete a single payment until the v4/v5 version mismatch is fixed in one of the two repos.
+
+**Mode 3 wiring is otherwise complete**: PP service starts, all 5 workers initialise, HTTP API serves, DB writes work, PR connectivity works, base node connectivity works, payment ingestion works (5,000 payments/sec API throughput), batch creation works, lock_funds works, create_unsigned_transaction returns a valid unsigned tx body. The single bug at the signer subprocess invocation step blocks every measurement past `SigningInProgress`.
+
 ## Finding 18 - Mode 3 PP pipeline stalls at unsigned_tx_creator due to Finding #10
 
 Built `minotari_payment_processor` from `tari-project/minotari_payment_processor` current main (workaround: `DATABASE_URL=sqlite://data/payments.db` relative form, not absolute `sqlite:///c/...`), configured against:

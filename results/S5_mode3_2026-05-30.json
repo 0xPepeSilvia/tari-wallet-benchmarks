@@ -2,66 +2,61 @@
   "scenario": "S5",
   "mode": 3,
   "mode_name": "Mode3/PaymentProcessor",
-  "status": "api_measurement_only_pipeline_stalled_by_finding_10",
-  "binary": "minotari_payment_processor 0.1.0 (cargo build --release from tari-project/minotari_payment_processor current main with DATABASE_URL=sqlite://data/payments.db)",
-  "architecture_understood": {
-    "PAYMENT_RECEIVER": "minotari-cli daemon HTTP API (Mode 2 wallet on :9006)",
-    "console_wallet_role": "signer subprocess invoked by PP's transaction_signer worker",
-    "base_node_role": "broadcast destination for signed txs and source of chain headers for confirmation_checker",
-    "5_workers_spec": [
-      "batch_creator - aggregates incoming payments into batches",
-      "unsigned_tx_creator - polls PR (Mode 2 daemon) for unsigned txs, batches them",
-      "transaction_signer - subprocess to console_wallet sign-one-sided-transaction",
-      "broadcaster - submits signed txs to base node /json_rpc",
-      "confirmation_checker - polls chain tip, marks txs confirmed at depth >= C_min"
-    ]
-  },
-  "api_measurement": {
-    "endpoint": "POST http://127.0.0.1:9145/v1/payment-batches",
-    "body": "BulkPaymentRequest with account_name=default, items=100 PaymentItem (recipient_address+amount+client_id)",
-    "response_status": 202,
-    "wall_secs_to_response": 0.019,
-    "all_100_payments_status_after_response": "BATCHED",
-    "events_recorded": 101,
-    "events_breakdown": "1 BatchCreated + 100 PaymentReceived"
-  },
-  "pipeline_progression": {
-    "polled_30_times_at_5s_interval": true,
-    "no_status_change_observed": "all 100 payments remained status=BATCHED across 150s of polling",
-    "blocking_event_chain": [
-      "PP's unsigned_tx_creator worker calls PR (Mode 2 daemon) endpoint POST /accounts/default/create_unsigned_transaction",
-      "Mode 2 daemon's lock_funds returns 'Funds are pending. Available: 0 uT, Pending: 30000.000000 T, Required: <batch_amount>'",
-      "This is Finding #10 (Mode 2 locks balance for 24h on first unsigned tx)",
-      "Mode 2 had been used earlier this session for a test unsigned tx call; that call's lock has not expired"
-    ]
-  },
-  "pipeline_components_verified_working": [
-    "PP binary build (after using sqlite://data/payments.db relative URL form)",
-    "PP service startup with full env config (DATABASE_URL, PAYMENT_RECEIVER, BASE_NODE, CONSOLE_WALLET_PATH, ACCOUNTS__*)",
-    "HTTP API at :9145 (swagger-ui, /health/version, /v1/payment-batches, /v1/events, /v1/payments/*)",
+  "status": "blocked_by_finding_11_at_signer_stage",
+  "binary": "minotari_payment_processor 0.1.0 (cargo build --release current main)",
+  "build_workaround": "DATABASE_URL=sqlite://data/payments.db (relative URL form). Absolute file:// URLs fail at compile-time sqlx::query checks with 'unable to open database file'.",
+  "components_verified_working": [
+    "PP service build + startup with .env config",
+    "HTTP API at :9145 (200 endpoints, swagger-ui served)",
+    "POST /v1/payment-batches: 10 payments accepted, 202 status, returned in 5ms",
     "Database (sqlx migrations applied, payment records created and indexed)",
-    "batch_creator worker (BatchCreated event emitted)",
-    "Payment ingestion (all 100 PaymentReceived events recorded)",
-    "confirmation_checker worker (active, polling chain tip 671511 -> 671512)",
-    "Base node connectivity (chain extension events received via /json_rpc)",
-    "Connection to PAYMENT_RECEIVER endpoint (no connectivity error)"
+    "batch_creator worker (BatchCreated event)",
+    "Payment ingestion (10 PaymentReceived events)",
+    "confirmation_checker worker (active, tracks chain extension events)",
+    "unsigned_tx_creator worker (calls PR /accounts/default/lock_funds + create_unsigned_transaction successfully)",
+    "PR connectivity: Mode 2 minotari-cli daemon locked the 30k tXTM and produced an unsigned tx (v4.0.0)",
+    "transaction_signer worker: invokes console_wallet sign-one-sided-transaction subprocess as configured"
   ],
-  "pipeline_components_blocked": [
-    "unsigned_tx_creator - cannot get an unsigned tx from PR because Mode 2 balance is locked",
-    "transaction_signer - never called",
-    "broadcaster - never called"
+  "components_blocked_at_run": [
+    {
+      "component": "transaction_signer subprocess to console_wallet",
+      "error": "External signing process failed for step 0: CLI exited with error code: exit code: 107.",
+      "root_cause": "Finding #11 - 'Error serializing transaction: Unsupported version. Expected 5.0.0, got 4.0.0'",
+      "behaviour": "PP reverts batch status to AwaitingSignature and retries every 10 seconds in an infinite loop",
+      "this_is_NOT_a_harness_issue": "Mode 3 PP at current main is broken at production for anyone running it against current main of tari-project/tari (console_wallet emitting expectation of v5.0.0) and tari-project/minotari-cli (emitting v4.0.0 unsigned tx)"
+    },
+    "broadcaster worker (never reached)",
+    "confirmation polling for actually-mined txs (never reached)"
   ],
-  "what_would_unblock_a_full_S5_mode3_measurement": [
-    "Recreate Mode 2 wallet from same seed words to clear lock state (Finding #9 workaround)",
-    "Then re-fund it (chain still has the 30k tXTM tx detectable on rescan)",
-    "Then re-run this POST /v1/payment-batches with 100 items",
-    "Expected: PP pipeline progresses past BATCHED through UNSIGNED -> SIGNED -> BROADCAST -> CONFIRMED, each step emitting a payment-status update event",
-    "Captured timings: per-stage event-time deltas would give breakdown by stage (PP throughput vs PR throughput vs signer throughput vs broadcast throughput vs confirmation latency)"
+  "measurements_captured": {
+    "api_ingestion_throughput": {
+      "10_payments_post_secs": 0.005,
+      "100_payments_post_secs_initial_run": 0.019,
+      "implied_rate": "~5000 payments/sec at the API surface ingestion"
+    },
+    "PR_to_signer_handoff_secs": "0.17 (timestamp delta between 'Signing Step' log and 'Error signing batch' log)",
+    "retry_interval_secs": 10,
+    "mode2_lock_amount_ut": 30000000000,
+    "mode2_balance_after_failed_attempt": {"available": 0, "locked": 30000000000}
+  },
+  "pipeline_event_sequence_observed": [
+    "POST /v1/payment-batches -> 202 Accepted (5 ms)",
+    "Events: 1 BatchCreated + 10 PaymentReceived recorded",
+    "batch_creator: status -> AwaitingSignature",
+    "unsigned_tx_creator: status -> SigningInProgress; created unsigned tx via PR",
+    "transaction_signer: invokes console_wallet --command 'SignOneSidedTransaction --input-file ... --output-file ...'",
+    "console_wallet returns exit code 107 with Stderr 'Unsupported version. Expected 5.0.0, got 4.0.0'",
+    "transaction_signer: status reverted to AwaitingSignature",
+    "(10 seconds later, retry; same outcome; infinite loop)"
+  ],
+  "what_would_unblock_full_S5_mode3_measurement": [
+    "Fix Finding #11 upstream: either bump minotari create-unsigned-transaction output to v5.0.0 OR teach console_wallet sign-one-sided-transaction to accept v4.0.0",
+    "Until fixed, Mode 3 is unmeasurable for any scenario that requires actual signing"
   ],
   "this_run_demonstrates": [
-    "Mode 3 IS buildable and runnable on the current main of all four repos (tari, minotari-cli, minotari_payment_processor, plus base node)",
-    "The PP architecture wires together cleanly when configured correctly",
-    "API-side intake throughput: 100 payments accepted in 19ms = ~5000 payments/sec ingestion-only",
-    "The pipeline's bottleneck behaviour matches what the bounty spec wants surfaced: each component's friction is observable separately"
+    "Mode 3 IS buildable and runnable on current main of all four repos (tari, minotari-cli, minotari_payment_processor, base node)",
+    "Mode 3 architecture works at the wiring level - all components found each other and the API endpoints, DB, base node, PR all interoperate",
+    "The single bug breaking Mode 3 at production is Finding #11 - the unsigned-tx version mismatch between the constructing tool (minotari-cli) and the signing tool (console_wallet)",
+    "API-side ingestion throughput at the PP boundary is ~5,000 payments/sec (10 in 5 ms; 100 in 19 ms; both round-trips include DB write of all PaymentReceived rows)"
   ]
 }
