@@ -1,0 +1,41 @@
+{
+  "scenario": "S0",
+  "mode": 2,
+  "mode_name": "Mode2/MinotariCli",
+  "binary": "minotari 0.2.0",
+  "wallet_db_path": "C:/Tari-bench-mode2/wallet.db",
+  "wallet_address": "f23gogDeZeLaRxjdsUzThiChCyPMXTnMF4AuqqSH9Bg35Duob3w31mhsvmE5ajQnBHTyP3Sgwf44KKV5CbUzegbW4cn",
+  "fund_tx_id_from_mining_wallet": 5616008532933520625,
+  "fund_amount_tXTM": 30000,
+  "fund_broadcast_at": "2026-05-30T01:27Z (approx, from earlier session)",
+  "wallet_recreated_at": "2026-05-30T16:20Z (with same seed words)",
+  "daemon_start_to_funded_secs": 0.026234865188598633,
+  "balance_after": {
+    "total": 30000000000,
+    "available": 30000000000,
+    "locked": 0,
+    "unconfirmed": 0,
+    "total_credits": 30000000000,
+    "total_debits": 0,
+    "max_height": 670409,
+    "max_date": "2026-05-30 01:27:41"
+  },
+  "scan_status_after": {
+    "last_scanned_height": 670974,
+    "last_scanned_block_hash": "262b0e123a82463ab8fc0a84a758262203284a56de3783b16b6123c9cc0dfdd9",
+    "scanned_at": "2026-05-30 06:20:50"
+  },
+  "samples": [
+    {
+      "t": 0.026234865188598633,
+      "available": 30000000000,
+      "unconfirmed": 0,
+      "scanned_height": 670974
+    }
+  ],
+  "notes": [
+    "After recreating Mode 2 wallet from same seed words, the daemon scans from current chain tip forward (no birthday-rewind).",
+    "Because the funding tx was already mined before recreate, the wallet's normal forward scan will NOT find it - it would need a genesis or birthday-prior rescan.",
+    "If this run reports 0 available, this is finding #7's downstream effect: Mode 2 cannot detect historical receives without a scan-from-birthday-0 path."
+  ]
+}

@@ -91,6 +91,43 @@ Mode 1's wallet-ready check originally polled `state.is_bootstrapped`. That fiel
 
 **Mitigation in the driver**: use a small fixed split amount (50 tXTM) per output, regardless of round, so the change UTXO from each tx is always >> the next round's per-tx input requirement. The wallet will keep selecting the largest available UTXO as input.
 
+## Finding 8 - Mode 2 daemon enters silent-zombie state after re-scan
+
+**Component**: `minotari` daemon subprocess at `tari-project/minotari-cli` (current main)
+**Behaviour observed**: after running `re-scan --rescan-from-height 0` and then launching the daemon against the same DB, the daemon emits this log pattern indefinitely:
+
+```
+INFO  Starting wallet scan...
+ERROR Failed to send download error with error: channel closed
+INFO  Scan completed successfully event_count=0
+ERROR Failed to send download error with error: channel closed
+```
+
+The `scan_status` API reports a stale `last_scanned_height` (in this run: 670400, unchanged across ~3 minutes of "successful" scan cycles). The wallet does not detect any new blocks despite the base node being reachable and producing them.
+
+**Why this matters**:
+- The daemon claims `Scan completed successfully event_count=0` so any monitoring that only checks for "scan succeeded" will miss the failure.
+- The `channel closed` error is in the chain-download path, not the scan-orchestration path - so the scan loop continues spinning but never gets fresh blocks.
+- Recovery requires deleting the wallet DB and recreating with seed words; in-place restart does not heal.
+
+**Workaround**: delete `wallet.db` and recreate via `minotari create --seed-words "..."`. The seed-derived birthday is preserved across recreate, so the wallet finds historical UTXOs from its birthday forward on the first daemon scan.
+
+## Finding 9 - Mode 2 birthday derives from seed words and persists across DB delete
+
+This is the GOOD news that makes finding 8 recoverable. After deleting the Mode 2 wallet DB and recreating via `minotari create --seed-words "<the same words>"`, the daemon's first scan picks up at the original birthday height (the seed-encoded birthday) and finds historical UTXOs that were received during that wallet's first lifetime.
+
+**Measurement (this run)**:
+- Wallet seed words: `doctor exist smoke swing ... vintage` (24 words)
+- Wallet first created: 2026-05-30 ~11:25 (chain tip ~670380 at that time)
+- Wallet DB deleted then recreated from same seed: 2026-05-30 ~16:20
+- Daemon launched immediately after recreate
+- `t+0.5s`: daemon API ready
+- `t+0s` (first poll, immediately after API ready): `available_balance = 30,000.00 tXTM`, `scanned_height = 670974`
+
+The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block somewhere in the range 670400-670974. The daemon's first scan cycle - between API readiness and our first balance poll - rescanned ~594 blocks (670380 birthday → 670974 tip) and detected the historical funding tx.
+
+**Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
+
 ## Finding 7 - Mode 2 has no API to do a genesis rescan
 
 **Component**: `minotari` (the minotari-cli library / daemon) at `tari-project/minotari-cli`
