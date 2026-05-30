@@ -1,0 +1,32 @@
+{
+  "scenario": "B0",
+  "mode": 1,
+  "mode_name": "Mode1/ConsoleWallet",
+  "wallet_endpoint": "http://127.0.0.1:18243",
+  "wallet_seed_status": "fresh, never funded",
+  "binary_version": "minotari_console_wallet 5.4.0-pre.0-74cc1b8e3a6c88f3982003464885e3829b575d39-release",
+  "network": "esmeralda",
+  "scan_started_at": "2026-05-30T11:11:55.318Z",
+  "scan_finished_at": "2026-05-30T11:12:03.496Z",
+  "scan_from_header_hash": "6a7b1eff094c23b8df3dcdf8c8b65fa025f702f70f9681b7c0ce91ac02227861",
+  "scan_from_height": 0,
+  "h_tip_end": 670375,
+  "blocks_scanned": 670375,
+  "T_scan_secs": 8.178,
+  "blocks_per_sec": 81970.6,
+  "verification": {
+    "utxo_count": 0,
+    "balance_ut": 0,
+    "outputs_found": 0
+  },
+  "evidence_source": "C:/Tari-bench-mode1/esmeralda/log/wallet/utxo_scanner.log",
+  "evidence_log_lines": [
+    "11:11:55.318 INFO Starting UTXO scanning from header hash 6a7b1eff... to tip height 670375",
+    "11:12:03.496 DEBUG UTXO scanning round completed successfully"
+  ],
+  "notes": [
+    "Floor cost of block-walk + view-key check with no UTXOs to store.",
+    "Scan throughput ~82k blocks/sec dominated by base-node-side header retrieval over local gRPC; wallet-side work per block is minimal when there are no detections.",
+    "This is the per-block overhead before any UTXOs exist - the baseline against which S2/S6 (genesis rescans with UTXOs) will be compared."
+  ]
+}
