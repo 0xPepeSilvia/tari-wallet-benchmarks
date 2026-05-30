@@ -1,0 +1,31 @@
+{
+  "scenario": "B0",
+  "mode": 2,
+  "mode_name": "Mode2/MinotariCli",
+  "binary_version": "minotari 0.2.0 (cargo build --release from tari-project/minotari-cli current main)",
+  "status": "blocked_by_wallet_api",
+  "blocking_finding": "Finding 7 (see wallet_pain_findings.md)",
+  "summary": "Mode 2 has no documented path to perform a genesis rescan on an existing wallet. The minotari-cli `re-scan --rescan-from-height 0` rolls back DB state (BlockRolledBack events, soft-deleted outputs/inputs, scanned tip blocks deleted to height 0) but does NOT reset the wallet's last_scanned_height value. When the daemon is next started, it reads the stale last_scanned_height and resumes from there - in this run, observed last_scanned_height after re-scan and daemon restart = 670400 (the tip-adjacent value from before the re-scan).",
+  "wallet_db_path": "C:/Tari-bench-mode2/wallet.db",
+  "wallet_seed_words": "doctor exist smoke swing sibling okay endless unusual tent soda wire badge happy vague monster maximum cherry quiz crash friend crunch lumber unique vintage",
+  "evidence": {
+    "re_scan_subprocess": {
+      "command": "minotari --network esmeralda re-scan --password ... --database-path ... --account-name default --rescan-from-height 0 --base-url http://127.0.0.1:9005 --batch-size 1000",
+      "duration_secs": 0.58,
+      "exit_code": 0,
+      "stdout_summary": "Many BlockRolledBack events, Soft deleting inputs/outputs, Deleting scanned tip blocks, then Re-scan complete event_count=0"
+    },
+    "daemon_post_rescan_scan_status": {
+      "last_scanned_height": 670400,
+      "expected_after_genesis_rescan": 0
+    }
+  },
+  "implication_for_other_scenarios": [
+    "S2 (genesis rescan after S1) - same blocker",
+    "S6 (genesis rescan, checkpoint 2) - same blocker",
+    "S3 (birthday rescan) - measurable: blocks_scanned = tip - birthday_at_create",
+    "S7 (birthday rescan, checkpoint 2) - measurable: same path as S3"
+  ],
+  "intended_path_per_spec_author": "SWvheerden 2026-05-29 wallet-benchmarks#1: 'change the seed words so that the encoded birthday reflects 0'. No CLI flag or API endpoint on minotari-cli current main implements this.",
+  "recommended_minotari_change": "Add --birthday flag to `minotari create` subcommand, or expose a daemon endpoint POST /accounts/{name}/set_birthday that updates the DB row and triggers a full re-scan from the new birthday."
+}

@@ -91,6 +91,24 @@ Mode 1's wallet-ready check originally polled `state.is_bootstrapped`. That fiel
 
 **Mitigation in the driver**: use a small fixed split amount (50 tXTM) per output, regardless of round, so the change UTXO from each tx is always >> the next round's per-tx input requirement. The wallet will keep selecting the largest available UTXO as input.
 
+## Finding 7 - Mode 2 has no API to do a genesis rescan
+
+**Component**: `minotari` (the minotari-cli library / daemon) at `tari-project/minotari-cli`
+**Behaviour observed**: Mode 2 exposes `re-scan --rescan-from-height <H>` (subprocess) and a daemon HTTP API. Neither path can perform a true genesis rescan on an existing wallet:
+
+1. `re-scan --rescan-from-height 0` issues a long sequence of `BlockRolledBack` events and soft-deletes outputs/inputs/scanned tip blocks down to height 0 in the SQLite DB. It logs `Re-scan complete event_count=0` and exits 0. But the wallet's `last_scanned_height` value is not reset.
+2. When the daemon is next started, it reads `last_scanned_height` from the DB (still at the previous tip-adjacent value, observed: 670400) and resumes scanning forward. The chain history between birthday and the previous tip is never re-walked.
+3. `minotari create` (the wallet init command) has no `--birthday` flag. A freshly created wallet's birthday is the current chain tip at creation time. The wallet will only ever scan from that height forward.
+
+**Impact on the bounty spec**:
+- B0 (genesis scan on fresh wallet) is unmeasurable on Mode 2 via any documented path.
+- S2 / S6 (genesis rescan with UTXOs) are likewise unmeasurable.
+- S3 / S7 (birthday rescan) is the only scan-shape measurable on Mode 2, and the harness must capture the wallet's birthday at creation time to compute `blocks_scanned = tip - birthday`.
+
+**SWvheerden's guidance to roadhero on 2026-05-29** ("change the seed words so that the encoded birthday reflects 0") describes the path the spec author intended for this scenario — but that path is not exposed by the minotari-cli today. It would require either (a) a new `--birthday` flag on `create` / `migrate-from-console-wallet`, or (b) a DB-level patch that the operator runs out-of-band before launching the daemon.
+
+**Result-profile treatment**: Mode 2's B0/S2/S6 entries are recorded as `status = "blocked_by_wallet_api"` with the finding text inline, per the bounty principle that wallet pain must be visible in the metrics.
+
 ## Finding 6 - `FundsPending` mid-round when spendable UTXO pool exhausts
 
 **Setup**: S1 round 4 attempts 8 serial CoinSplit calls back-to-back. Wallet had ~12 UTXOs at start of round (mix of round-3 outputs + change).
