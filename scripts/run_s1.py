@@ -218,8 +218,13 @@ def main():
         # the output_manager rejects spends from unmined tx outputs with
         # OutputManagerError(FundsPending) even when pending_in shows 0.
         # We must wait for chain height to advance past the round's broadcast.
-        print(f"  waiting for round {r+1} txs to mine ({len(tx_ids)} txs)...")
-        settle_time, h = wait_for_chain_advance(ch, blocks=args.c_min + 1, timeout_s=1200)
+        # Wait for blocks to mine.  Finding #6 (FundsPending mid-round): the
+        # wallet considers change from in-flight txs as unspendable until they
+        # mine with sufficient depth.  Use 4 blocks rather than C_min+1 so the
+        # next round has a pool of properly-confirmed UTXOs.
+        wait_blocks = max(args.c_min + 1, 4)
+        print(f"  waiting for round {r+1} txs to mine ({len(tx_ids)} txs, waiting {wait_blocks} blocks)...")
+        settle_time, h = wait_for_chain_advance(ch, blocks=wait_blocks, timeout_s=1200)
         b = get_balance(ch)
         round_elapsed = time.time() - round_start
 
