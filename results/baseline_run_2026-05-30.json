@@ -1,0 +1,40 @@
+{
+  "run_id": "baseline-2026-05-30",
+  "network": "esmeralda",
+  "timestamp": "2026-05-30T00:50:00+00:00",
+  "operator_notes": "First real run against funded esmeralda wallet (209,023 tXTM, 670,316 blocks scanned). External wallet, not spawned. Validates harness gRPC contract and surfaces a meaningful wallet-pain finding.",
+  "wallet_endpoint": "http://127.0.0.1:18143",
+  "smoke_test": {
+    "GetState":    { "status": "ok", "scanned_height": 670309, "initial_validation_done": true, "network_status": 1 },
+    "GetBalance":  { "status": "ok", "available_ut": 209023757254, "available_tXTM": 209023.76 },
+    "GetAddress":  { "status": "ok", "address_bytes_len": 67, "prefix_hex": "2603e019d49f9e33" }
+  },
+  "rescan_bench": {
+    "harness_call": "RescanWallet(from_height=0)",
+    "observed_behavior": "scanned_height dropped from 670316 to 665390, climbed back to 670316 in ~10s",
+    "actual_blocks_rescanned": 4926,
+    "wall_seconds": 10.0,
+    "blocks_per_sec": 492.6,
+    "balance_before_ut": 209023757254,
+    "balance_after_ut": 209023757254,
+    "balance_delta_ut": 0
+  },
+  "wallet_pain_findings": [
+    {
+      "finding": "RescanWallet(from_height=0) does NOT reset scan to genesis",
+      "evidence": "scanned_height floor was 665,390 (only ~5,000 blocks below tip), not 0",
+      "impact_on_spec_S2_S3_S6_S7": "Genesis rescan via this RPC is impossible. Spec authors (SWvheerden via roadhero, 2026-05-29) confirm: genuine genesis rescan requires changing the encoded birthday in the seed and reinitialising the wallet. The harness must use that path, not RescanWallet.",
+      "consequence_for_harness": "src/scenarios/{s2,s3,s6,s7}.rs currently call mode.rescan_from(0) and poll until scanned_height >= tip. Against a wallet already at tip, this returns near-instantly with a fake-fast throughput number. Mode 1's rescan_from must be reimplemented as: stop wallet -> rewrite encoded birthday -> reinit wallet DB -> restart -> poll scanned_height from 0 to tip."
+    },
+    {
+      "finding": "GetState's WalletStateResponse field shape in our initial proto did not match the running wallet",
+      "evidence": "GetState returned RPC error until we replaced WalletStateResponse{is_started,is_bootstrapped,height_of_longest_chain,scanned_height} with GetStateResponse{scanned_height,balance,network,has_done_initial_validation}",
+      "impact": "Anyone writing a third-party gRPC client off the wallet.proto docs will need to use the current proto. Confirmed by re-reading applications/minotari_app_grpc/proto/wallet.proto in tari-project/tari."
+    }
+  ],
+  "harness_version": "0.1.0",
+  "host_env": {
+    "os": "Windows",
+    "tari_chain_tip_height_at_run": 670316
+  }
+}

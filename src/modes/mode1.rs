@@ -83,8 +83,9 @@ impl Mode1Wallet {
             match self.ensure_connected().await {
                 Ok(client) => {
                     match client.get_state().await {
-                        Ok(state) if state.is_bootstrapped => {
-                            info!("[Mode1/{}] wallet ready (bootstrapped)", self.instance_id);
+                        Ok(state) if state.has_done_initial_validation => {
+                            info!("[Mode1/{}] wallet ready (initial validation complete, scanned_height={})",
+                                self.instance_id, state.scanned_height);
                             return Ok(());
                         },
                         Ok(state) => {

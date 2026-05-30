@@ -52,9 +52,9 @@ impl WalletGrpcClient {
         Ok(resp.into_inner())
     }
 
-    pub async fn get_state(&self) -> Result<wallet_pb::WalletStateResponse> {
+    pub async fn get_state(&self) -> Result<wallet_pb::GetStateResponse> {
         let mut c = self.inner.clone();
-        let resp = c.get_state(Request::new(Empty {}))
+        let resp = c.get_state(Request::new(wallet_pb::GetStateRequest {}))
             .await
             .context("get_state RPC failed")?;
         Ok(resp.into_inner())

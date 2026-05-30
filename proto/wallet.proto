@@ -12,12 +12,12 @@ package tari.rpc;
 service Wallet {
     rpc GetAddress(Empty) returns (GetAddressResponse);
     rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
-    rpc GetState(Empty) returns (WalletStateResponse);
+    rpc GetState(GetStateRequest) returns (GetStateResponse);
     rpc Transfer(TransferRequest) returns (TransferResponse);
     rpc CoinSplit(CoinSplitRequest) returns (CoinSplitResponse);
     rpc RescanWallet(RescanWalletRequest) returns (RescanWalletResponse);
     rpc GetTransactionInfo(GetTransactionInfoRequest) returns (GetTransactionInfoResponse);
-    rpc GetCompletedTransactions(GetCompletedTransactionsRequest) returns (stream GetCompletedTransactionResponse);
+    rpc GetCompletedTransactions(GetCompletedTransactionsRequest) returns (stream GetCompletedTransactionsResponse);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -47,11 +47,20 @@ message GetBalanceResponse {
 // GetState
 // ─────────────────────────────────────────────────────────────────────────────
 
-message WalletStateResponse {
-    bool is_started = 1;
-    bool is_bootstrapped = 2;
-    uint64 height_of_longest_chain = 3;
-    uint64 scanned_height = 4;
+message GetStateRequest {}
+
+// NetworkStatusResponse is nested in GetStateResponse; minimal shape.
+message NetworkStatusResponse {
+    int32 status = 1;
+    uint32 avg_latency_ms = 2;
+    uint32 num_node_connections = 3;
+}
+
+message GetStateResponse {
+    uint64 scanned_height = 1;
+    GetBalanceResponse balance = 2;
+    NetworkStatusResponse network = 3;
+    bool has_done_initial_validation = 4;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -173,6 +182,6 @@ message GetTransactionInfoResponse {
 
 message GetCompletedTransactionsRequest {}
 
-message GetCompletedTransactionResponse {
+message GetCompletedTransactionsResponse {
     TransactionInfo transaction = 1;
 }
