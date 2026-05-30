@@ -91,6 +91,47 @@ Mode 1's wallet-ready check originally polled `state.is_bootstrapped`. That fiel
 
 **Mitigation in the driver**: use a small fixed split amount (50 tXTM) per output, regardless of round, so the change UTXO from each tx is always >> the next round's per-tx input requirement. The wallet will keep selecting the largest available UTXO as input.
 
+## Finding 10 - Mode 2 locks the entire balance for 24 hours on first unsigned tx
+
+**Component**: `minotari create-unsigned-transaction` (subprocess) at `tari-project/minotari-cli`
+**Behaviour observed**: a single-UTXO wallet calls `create-unsigned-transaction` once and receives a valid unsigned tx JSON. Every subsequent call within the next 24 hours returns:
+
+```
+WARN  Insufficient funds for transaction (pending confirmations)
+Error: Failed to lock funds: Funds are pending. Available: 0 µT, Pending: 30000.000000 T, Required: 100.000000 T
+```
+
+**Why**: the first call invokes `lock_funds`, which reserves the wallet's only UTXO with a default `--seconds-to-lock 86400` (24 hours). Until that lock expires OR the unsigned tx is signed AND submitted AND mined (producing a new change UTXO), the wallet has zero spendable balance.
+
+**Impact on the bounty spec**:
+- S1 (UTXO build-up) is structurally impossible on Mode 2 starting from a single funding UTXO. You cannot construct round 2 until round 1's tx is signed, submitted, mined, and the change becomes spendable.
+- S4 (concurrent construction at N=8..128) is unmeasurable from a single funding UTXO. Either pre-split into N UTXOs (which itself requires Mode 2 sign+broadcast working end-to-end) or accept that the first call locks everything.
+- Mode 2 requires a fully-working sign-and-submit pipeline to be exercisable beyond a single construction call. See Finding #11.
+
+**Workaround for measuring construction-only throughput**: use `--seconds-to-lock 1` (1 second) per call so locks expire between back-to-back invocations. This bypasses the design intent but lets the harness time `create-unsigned-transaction` × N without an end-to-end pipeline.
+
+## Finding 11 - `create-unsigned-transaction` and `sign-one-sided-transaction` versions are incompatible
+
+**Components**:
+- producer: `minotari create-unsigned-transaction` at `tari-project/minotari-cli` current main
+- consumer: `minotari_console_wallet sign-one-sided-transaction` at `tari-project/tari` current main
+
+**Behaviour observed**: minotari emits unsigned-tx JSON with `"version": "4.0.0"`. console_wallet's signer rejects it:
+
+```
+Invalid command. Transaction service error
+`Error serializing transaction: Unsupported version. Expected '5.0.0', got '4.0.0'`
+```
+
+**Impact on the bounty spec**:
+The bounty's Mode 2 description ("uses the minotari crate directly: local UTXO selection, sign_locked_transaction, broadcast via HTTP RPC") and SWvheerden's clarification on `wallet-benchmarks#1` (2026-05-22: "you can do signing like Tari Universe or you can call the signing application") imply that minotari produces an unsigned tx and an external signer accepts it. The two tools available today are version-incompatible.
+
+The only working signing path is the Rust library call to `tari_transaction_components::offline_signing::sign_locked_transaction`. That requires linking the workspace as a cargo dep (heavy: ~250 transitive crates, nightly Rust 2024 edition).
+
+Sub-finding: `sign-one-sided-transaction` invoked via `--seed-words "..."` triggers full wallet recovery as a side effect (scanning chain from 0) before exiting without ever running the sign command. The command must be invoked against a base-path that already contains a recovered wallet DB.
+
+**Observation that became a free measurement**: console_wallet recovery completed 670,998 blocks in 27.56 s = 24,344 blocks/s. This is `~3.4x slower` than the empty-wallet scan (Finding from B0_mode1: 82,000 blocks/s) because recovery does view-key matching plus DB writes for any detected outputs, whereas B0's scanner has no outputs to record.
+
 ## Finding 8 - Mode 2 daemon enters silent-zombie state after re-scan
 
 **Component**: `minotari` daemon subprocess at `tari-project/minotari-cli` (current main)
