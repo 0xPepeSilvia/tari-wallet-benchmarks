@@ -1,0 +1,1406 @@
+{
+  "scenario": "S5",
+  "mode": 1,
+  "endpoint": "http://127.0.0.1:18143",
+  "started_at": "2026-05-30T06:31:12.659741+00:00",
+  "config": {
+    "M": 100,
+    "K": 10,
+    "amount_per_recipient_ut": 1000000
+  },
+  "balance_before_ut": 0,
+  "arm_a_batch": {
+    "batch_count": 10,
+    "outputs_per_tx": 10,
+    "wall_secs": 0.04290409997338429,
+    "per_call_secs": [
+      0.005159399996045977,
+      0.0036934000090695918,
+      0.004917800019029528,
+      0.004645999986678362,
+      0.0036693000001832843,
+      0.004082600004039705,
+      0.00403890002053231,
+      0.003598600043915212,
+      0.004514599975664169,
+      0.003551499976310879
+    ],
+    "results": [
+      {
+        "call_idx": 0,
+        "elapsed_secs": 0.005159399996045977,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 1,
+        "elapsed_secs": 0.0036934000090695918,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 2,
+        "elapsed_secs": 0.004917800019029528,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 3,
+        "elapsed_secs": 0.004645999986678362,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 4,
+        "elapsed_secs": 0.0036693000001832843,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 5,
+        "elapsed_secs": 0.004082600004039705,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 6,
+        "elapsed_secs": 0.00403890002053231,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 7,
+        "elapsed_secs": 0.003598600043915212,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 8,
+        "elapsed_secs": 0.004514599975664169,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      },
+      {
+        "call_idx": 9,
+        "elapsed_secs": 0.003551499976310879,
+        "results": [
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ],
+          [
+            null,
+            null,
+            "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+          ]
+        ]
+      }
+    ]
+  },
+  "arm_b_individual": {
+    "tx_count": 100,
+    "wall_secs": 0.07908599998336285,
+    "per_call_secs": [
+      0.001469499955419451,
+      0.0009218999766744673,
+      0.0008010999881662428,
+      0.0012188999680802226,
+      0.000979500007815659,
+      0.0008660000166855752,
+      0.0009136999724432826,
+      0.0008452000329270959,
+      0.0005837000207975507,
+      0.000609499984420836,
+      0.0005196999991312623,
+      0.0005740000051446259,
+      0.0007046999526210129,
+      0.0006117000011727214,
+      0.0008168999920599163,
+      0.0006772000342607498,
+      0.0006674999604001641,
+      0.0005400000372901559,
+      0.0007989000296220183,
+      0.0007340000011026859,
+      0.0007391999824903905,
+      0.0007449000258930027,
+      0.0007104999967850745,
+      0.0006564999930560589,
+      0.001028900034725666,
+      0.0007611999753862619,
+      0.0008106000022962689,
+      0.0007896000170148909,
+      0.0007793999975547194,
+      0.000769499980378896,
+      0.000749400001950562,
+      0.0005765999667346478,
+      0.000716300040949136,
+      0.0007913999725133181,
+      0.0007977000204846263,
+      0.0006321000400930643,
+      0.000674300012178719,
+      0.0007737000123597682,
+      0.0006891000084578991,
+      0.0006675999611616135,
+      0.0008116999524645507,
+      0.0007882000063546002,
+      0.0008009999874047935,
+      0.0008018000517040491,
+      0.0007552000461146235,
+      0.0006907999631948769,
+      0.0007138000219129026,
+      0.0008336000028066337,
+      0.0007667000172659755,
+      0.000743200012948364,
+      0.0007186000002548099,
+      0.000714500027243048,
+      0.0008272999548353255,
+      0.0007224999717436731,
+      0.0007858999888412654,
+      0.0007938999915495515,
+      0.0007451000274159014,
+      0.0006896000122651458,
+      0.0007091999868862331,
+      0.0007424000068567693,
+      0.0007579000084660947,
+      0.0007333999965339899,
+      0.0007270000060088933,
+      0.0006696999771520495,
+      0.0009429000201635063,
+      0.0007955000037327409,
+      0.0007322999881580472,
+      0.0007141000241972506,
+      0.0009417000110261142,
+      0.0007112000021152198,
+      0.0006913000252097845,
+      0.0005639999872073531,
+      0.0007867999956943095,
+      0.0005638999864459038,
+      0.0008676000288687646,
+      0.0006569999968633056,
+      0.00060889997985214,
+      0.0007342000026255846,
+      0.0006550000398419797,
+      0.0007668000180274248,
+      0.0007194000063464046,
+      0.0007447000243701041,
+      0.000779300055000931,
+      0.0008757999748922884,
+      0.0008770999847911298,
+      0.0008466000435873866,
+      0.0007977000204846263,
+      0.0006701999809592962,
+      0.0006193000008352101,
+      0.0007983999676071107,
+      0.0007462000357918441,
+      0.0007322999881580472,
+      0.0006743999547325075,
+      0.0007536999764852226,
+      0.0007344000041484833,
+      0.0007341000018641353,
+      0.0007572000031359494,
+      0.000763899995945394,
+      0.000728100014384836,
+      0.0007440000190399587
+    ],
+    "results": [
+      {
+        "call_idx": 0,
+        "elapsed_secs": 0.001469499955419451,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 1,
+        "elapsed_secs": 0.0009218999766744673,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 2,
+        "elapsed_secs": 0.0008010999881662428,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 3,
+        "elapsed_secs": 0.0012188999680802226,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 4,
+        "elapsed_secs": 0.000979500007815659,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 5,
+        "elapsed_secs": 0.0008660000166855752,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 6,
+        "elapsed_secs": 0.0009136999724432826,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 7,
+        "elapsed_secs": 0.0008452000329270959,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 8,
+        "elapsed_secs": 0.0005837000207975507,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 9,
+        "elapsed_secs": 0.000609499984420836,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 10,
+        "elapsed_secs": 0.0005196999991312623,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 11,
+        "elapsed_secs": 0.0005740000051446259,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 12,
+        "elapsed_secs": 0.0007046999526210129,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 13,
+        "elapsed_secs": 0.0006117000011727214,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 14,
+        "elapsed_secs": 0.0008168999920599163,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 15,
+        "elapsed_secs": 0.0006772000342607498,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 16,
+        "elapsed_secs": 0.0006674999604001641,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 17,
+        "elapsed_secs": 0.0005400000372901559,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 18,
+        "elapsed_secs": 0.0007989000296220183,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 19,
+        "elapsed_secs": 0.0007340000011026859,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 20,
+        "elapsed_secs": 0.0007391999824903905,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 21,
+        "elapsed_secs": 0.0007449000258930027,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 22,
+        "elapsed_secs": 0.0007104999967850745,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 23,
+        "elapsed_secs": 0.0006564999930560589,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 24,
+        "elapsed_secs": 0.001028900034725666,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 25,
+        "elapsed_secs": 0.0007611999753862619,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 26,
+        "elapsed_secs": 0.0008106000022962689,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 27,
+        "elapsed_secs": 0.0007896000170148909,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 28,
+        "elapsed_secs": 0.0007793999975547194,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 29,
+        "elapsed_secs": 0.000769499980378896,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 30,
+        "elapsed_secs": 0.000749400001950562,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 31,
+        "elapsed_secs": 0.0005765999667346478,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 32,
+        "elapsed_secs": 0.000716300040949136,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 33,
+        "elapsed_secs": 0.0007913999725133181,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 34,
+        "elapsed_secs": 0.0007977000204846263,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 35,
+        "elapsed_secs": 0.0006321000400930643,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 36,
+        "elapsed_secs": 0.000674300012178719,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 37,
+        "elapsed_secs": 0.0007737000123597682,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 38,
+        "elapsed_secs": 0.0006891000084578991,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 39,
+        "elapsed_secs": 0.0006675999611616135,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 40,
+        "elapsed_secs": 0.0008116999524645507,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 41,
+        "elapsed_secs": 0.0007882000063546002,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 42,
+        "elapsed_secs": 0.0008009999874047935,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 43,
+        "elapsed_secs": 0.0008018000517040491,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 44,
+        "elapsed_secs": 0.0007552000461146235,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 45,
+        "elapsed_secs": 0.0006907999631948769,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 46,
+        "elapsed_secs": 0.0007138000219129026,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 47,
+        "elapsed_secs": 0.0008336000028066337,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 48,
+        "elapsed_secs": 0.0007667000172659755,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 49,
+        "elapsed_secs": 0.000743200012948364,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 50,
+        "elapsed_secs": 0.0007186000002548099,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 51,
+        "elapsed_secs": 0.000714500027243048,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 52,
+        "elapsed_secs": 0.0008272999548353255,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 53,
+        "elapsed_secs": 0.0007224999717436731,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 54,
+        "elapsed_secs": 0.0007858999888412654,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 55,
+        "elapsed_secs": 0.0007938999915495515,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 56,
+        "elapsed_secs": 0.0007451000274159014,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 57,
+        "elapsed_secs": 0.0006896000122651458,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 58,
+        "elapsed_secs": 0.0007091999868862331,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 59,
+        "elapsed_secs": 0.0007424000068567693,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 60,
+        "elapsed_secs": 0.0007579000084660947,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 61,
+        "elapsed_secs": 0.0007333999965339899,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 62,
+        "elapsed_secs": 0.0007270000060088933,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 63,
+        "elapsed_secs": 0.0006696999771520495,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 64,
+        "elapsed_secs": 0.0009429000201635063,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 65,
+        "elapsed_secs": 0.0007955000037327409,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 66,
+        "elapsed_secs": 0.0007322999881580472,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 67,
+        "elapsed_secs": 0.0007141000241972506,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 68,
+        "elapsed_secs": 0.0009417000110261142,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 69,
+        "elapsed_secs": 0.0007112000021152198,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 70,
+        "elapsed_secs": 0.0006913000252097845,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 71,
+        "elapsed_secs": 0.0005639999872073531,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 72,
+        "elapsed_secs": 0.0007867999956943095,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 73,
+        "elapsed_secs": 0.0005638999864459038,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 74,
+        "elapsed_secs": 0.0008676000288687646,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 75,
+        "elapsed_secs": 0.0006569999968633056,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 76,
+        "elapsed_secs": 0.00060889997985214,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 77,
+        "elapsed_secs": 0.0007342000026255846,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 78,
+        "elapsed_secs": 0.0006550000398419797,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 79,
+        "elapsed_secs": 0.0007668000180274248,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 80,
+        "elapsed_secs": 0.0007194000063464046,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 81,
+        "elapsed_secs": 0.0007447000243701041,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 82,
+        "elapsed_secs": 0.000779300055000931,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 83,
+        "elapsed_secs": 0.0008757999748922884,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 84,
+        "elapsed_secs": 0.0008770999847911298,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 85,
+        "elapsed_secs": 0.0008466000435873866,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 86,
+        "elapsed_secs": 0.0007977000204846263,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 87,
+        "elapsed_secs": 0.0006701999809592962,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 88,
+        "elapsed_secs": 0.0006193000008352101,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 89,
+        "elapsed_secs": 0.0007983999676071107,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 90,
+        "elapsed_secs": 0.0007462000357918441,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 91,
+        "elapsed_secs": 0.0007322999881580472,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 92,
+        "elapsed_secs": 0.0006743999547325075,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 93,
+        "elapsed_secs": 0.0007536999764852226,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 94,
+        "elapsed_secs": 0.0007344000041484833,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 95,
+        "elapsed_secs": 0.0007341000018641353,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 96,
+        "elapsed_secs": 0.0007572000031359494,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 97,
+        "elapsed_secs": 0.000763899995945394,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 98,
+        "elapsed_secs": 0.000728100014384836,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      },
+      {
+        "call_idx": 99,
+        "elapsed_secs": 0.0007440000190399587,
+        "tx_id": null,
+        "ok": null,
+        "msg": "Transaction abandoned: Output manager error: `Funds are still pending. Unable to fulfil transaction right now.`"
+      }
+    ]
+  },
+  "headline": {
+    "throughput_multiplier_individual_over_batch": 1.8433203361083004,
+    "batch_avg_call_secs": 0.004187210003146901,
+    "individual_avg_call_secs": 0.000755851001595147
+  },
+  "finished_at": "2026-05-30T06:32:12.784178+00:00",
+  "balance_after_ut": 0
+}
