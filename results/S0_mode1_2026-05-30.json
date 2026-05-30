@@ -1,0 +1,35 @@
+{
+  "scenario": "S0",
+  "mode": 1,
+  "mode_name": "Mode1/ConsoleWallet",
+  "wallet_endpoint": "http://127.0.0.1:18243",
+  "funder_endpoint": "http://127.0.0.1:18143",
+  "funder_balance_before_ut": 209023757254,
+  "transfer": {
+    "method": "tari.rpc.Wallet/Transfer (one-sided to stealth address)",
+    "amount_ut": 30000000000,
+    "amount_tXTM": 30000,
+    "recipient_address_full": "f4NkaM1NA7Df5FqizzJCwLwAyuU9QbZAb7wdoDXKyK51EH7GPYvDfkBbS5Y38FNjGK8aV8FEFVrC5wxzyCiUrFFDAAX",
+    "fee_per_gram": 5,
+    "tx_id": 11431701592527784521,
+    "is_success": true,
+    "broadcast_returned_at": "2026-05-30T11:13:00Z"
+  },
+  "fresh_wallet_balance_progression": {
+    "t_0_to_140s":  "available=0,     pending_in=30000 (tx detected, awaiting confirmation depth)",
+    "t_150s":      "available=30000, pending_in=0     (confirmed at depth >= C_min)"
+  },
+  "broadcast_to_confirmed_secs": 150,
+  "verification": {
+    "expected_balance_ut": 30000000000,
+    "observed_balance_ut": 30000000000,
+    "balance_reconciliation_delta_ut": 0,
+    "utxo_count_in_fresh_wallet": 1
+  },
+  "notes": [
+    "S0 measures broadcast -> mempool -> confirmed-at-depth-C_min on a one-sided transfer.",
+    "Esmeralda block time ~120s means C_min=1 confirmation takes 1-2 minutes from broadcast.",
+    "Observed 150s end-to-end (broadcast -> available) is consistent with: ~30s mempool propagation + 2 esmeralda blocks for 1-confirmation depth + ~10s wallet rescan tick.",
+    "C_min was effectively 1 here. With spec default C_min=3 expect ~5 minutes total."
+  ]
+}

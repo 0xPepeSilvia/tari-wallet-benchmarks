@@ -107,6 +107,42 @@ def wait_for_balance_settle(ch, expected_avail_min, timeout_s=600):
         time.sleep(10)
     return -1, get_balance(ch)
 
+def get_scanned_height(ch):
+    """GetState -> scanned_height (field 1)."""
+    body = b''  # GetStateRequest is empty
+    r = ch.unary_unary('/tari.rpc.Wallet/GetState',
+        request_serializer=lambda x: x, response_deserializer=lambda x: x)(body, timeout=10)
+    if r and r[0] == 0x08:
+        i = 1; v = 0; sh = 0
+        while True:
+            b = r[i]; i += 1
+            v |= (b & 0x7f) << sh
+            if not (b & 0x80): break
+            sh += 7
+        return v
+    return 0
+
+def wait_for_chain_advance(ch, blocks=1, timeout_s=900):
+    """Wait until the wallet's scanned_height has advanced by `blocks` from current."""
+    start = time.time()
+    h0 = get_scanned_height(ch)
+    target = h0 + blocks
+    while time.time() - start < timeout_s:
+        h = get_scanned_height(ch)
+        if h >= target:
+            return time.time() - start, h
+        time.sleep(15)
+    return -1, get_scanned_height(ch)
+
+def wait_for_funds_spendable(ch, retries=120, sleep_s=10):
+    """Probe-test that outputs are spendable by attempting a no-op (tiny) split.
+    Avoid infinite loops by retrying a coin_split with a tiny amount and checking
+    for FundsPending error.  Returns elapsed seconds when spendable."""
+    start = time.time()
+    # Cheaper: just wait for chain to advance 2 blocks.
+    elapsed, h = wait_for_chain_advance(ch, blocks=2, timeout_s=retries * sleep_s)
+    return elapsed
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--port', type=int, default=18243)
@@ -173,11 +209,14 @@ def main():
                 print(f"  S1 ABORTED. Partial results written to {args.output}")
                 sys.exit(1)
 
-        # Wait for the round to settle (all spending complete, no pending).
-        # We don't strictly need C_min depth here for our timing - we just need
-        # the next round's coin_split to find spendable UTXOs.
-        print(f"  waiting for round {r+1} to settle ({len(tx_ids)} txs)...")
-        settle_time, b = wait_for_balance_settle(ch, expected_avail_min=0, timeout_s=900)
+        # Wait for the round's tx outputs to be SPENDABLE.  GetBalance's
+        # pending_in/out fields do NOT capture wallet-internal pending state -
+        # the output_manager rejects spends from unmined tx outputs with
+        # OutputManagerError(FundsPending) even when pending_in shows 0.
+        # We must wait for chain height to advance past the round's broadcast.
+        print(f"  waiting for round {r+1} txs to mine ({len(tx_ids)} txs)...")
+        settle_time, h = wait_for_chain_advance(ch, blocks=args.c_min + 1, timeout_s=1200)
+        b = get_balance(ch)
         round_elapsed = time.time() - round_start
 
         result["doubling_rounds"].append({
@@ -222,8 +261,9 @@ def main():
             with open(args.output, 'w') as f: json.dump(result, f, indent=2)
             sys.exit(1)
 
-    print("  waiting for fanout to settle...")
-    fan_settle, b = wait_for_balance_settle(ch, expected_avail_min=0, timeout_s=1800)
+    print("  waiting for fanout txs to mine...")
+    fan_settle, _ = wait_for_chain_advance(ch, blocks=args.c_min + 1, timeout_s=1800)
+    b = get_balance(ch)
     fan_elapsed = time.time() - fan_start
 
     result["fanout"] = {

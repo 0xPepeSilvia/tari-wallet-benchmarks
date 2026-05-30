@@ -1,0 +1,30 @@
+{
+  "scenario": "S1",
+  "mode": 1,
+  "started_at": "2026-05-30T01:17:35.554439+00:00",
+  "initial_balance_ut": 30000000000,
+  "doubling_rounds": [
+    {
+      "round": 1,
+      "txs_count": 1,
+      "tx_ids": [
+        12486758809614534283
+      ],
+      "construct_times_secs": [
+        0.03244280815124512
+      ],
+      "total_construct_secs": 0.03244280815124512,
+      "round_wall_secs": 0.03346896171569824,
+      "settle_wait_secs": 0.0,
+      "balance_after_ut": 30000000000
+    },
+    {
+      "round": 2,
+      "txs_attempted": 2,
+      "txs_succeeded": 0,
+      "error": "<_InactiveRpcError of RPC that terminated with:\n\tstatus = StatusCode.INTERNAL\n\tdetails = \"OutputManagerError(FundsPending)\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_message:\"OutputManagerError(FundsPending)\", grpc_status:13}\"\n>"
+    }
+  ],
+  "fanout": {},
+  "status": "FAILED_AT_DOUBLING"
+}
