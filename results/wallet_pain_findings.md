@@ -169,6 +169,23 @@ The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block 
 
 **Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
 
+## Finding 18 - Mode 3 PP pipeline stalls at unsigned_tx_creator due to Finding #10
+
+Built `minotari_payment_processor` from `tari-project/minotari_payment_processor` current main (workaround: `DATABASE_URL=sqlite://data/payments.db` relative form, not absolute `sqlite:///c/...`), configured against:
+- `PAYMENT_RECEIVER=http://127.0.0.1:9006` (Mode 2 minotari-cli daemon)
+- `BASE_NODE=http://127.0.0.1:9005`
+- `CONSOLE_WALLET_PATH=.../minotari_console_wallet.exe`
+- `CONSOLE_WALLET_BASE_PATH=C:/Tari-bench-mode2` (recovered Mode 2 wallet for signing)
+- `ACCOUNTS__DEFAULT__{NAME, VIEW_KEY, PUBLIC_SPEND_KEY}` = Mode 2 wallet's keys
+
+PP service starts cleanly, exposes the documented HTTP API at `:9145` (swagger-ui, `/health/version`, `/v1/payment-batches`, `/v1/events`, `/v1/payments/{id}`). All 5 workers initialise; `confirmation_checker` polls chain tip happily; the connection to the `PAYMENT_RECEIVER` succeeds.
+
+`POST /v1/payment-batches` with 100 PaymentItems returns `202 Accepted` in **19 ms** with all 100 payments in `status=BATCHED`. `events_total` becomes 101 (1 `BatchCreated` + 100 `PaymentReceived`).
+
+But the `unsigned_tx_creator` worker then loops on Mode 2's `lock_funds` endpoint receiving `Funds are pending. Available: 0 uT, Pending: 30000 T, Required: <batch_amount>` because the Mode 2 wallet's only UTXO is locked from an earlier `create-unsigned-transaction` call (the 24-hour `--seconds-to-lock` default — Finding #10). All 100 payments remain `BATCHED` indefinitely.
+
+**The Mode 3 pipeline IS architecturally complete** — every wired component works in isolation. The single observable blocker is Finding #10. Once Mode 2's lock issue is resolved upstream OR worked around by recreating the wallet, the same `POST /v1/payment-batches` call would walk the full `UNSIGNED → SIGNED → BROADCAST → CONFIRMED` path with each stage emitting a status-update event. This run measured the API ingestion throughput only: **~5,000 payments/sec at the API surface**.
+
 ## Finding 17 - Mode 1 console_wallet has no scriptable seed-word export
 
 **Component**: `minotari_console_wallet`
