@@ -1,0 +1,91 @@
+# Tari Wallet Benchmark Harness - configuration
+#
+# All parameters from the bounty spec with their default values.
+# Override only what differs from spec defaults.
+
+# Network to benchmark against.
+network = "esmeralda"
+
+# Where the harness writes wallet data dirs, temp files and result JSON.
+work_dir = "./benchmark-work"
+
+# Which wallet modes to run.  Remove any you don't need.
+# 1 = minotari_console_wallet (old wallet, gRPC)
+# 2 = minotari-cli / offline signing (new wallet stack)
+# 3 = Payment Processor (console_wallet batch Transfer)
+modes = [1, 2, 3]
+
+# Which scenarios to run.  Remove any you want to skip.
+# They always execute in canonical order: B0, S0, S1, S2, S3, S4, S5, S6, S7.
+scenarios = ["B0", "S0", "S1", "S2", "S3", "S4", "S5", "S6", "S7"]
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Binary paths - adjust to match your local installation
+# ─────────────────────────────────────────────────────────────────────────────
+
+[binaries]
+# Path to minotari_console_wallet executable
+console_wallet = "C:/tari/minotari_console_wallet.exe"
+
+# Path to minotari_node executable (only needed if node.spawn_local = true)
+base_node = "C:/tari/minotari_node.exe"
+
+# Path to minotari (minotari-cli) executable
+minotari_cli = "C:/tari/minotari.exe"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Node connectivity
+# ─────────────────────────────────────────────────────────────────────────────
+
+[node]
+# Base node JSON-RPC + HTTP endpoint (for Mode 2 transaction submission)
+http_url = "http://127.0.0.1:18142"
+
+# gRPC endpoint (not used directly yet)
+grpc_url = "http://127.0.0.1:18142"
+
+# Set to true if you want the harness to spawn a local node.
+# Leave false if connecting to an already-running node.
+spawn_local = false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Scenario parameters - spec defaults
+# ─────────────────────────────────────────────────────────────────────────────
+
+[params]
+# S0: Amount transferred into each wallet (µT).  10,000 tXTM = 10_000_000_000 µT.
+a_fund = 10_000_000_000
+
+# S0: Minimum confirmations before funding is considered complete.
+c_min = 3
+
+# S1: Target UTXO count after fan-out.
+volume_target = 512
+
+# S1: Number of serial 1-in-2-out doubling rounds before fan-out.
+#     6 rounds = 2^6 = 64 inputs going into fan-out.
+doubling_rounds = 6
+
+# S1: Outputs per fan-out transaction (64 inputs × 8 = 512 = volume_target).
+fanout_outputs_per_tx = 8
+
+# S4: Concurrency levels to probe (must be a list).
+s4_concurrency_levels = [8, 16, 32, 64, 128]
+
+# S4: Wall-clock budget per concurrency level (seconds).
+s4_budget_secs = 900
+
+# S5: Batch size (recipients in one Transfer call).
+s5_m = 100
+
+# S5: Individual send count to compare against.
+s5_k = 10
+
+# Fee rate used for all transactions.
+fee_per_gram = 5
+
+# How long to wait for confirmation before timing out (seconds).
+confirm_timeout_secs = 7200
+
+# Polling interval while waiting for confirmations (seconds).
+confirm_poll_secs = 10

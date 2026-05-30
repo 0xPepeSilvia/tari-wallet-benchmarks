@@ -1,0 +1,178 @@
+// Minimal subset of the tari.rpc.Wallet service required by the benchmark harness.
+// Derived from tari-project/tari: applications/minotari_app_grpc/proto/wallet.proto
+// and applications/minotari_app_grpc/proto/transaction.proto
+
+syntax = "proto3";
+package tari.rpc;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Wallet service (minotari_console_wallet, port 18143)
+// ─────────────────────────────────────────────────────────────────────────────
+
+service Wallet {
+    rpc GetAddress(Empty) returns (GetAddressResponse);
+    rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
+    rpc GetState(Empty) returns (WalletStateResponse);
+    rpc Transfer(TransferRequest) returns (TransferResponse);
+    rpc CoinSplit(CoinSplitRequest) returns (CoinSplitResponse);
+    rpc RescanWallet(RescanWalletRequest) returns (RescanWalletResponse);
+    rpc GetTransactionInfo(GetTransactionInfoRequest) returns (GetTransactionInfoResponse);
+    rpc GetCompletedTransactions(GetCompletedTransactionsRequest) returns (stream GetCompletedTransactionResponse);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GetAddress
+// ─────────────────────────────────────────────────────────────────────────────
+
+message Empty {}
+
+message GetAddressResponse {
+    bytes address = 1;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GetBalance
+// ─────────────────────────────────────────────────────────────────────────────
+
+message GetBalanceRequest {}
+
+message GetBalanceResponse {
+    uint64 available_balance = 1;
+    uint64 pending_incoming_balance = 2;
+    uint64 pending_outgoing_balance = 3;
+    uint64 timelocked_balance = 4;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GetState
+// ─────────────────────────────────────────────────────────────────────────────
+
+message WalletStateResponse {
+    bool is_started = 1;
+    bool is_bootstrapped = 2;
+    uint64 height_of_longest_chain = 3;
+    uint64 scanned_height = 4;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Transfer
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum PaymentType {
+    ONE_SIDED = 0;
+    TWO_SIDED = 1;
+    ONE_SIDED_TO_STEALTH_ADDRESS = 2;
+}
+
+message PaymentRecipient {
+    string address = 1;
+    uint64 amount = 2;
+    uint64 fee_per_gram = 3;
+    string message = 4;
+    PaymentType payment_type = 5;
+}
+
+message TransferRequest {
+    repeated PaymentRecipient recipients = 1;
+}
+
+message TransferResult {
+    string address = 1;
+    uint64 transaction_id = 2;
+    bool is_success = 3;
+    string failure_message = 4;
+}
+
+message TransferResponse {
+    repeated TransferResult results = 1;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CoinSplit
+// ─────────────────────────────────────────────────────────────────────────────
+
+message CoinSplitRequest {
+    uint64 amount_per_split = 1;
+    uint64 split_count = 2;
+    uint64 fee_per_gram = 3;
+    string message = 4;
+    uint64 lock_height = 5;
+}
+
+message CoinSplitResponse {
+    uint64 transaction_id = 1;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RescanWallet
+// ─────────────────────────────────────────────────────────────────────────────
+
+message RescanWalletRequest {
+    int64 from_height = 1;
+}
+
+message RescanWalletResponse {
+    bool is_success = 1;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GetTransactionInfo
+// ─────────────────────────────────────────────────────────────────────────────
+
+message GetTransactionInfoRequest {
+    repeated uint64 transaction_ids = 1;
+}
+
+message TransactionInfo {
+    uint64 transaction_id = 1;
+    string source_address = 2;
+    string dest_address = 3;
+    TransactionStatus status = 4;
+    TransactionDirection direction = 5;
+    uint64 amount = 6;
+    uint64 fee = 7;
+    bool is_cancelled = 8;
+    string excess_sig = 9;
+    uint64 timestamp = 10;
+    string message = 11;
+    string transaction_hash = 12;
+}
+
+enum TransactionStatus {
+    TX_NULL_VALUE = 0;
+    TX_COMPLETED = 1;
+    TX_BROADCAST = 2;
+    TX_MINED_UNCONFIRMED = 3;
+    TX_IMPORTED = 4;
+    TX_PENDING = 5;
+    TX_COINBASE = 6;
+    TX_MINED_CONFIRMED = 7;
+    TX_NOT_FOUND = 8;
+    TX_REJECTED = 9;
+    TX_ONE_SIDED_UNCONFIRMED = 10;
+    TX_ONE_SIDED_CONFIRMED = 11;
+    TX_QUEUED = 12;
+    TX_COINBASE_UNCONFIRMED = 13;
+    TX_COINBASE_CONFIRMED = 14;
+    TX_COINBASE_NOT_IN_BLOCK_CHAIN = 15;
+}
+
+enum TransactionDirection {
+    TX_DIRECTION_UNKNOWN = 0;
+    TX_DIRECTION_INBOUND = 1;
+    TX_DIRECTION_OUTBOUND = 2;
+}
+
+message GetTransactionInfoResponse {
+    repeated TransactionInfo transactions = 1;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GetCompletedTransactions
+// ─────────────────────────────────────────────────────────────────────────────
+
+message GetCompletedTransactionsRequest {}
+
+message GetCompletedTransactionResponse {
+    TransactionInfo transaction = 1;
+}
