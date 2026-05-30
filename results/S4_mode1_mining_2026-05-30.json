@@ -1,0 +1,2315 @@
+{
+  "scenario": "S4",
+  "mode": 1,
+  "endpoint": "http://127.0.0.1:18143",
+  "started_at": "2026-05-30T06:29:37.879342+00:00",
+  "config": {
+    "concurrency_levels": [
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "budget_secs": 180,
+    "amount_per_output_ut": 1000000
+  },
+  "levels": [
+    {
+      "N": 8,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 0.42370310000842437,
+      "txs_constructed_ok": 8,
+      "txs_per_sec_observed": 18.881145783075315,
+      "max_serialisation_gap_secs": 0.06353519996628165,
+      "failure_breakdown": {},
+      "per_worker_results": [
+        {
+          "worker_idx": 0,
+          "t_submit": 451021.016079,
+          "t_complete": 451021.0913723,
+          "construct_secs": 0.07529329997487366,
+          "tx_id": 13883782287293750646,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 451021.0165597,
+          "t_complete": 451021.1527966,
+          "construct_secs": 0.136236899998039,
+          "tx_id": 9801460254254162237,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 451021.0169124,
+          "t_complete": 451021.2163318,
+          "construct_secs": 0.19941939995624125,
+          "tx_id": 8780644237844196837,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 451021.0173098,
+          "t_complete": 451021.2784317,
+          "construct_secs": 0.2611218999954872,
+          "tx_id": 10349593476354584907,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 451021.0175655,
+          "t_complete": 451021.3283734,
+          "construct_secs": 0.3108079000376165,
+          "tx_id": 7474535894992429485,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 451021.0177846,
+          "t_complete": 451021.3843454,
+          "construct_secs": 0.3665608000010252,
+          "tx_id": 7255778090198175752,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 451021.0180044,
+          "t_complete": 451021.4388572,
+          "construct_secs": 0.4208527999580838,
+          "tx_id": 14001141153623918818,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 451021.0182646,
+          "t_complete": 451021.4389642,
+          "construct_secs": 0.4206995999556966,
+          "tx_id": 6095919968528690938,
+          "outcome": "ok",
+          "error": null
+        }
+      ]
+    },
+    {
+      "N": 16,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 0.6758049000054598,
+      "txs_constructed_ok": 13,
+      "txs_per_sec_observed": 19.236321014977804,
+      "max_serialisation_gap_secs": 0.06322229997022077,
+      "failure_breakdown": {
+        "funds_pending": 3
+      },
+      "per_worker_results": [
+        {
+          "worker_idx": 1,
+          "t_submit": 451031.4432741,
+          "t_complete": 451031.5138139,
+          "construct_secs": 0.07053979998454452,
+          "tx_id": 11260125351181238016,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 451031.4437201,
+          "t_complete": 451031.5632356,
+          "construct_secs": 0.11951550003141165,
+          "tx_id": 5814898296917908747,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 451031.4430146,
+          "t_complete": 451031.625461,
+          "construct_secs": 0.18244639999466017,
+          "tx_id": 11328243753766385237,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 451031.4434727,
+          "t_complete": 451031.6875714,
+          "construct_secs": 0.2440987000009045,
+          "tx_id": 5264133637886084201,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 451031.4440332,
+          "t_complete": 451031.7497267,
+          "construct_secs": 0.30569350003497675,
+          "tx_id": 6952840865598861975,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 451031.4443083,
+          "t_complete": 451031.812949,
+          "construct_secs": 0.3686407000059262,
+          "tx_id": 3410060383107378741,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 451031.4445357,
+          "t_complete": 451031.8737808,
+          "construct_secs": 0.4292450999491848,
+          "tx_id": 15465601823715781995,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 451031.4448436,
+          "t_complete": 451031.9355362,
+          "construct_secs": 0.4906926000257954,
+          "tx_id": 7581674352123110347,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 451031.4450936,
+          "t_complete": 451031.9958784,
+          "construct_secs": 0.5507847999688238,
+          "tx_id": 874652987394689738,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 451031.4453151,
+          "t_complete": 451032.0265766,
+          "construct_secs": 0.5812614999595098,
+          "tx_id": 2958194556019136920,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 451031.4455171,
+          "t_complete": 451032.0528945,
+          "construct_secs": 0.6073774000396952,
+          "tx_id": 8206920538186746936,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 451031.4457203,
+          "t_complete": 451032.1062295,
+          "construct_secs": 0.6605091999517754,
+          "tx_id": 14000034606313411776,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 451031.4459958,
+          "t_complete": 451032.1063091,
+          "construct_secs": 0.6603132999734953,
+          "tx_id": 11212050414746900724,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 451031.4462786,
+          "t_complete": 451032.1180203,
+          "construct_secs": 0.6717416999745183,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 451031.4465297,
+          "t_complete": 451032.1180934,
+          "construct_secs": 0.6715636999579147,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 451031.4467551,
+          "t_complete": 451032.1181351,
+          "construct_secs": 0.6713800000143237,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        }
+      ]
+    },
+    {
+      "N": 32,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 0.015456299996003509,
+      "txs_constructed_ok": 0,
+      "txs_per_sec_observed": 0.0,
+      "max_serialisation_gap_secs": 0.0007454000297002494,
+      "failure_breakdown": {
+        "funds_pending": 32
+      },
+      "per_worker_results": [
+        {
+          "worker_idx": 2,
+          "t_submit": 451042.1218997,
+          "t_complete": 451042.1247144,
+          "construct_secs": 0.0028146999538876116,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 451042.1221556,
+          "t_complete": 451042.1254598,
+          "construct_secs": 0.0033042000140994787,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 451042.122752,
+          "t_complete": 451042.1271296,
+          "construct_secs": 0.004377599980216473,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 451042.1225363,
+          "t_complete": 451042.1258034,
+          "construct_secs": 0.0032671000226400793,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 451042.1223581,
+          "t_complete": 451042.1266192,
+          "construct_secs": 0.004261099966242909,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 451042.121535,
+          "t_complete": 451042.1261917,
+          "construct_secs": 0.00465670000994578,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 451042.1211882,
+          "t_complete": 451042.1244647,
+          "construct_secs": 0.003276499977800995,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 451042.1230125,
+          "t_complete": 451042.1273997,
+          "construct_secs": 0.004387199995107949,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 451042.1232147,
+          "t_complete": 451042.1277498,
+          "construct_secs": 0.0045350999571383,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 451042.1233969,
+          "t_complete": 451042.12823,
+          "construct_secs": 0.004833099956158549,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 451042.1236529,
+          "t_complete": 451042.1285768,
+          "construct_secs": 0.0049239000072702765,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 451042.1238547,
+          "t_complete": 451042.1288766,
+          "construct_secs": 0.005021899996791035,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 451042.1240332,
+          "t_complete": 451042.1291979,
+          "construct_secs": 0.005164700036402792,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 451042.1242147,
+          "t_complete": 451042.1295894,
+          "construct_secs": 0.005374700005631894,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 451042.1244779,
+          "t_complete": 451042.1298559,
+          "construct_secs": 0.005378000030759722,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 451042.1247288,
+          "t_complete": 451042.1301569,
+          "construct_secs": 0.0054281000047922134,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 451042.1247777,
+          "t_complete": 451042.1304769,
+          "construct_secs": 0.005699200031813234,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 451042.1249899,
+          "t_complete": 451042.1307806,
+          "construct_secs": 0.0057907000300474465,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 451042.1250717,
+          "t_complete": 451042.1310881,
+          "construct_secs": 0.006016400002408773,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 451042.1253107,
+          "t_complete": 451042.1314374,
+          "construct_secs": 0.006126700027380139,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 451042.1255878,
+          "t_complete": 451042.1317876,
+          "construct_secs": 0.006199800001922995,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 451042.1256927,
+          "t_complete": 451042.1320227,
+          "construct_secs": 0.006330000003799796,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 451042.1259048,
+          "t_complete": 451042.1324145,
+          "construct_secs": 0.006509699975140393,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 451042.1259828,
+          "t_complete": 451042.1328468,
+          "construct_secs": 0.006864000053610653,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 451042.1262022,
+          "t_complete": 451042.1331223,
+          "construct_secs": 0.0069200999569147825,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 451042.1263571,
+          "t_complete": 451042.1334838,
+          "construct_secs": 0.007126700016669929,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 451042.1264357,
+          "t_complete": 451042.1339392,
+          "construct_secs": 0.007503500033635646,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 451042.126629,
+          "t_complete": 451042.1345763,
+          "construct_secs": 0.00794729997869581,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 451042.1268444,
+          "t_complete": 451042.1349317,
+          "construct_secs": 0.008087299996986985,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 451042.1269398,
+          "t_complete": 451042.1352337,
+          "construct_secs": 0.00829389999853447,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 451042.1272936,
+          "t_complete": 451042.1355798,
+          "construct_secs": 0.008286199998110533,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 451042.1271431,
+          "t_complete": 451042.135634,
+          "construct_secs": 0.008490899985190481,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        }
+      ]
+    },
+    {
+      "N": 64,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 0.023678000026848167,
+      "txs_constructed_ok": 0,
+      "txs_per_sec_observed": 0.0,
+      "max_serialisation_gap_secs": 0.0005782999796792865,
+      "failure_breakdown": {
+        "funds_pending": 64
+      },
+      "per_worker_results": [
+        {
+          "worker_idx": 26,
+          "t_submit": 451052.1467226,
+          "t_complete": 451052.1527776,
+          "construct_secs": 0.006055000005289912,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 451052.1451338,
+          "t_complete": 451052.1495115,
+          "construct_secs": 0.004377700039185584,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 451052.146317,
+          "t_complete": 451052.1519368,
+          "construct_secs": 0.00561980000929907,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 451052.1411535,
+          "t_complete": 451052.1441986,
+          "construct_secs": 0.0030451000202447176,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 451052.1436833,
+          "t_complete": 451052.1460798,
+          "construct_secs": 0.0023964999709278345,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 451052.1442137,
+          "t_complete": 451052.146962,
+          "construct_secs": 0.0027482999721542,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 451052.144598,
+          "t_complete": 451052.1481398,
+          "construct_secs": 0.003541800018865615,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 451052.1455656,
+          "t_complete": 451052.150064,
+          "construct_secs": 0.004498399968724698,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 451052.1448208,
+          "t_complete": 451052.1487181,
+          "construct_secs": 0.0038972999900579453,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 451052.1444706,
+          "t_complete": 451052.1473177,
+          "construct_secs": 0.002847099967766553,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 451052.143877,
+          "t_complete": 451052.1463045,
+          "construct_secs": 0.0024274999741464853,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 451052.146677,
+          "t_complete": 451052.1523257,
+          "construct_secs": 0.005648699996527284,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 451052.1414392,
+          "t_complete": 451052.1443563,
+          "construct_secs": 0.0029171000351198018,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 451052.1407933,
+          "t_complete": 451052.1436699,
+          "construct_secs": 0.002876600017771125,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 451052.1445355,
+          "t_complete": 451052.1476864,
+          "construct_secs": 0.0031509000109508634,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 451052.1453678,
+          "t_complete": 451052.1501351,
+          "construct_secs": 0.004767299978993833,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 451052.1449103,
+          "t_complete": 451052.1490971,
+          "construct_secs": 0.004186800040770322,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 451052.1470173,
+          "t_complete": 451052.1532785,
+          "construct_secs": 0.0062612000037916005,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 451052.1469736,
+          "t_complete": 451052.1529682,
+          "construct_secs": 0.005994599952828139,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 451052.1463617,
+          "t_complete": 451052.1516866,
+          "construct_secs": 0.0053248999756760895,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 451052.1458044,
+          "t_complete": 451052.1508924,
+          "construct_secs": 0.005088000034447759,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 451052.1439534,
+          "t_complete": 451052.1466642,
+          "construct_secs": 0.0027107999776490033,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 451052.1417716,
+          "t_complete": 451052.1446918,
+          "construct_secs": 0.0029202000005170703,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 451052.1434183,
+          "t_complete": 451052.1456867,
+          "construct_secs": 0.0022683999850414693,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 451052.1458934,
+          "t_complete": 451052.1510208,
+          "construct_secs": 0.005127399985212833,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 451052.1429172,
+          "t_complete": 451052.1451206,
+          "construct_secs": 0.0022034000139683485,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 451052.1460933,
+          "t_complete": 451052.1514255,
+          "construct_secs": 0.00533219997305423,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 451052.1431832,
+          "t_complete": 451052.1452544,
+          "construct_secs": 0.0020711999968625605,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 451052.1454277,
+          "t_complete": 451052.1504272,
+          "construct_secs": 0.004999500000849366,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 451052.1472208,
+          "t_complete": 451052.1536209,
+          "construct_secs": 0.006400100013706833,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 451052.1473293,
+          "t_complete": 451052.1537667,
+          "construct_secs": 0.006437400006689131,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 451052.1475044,
+          "t_complete": 451052.1540424,
+          "construct_secs": 0.006538000016007572,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 32,
+          "t_submit": 451052.1475692,
+          "t_complete": 451052.1543389,
+          "construct_secs": 0.006769699975848198,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 33,
+          "t_submit": 451052.1478005,
+          "t_complete": 451052.1546817,
+          "construct_secs": 0.006881200009956956,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 34,
+          "t_submit": 451052.1478939,
+          "t_complete": 451052.1551433,
+          "construct_secs": 0.007249400019645691,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 35,
+          "t_submit": 451052.1481597,
+          "t_complete": 451052.1553999,
+          "construct_secs": 0.007240200007800013,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 36,
+          "t_submit": 451052.1487421,
+          "t_complete": 451052.1558873,
+          "construct_secs": 0.007145199982915074,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 37,
+          "t_submit": 451052.1488265,
+          "t_complete": 451052.1562363,
+          "construct_secs": 0.007409800018649548,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 38,
+          "t_submit": 451052.1493427,
+          "t_complete": 451052.156549,
+          "construct_secs": 0.007206299982499331,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 39,
+          "t_submit": 451052.1495302,
+          "t_complete": 451052.1568127,
+          "construct_secs": 0.007282499980647117,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 40,
+          "t_submit": 451052.1496508,
+          "t_complete": 451052.1571159,
+          "construct_secs": 0.007465100032277405,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 41,
+          "t_submit": 451052.1499298,
+          "t_complete": 451052.1573485,
+          "construct_secs": 0.0074186999700032175,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 42,
+          "t_submit": 451052.150324,
+          "t_complete": 451052.157644,
+          "construct_secs": 0.007320000033359975,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 43,
+          "t_submit": 451052.1504399,
+          "t_complete": 451052.1578416,
+          "construct_secs": 0.007401700015179813,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 44,
+          "t_submit": 451052.150493,
+          "t_complete": 451052.1580822,
+          "construct_secs": 0.007589199987705797,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 45,
+          "t_submit": 451052.1505799,
+          "t_complete": 451052.1583563,
+          "construct_secs": 0.007776399957947433,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 46,
+          "t_submit": 451052.1507859,
+          "t_complete": 451052.158653,
+          "construct_secs": 0.007867100008297712,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 47,
+          "t_submit": 451052.1511398,
+          "t_complete": 451052.1589031,
+          "construct_secs": 0.007763300032820553,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 49,
+          "t_submit": 451052.1512965,
+          "t_complete": 451052.1592078,
+          "construct_secs": 0.007911299995612353,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 48,
+          "t_submit": 451052.1512072,
+          "t_complete": 451052.1594484,
+          "construct_secs": 0.008241200004704297,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 50,
+          "t_submit": 451052.1514389,
+          "t_complete": 451052.1596908,
+          "construct_secs": 0.008251900027971715,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 51,
+          "t_submit": 451052.1516032,
+          "t_complete": 451052.1599283,
+          "construct_secs": 0.00832510000327602,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 52,
+          "t_submit": 451052.1518593,
+          "t_complete": 451052.1601952,
+          "construct_secs": 0.008335900027304888,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 53,
+          "t_submit": 451052.1519478,
+          "t_complete": 451052.160466,
+          "construct_secs": 0.008518199960235506,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 54,
+          "t_submit": 451052.1519873,
+          "t_complete": 451052.1607893,
+          "construct_secs": 0.008801999967545271,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 55,
+          "t_submit": 451052.1523387,
+          "t_complete": 451052.1610687,
+          "construct_secs": 0.008730000001378357,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 56,
+          "t_submit": 451052.1523836,
+          "t_complete": 451052.1613395,
+          "construct_secs": 0.008955899975262582,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 57,
+          "t_submit": 451052.1526358,
+          "t_complete": 451052.1616251,
+          "construct_secs": 0.008989299996756017,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 58,
+          "t_submit": 451052.1527062,
+          "t_complete": 451052.1619366,
+          "construct_secs": 0.00923039996996522,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 59,
+          "t_submit": 451052.1529823,
+          "t_complete": 451052.1622631,
+          "construct_secs": 0.00928080000448972,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 60,
+          "t_submit": 451052.1530322,
+          "t_complete": 451052.1626052,
+          "construct_secs": 0.009573000017553568,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 62,
+          "t_submit": 451052.153328,
+          "t_complete": 451052.1629435,
+          "construct_secs": 0.00961549999192357,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 63,
+          "t_submit": 451052.1536402,
+          "t_complete": 451052.1632344,
+          "construct_secs": 0.009594200004357845,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 61,
+          "t_submit": 451052.1532886,
+          "t_complete": 451052.1633005,
+          "construct_secs": 0.010011900041718036,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        }
+      ]
+    },
+    {
+      "N": 128,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 0.04582480003591627,
+      "txs_constructed_ok": 0,
+      "txs_per_sec_observed": 0.0,
+      "max_serialisation_gap_secs": 0.001721200009342283,
+      "failure_breakdown": {
+        "funds_pending": 128
+      },
+      "per_worker_results": [
+        {
+          "worker_idx": 62,
+          "t_submit": 451062.1832049,
+          "t_complete": 451062.1941179,
+          "construct_secs": 0.010912999976426363,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 44,
+          "t_submit": 451062.1793448,
+          "t_complete": 451062.1874085,
+          "construct_secs": 0.008063699991907924,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 451062.1725632,
+          "t_complete": 451062.1764786,
+          "construct_secs": 0.003915400011464953,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 451062.1701855,
+          "t_complete": 451062.172444,
+          "construct_secs": 0.002258500026073307,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 39,
+          "t_submit": 451062.1782988,
+          "t_complete": 451062.1857263,
+          "construct_secs": 0.007427499978803098,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 451062.1721425,
+          "t_complete": 451062.1753031,
+          "construct_secs": 0.003160600026603788,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 57,
+          "t_submit": 451062.1822604,
+          "t_complete": 451062.1929475,
+          "construct_secs": 0.010687100002542138,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 68,
+          "t_submit": 451062.1846981,
+          "t_complete": 451062.1964801,
+          "construct_secs": 0.011781999957747757,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 58,
+          "t_submit": 451062.1823574,
+          "t_complete": 451062.1929998,
+          "construct_secs": 0.01064240001142025,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 451062.174279,
+          "t_complete": 451062.1789625,
+          "construct_secs": 0.004683499981183559,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 451062.1734274,
+          "t_complete": 451062.1777952,
+          "construct_secs": 0.00436780002200976,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 451062.1761474,
+          "t_complete": 451062.1821237,
+          "construct_secs": 0.005976299988105893,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 451062.1708668,
+          "t_complete": 451062.1735277,
+          "construct_secs": 0.0026609000051394105,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 451062.1733357,
+          "t_complete": 451062.1775115,
+          "construct_secs": 0.004175800015218556,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 451062.1717122,
+          "t_complete": 451062.1745873,
+          "construct_secs": 0.002875100006349385,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 59,
+          "t_submit": 451062.1824625,
+          "t_complete": 451062.1931089,
+          "construct_secs": 0.010646399983670563,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 451062.1753719,
+          "t_complete": 451062.1808342,
+          "construct_secs": 0.005462299974169582,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 38,
+          "t_submit": 451062.1780008,
+          "t_complete": 451062.1854817,
+          "construct_secs": 0.007480899977963418,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 43,
+          "t_submit": 451062.1792156,
+          "t_complete": 451062.1868667,
+          "construct_secs": 0.007651099993381649,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 34,
+          "t_submit": 451062.1771359,
+          "t_complete": 451062.1839665,
+          "construct_secs": 0.006830599973909557,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 71,
+          "t_submit": 451062.185205,
+          "t_complete": 451062.1975591,
+          "construct_secs": 0.012354100006632507,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 451062.1730614,
+          "t_complete": 451062.1771156,
+          "construct_secs": 0.004054199962411076,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 451062.1729361,
+          "t_complete": 451062.176773,
+          "construct_secs": 0.003836899995803833,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 451062.1760918,
+          "t_complete": 451062.1820407,
+          "construct_secs": 0.0059489000122994184,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 451062.1737772,
+          "t_complete": 451062.1782789,
+          "construct_secs": 0.004501699993852526,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 451062.17232,
+          "t_complete": 451062.1756648,
+          "construct_secs": 0.003344799974001944,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 451062.1753197,
+          "t_complete": 451062.180569,
+          "construct_secs": 0.005249300040304661,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 33,
+          "t_submit": 451062.1769996,
+          "t_complete": 451062.1836246,
+          "construct_secs": 0.006624999979976565,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 60,
+          "t_submit": 451062.1826783,
+          "t_complete": 451062.1933294,
+          "construct_secs": 0.01065109996125102,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 67,
+          "t_submit": 451062.184252,
+          "t_complete": 451062.1957221,
+          "construct_secs": 0.011470099969301373,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 66,
+          "t_submit": 451062.1841701,
+          "t_complete": 451062.1952712,
+          "construct_secs": 0.011101099953521043,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 56,
+          "t_submit": 451062.1818729,
+          "t_complete": 451062.1927281,
+          "construct_secs": 0.010855200001969934,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 41,
+          "t_submit": 451062.1787524,
+          "t_complete": 451062.1863632,
+          "construct_secs": 0.007610800035763532,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 52,
+          "t_submit": 451062.1810424,
+          "t_complete": 451062.1904215,
+          "construct_secs": 0.009379099996294826,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 40,
+          "t_submit": 451062.1786391,
+          "t_complete": 451062.186114,
+          "construct_secs": 0.0074748999904841185,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 55,
+          "t_submit": 451062.1816696,
+          "t_complete": 451062.1928786,
+          "construct_secs": 0.011208999960217625,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 51,
+          "t_submit": 451062.1809181,
+          "t_complete": 451062.1899474,
+          "construct_secs": 0.009029300010297447,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 36,
+          "t_submit": 451062.1775788,
+          "t_complete": 451062.1846804,
+          "construct_secs": 0.007101600000169128,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 451062.1726393,
+          "t_complete": 451062.1760755,
+          "construct_secs": 0.003436200029682368,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 49,
+          "t_submit": 451062.1803991,
+          "t_complete": 451062.1891091,
+          "construct_secs": 0.008710000023711473,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 451062.1746,
+          "t_complete": 451062.1793295,
+          "construct_secs": 0.004729499982204288,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 54,
+          "t_submit": 451062.1814321,
+          "t_complete": 451062.1921427,
+          "construct_secs": 0.01071060000685975,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 70,
+          "t_submit": 451062.1849054,
+          "t_complete": 451062.1971207,
+          "construct_secs": 0.012215299997478724,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 32,
+          "t_submit": 451062.1769223,
+          "t_complete": 451062.1833558,
+          "construct_secs": 0.006433499976992607,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 35,
+          "t_submit": 451062.1775248,
+          "t_complete": 451062.1843944,
+          "construct_secs": 0.006869599979836494,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 451062.1719335,
+          "t_complete": 451062.1748996,
+          "construct_secs": 0.0029661000007763505,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 451062.1765568,
+          "t_complete": 451062.1831845,
+          "construct_secs": 0.006627700000535697,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 61,
+          "t_submit": 451062.1830534,
+          "t_complete": 451062.1936905,
+          "construct_secs": 0.010637099971063435,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 47,
+          "t_submit": 451062.179874,
+          "t_complete": 451062.1885029,
+          "construct_secs": 0.00862889998825267,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 65,
+          "t_submit": 451062.183784,
+          "t_complete": 451062.1949499,
+          "construct_secs": 0.011165899981278926,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 451062.175735,
+          "t_complete": 451062.1818548,
+          "construct_secs": 0.006119799974840134,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 451062.171478,
+          "t_complete": 451062.1741938,
+          "construct_secs": 0.00271580001572147,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 64,
+          "t_submit": 451062.1837026,
+          "t_complete": 451062.1947884,
+          "construct_secs": 0.011085800011642277,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 53,
+          "t_submit": 451062.1813584,
+          "t_complete": 451062.1924785,
+          "construct_secs": 0.011120100039988756,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 451062.1749636,
+          "t_complete": 451062.1803652,
+          "construct_secs": 0.005401599977631122,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 69,
+          "t_submit": 451062.184803,
+          "t_complete": 451062.1969302,
+          "construct_secs": 0.012127199966926128,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 451062.1764948,
+          "t_complete": 451062.1828408,
+          "construct_secs": 0.006345999951008707,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 48,
+          "t_submit": 451062.1802299,
+          "t_complete": 451062.1886667,
+          "construct_secs": 0.008436799980700016,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 72,
+          "t_submit": 451062.1852941,
+          "t_complete": 451062.1979346,
+          "construct_secs": 0.012640499975532293,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 451062.1711498,
+          "t_complete": 451062.1737571,
+          "construct_secs": 0.0026073000044561923,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 451062.1756774,
+          "t_complete": 451062.1812213,
+          "construct_secs": 0.005543899955227971,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 50,
+          "t_submit": 451062.1808524,
+          "t_complete": 451062.1896055,
+          "construct_secs": 0.008753100002650172,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 451062.1749114,
+          "t_complete": 451062.180037,
+          "construct_secs": 0.005125599971506745,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 451062.1742118,
+          "t_complete": 451062.1787377,
+          "construct_secs": 0.004525900003500283,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 451062.1699356,
+          "t_complete": 451062.1731861,
+          "construct_secs": 0.0032504999544471502,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 46,
+          "t_submit": 451062.179795,
+          "t_complete": 451062.188342,
+          "construct_secs": 0.008547000004909933,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 63,
+          "t_submit": 451062.1836377,
+          "t_complete": 451062.194351,
+          "construct_secs": 0.010713300027418882,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 451062.1746501,
+          "t_complete": 451062.1795307,
+          "construct_secs": 0.004880600026808679,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 451062.1704922,
+          "t_complete": 451062.1727545,
+          "construct_secs": 0.0022622999968007207,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 45,
+          "t_submit": 451062.179682,
+          "t_complete": 451062.1877825,
+          "construct_secs": 0.008100499981082976,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 37,
+          "t_submit": 451062.1779342,
+          "t_complete": 451062.185045,
+          "construct_secs": 0.007110800012014806,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 451062.1738503,
+          "t_complete": 451062.1786237,
+          "construct_secs": 0.004773399967234582,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 42,
+          "t_submit": 451062.1791312,
+          "t_complete": 451062.1866361,
+          "construct_secs": 0.007504899986088276,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 73,
+          "t_submit": 451062.1857441,
+          "t_complete": 451062.1984576,
+          "construct_secs": 0.012713500007521361,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 75,
+          "t_submit": 451062.1859278,
+          "t_complete": 451062.1985404,
+          "construct_secs": 0.012612599995918572,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 74,
+          "t_submit": 451062.1858041,
+          "t_complete": 451062.1988071,
+          "construct_secs": 0.013003000000026077,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 76,
+          "t_submit": 451062.1862617,
+          "t_complete": 451062.1991554,
+          "construct_secs": 0.012893699982669204,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 77,
+          "t_submit": 451062.1863747,
+          "t_complete": 451062.1994511,
+          "construct_secs": 0.013076400035060942,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 78,
+          "t_submit": 451062.1866488,
+          "t_complete": 451062.1997874,
+          "construct_secs": 0.013138600043021142,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 79,
+          "t_submit": 451062.1866987,
+          "t_complete": 451062.2001058,
+          "construct_secs": 0.01340709999203682,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 80,
+          "t_submit": 451062.1869869,
+          "t_complete": 451062.2004287,
+          "construct_secs": 0.013441800023429096,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 81,
+          "t_submit": 451062.1871473,
+          "t_complete": 451062.2007492,
+          "construct_secs": 0.013601900020148605,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 82,
+          "t_submit": 451062.1872588,
+          "t_complete": 451062.2009633,
+          "construct_secs": 0.013704499986488372,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 83,
+          "t_submit": 451062.1875614,
+          "t_complete": 451062.2012249,
+          "construct_secs": 0.01366350002354011,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 84,
+          "t_submit": 451062.1876277,
+          "t_complete": 451062.2014727,
+          "construct_secs": 0.013845000008586794,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 86,
+          "t_submit": 451062.1882342,
+          "t_complete": 451062.201724,
+          "construct_secs": 0.013489799981471151,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 85,
+          "t_submit": 451062.1881474,
+          "t_complete": 451062.2019543,
+          "construct_secs": 0.013806900009512901,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 87,
+          "t_submit": 451062.1883584,
+          "t_complete": 451062.2022669,
+          "construct_secs": 0.013908499968238175,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 88,
+          "t_submit": 451062.1886772,
+          "t_complete": 451062.2024823,
+          "construct_secs": 0.013805099995806813,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 89,
+          "t_submit": 451062.1887222,
+          "t_complete": 451062.202743,
+          "construct_secs": 0.014020800008438528,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 90,
+          "t_submit": 451062.1887933,
+          "t_complete": 451062.2029847,
+          "construct_secs": 0.014191399968694896,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 91,
+          "t_submit": 451062.1890008,
+          "t_complete": 451062.203379,
+          "construct_secs": 0.014378199994098395,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 92,
+          "t_submit": 451062.1892717,
+          "t_complete": 451062.2036575,
+          "construct_secs": 0.014385799993760884,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 93,
+          "t_submit": 451062.1893551,
+          "t_complete": 451062.2040112,
+          "construct_secs": 0.01465610001469031,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 94,
+          "t_submit": 451062.1894464,
+          "t_complete": 451062.2043275,
+          "construct_secs": 0.014881100039929152,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 95,
+          "t_submit": 451062.189817,
+          "t_complete": 451062.2045906,
+          "construct_secs": 0.014773599978070706,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 96,
+          "t_submit": 451062.1899651,
+          "t_complete": 451062.2048004,
+          "construct_secs": 0.01483529998222366,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 97,
+          "t_submit": 451062.1904411,
+          "t_complete": 451062.2050259,
+          "construct_secs": 0.01458479999564588,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 98,
+          "t_submit": 451062.1905057,
+          "t_complete": 451062.2052396,
+          "construct_secs": 0.014733899966813624,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 99,
+          "t_submit": 451062.1924962,
+          "t_complete": 451062.2054976,
+          "construct_secs": 0.013001400046050549,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 100,
+          "t_submit": 451062.1925588,
+          "t_complete": 451062.2057584,
+          "construct_secs": 0.01319960004184395,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 101,
+          "t_submit": 451062.1927432,
+          "t_complete": 451062.2060407,
+          "construct_secs": 0.01329750003060326,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 102,
+          "t_submit": 451062.1933416,
+          "t_complete": 451062.2063092,
+          "construct_secs": 0.012967599963303655,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 104,
+          "t_submit": 451062.1935031,
+          "t_complete": 451062.2066173,
+          "construct_secs": 0.013114199973642826,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 103,
+          "t_submit": 451062.1934021,
+          "t_complete": 451062.2068795,
+          "construct_secs": 0.013477400003466755,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 105,
+          "t_submit": 451062.1935757,
+          "t_complete": 451062.2072415,
+          "construct_secs": 0.013665799982845783,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 106,
+          "t_submit": 451062.193705,
+          "t_complete": 451062.2076082,
+          "construct_secs": 0.013903200044296682,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 107,
+          "t_submit": 451062.1938512,
+          "t_complete": 451062.2079601,
+          "construct_secs": 0.014108899980783463,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 108,
+          "t_submit": 451062.1939499,
+          "t_complete": 451062.2084041,
+          "construct_secs": 0.014454199990723282,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 109,
+          "t_submit": 451062.1943673,
+          "t_complete": 451062.2087175,
+          "construct_secs": 0.014350199955515563,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 110,
+          "t_submit": 451062.1944232,
+          "t_complete": 451062.2089836,
+          "construct_secs": 0.014560400042682886,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 111,
+          "t_submit": 451062.1945575,
+          "t_complete": 451062.2092123,
+          "construct_secs": 0.014654800004791468,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 112,
+          "t_submit": 451062.1948025,
+          "t_complete": 451062.2094988,
+          "construct_secs": 0.014696299971546978,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 114,
+          "t_submit": 451062.195167,
+          "t_complete": 451062.2097554,
+          "construct_secs": 0.014588400023058057,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 113,
+          "t_submit": 451062.1950993,
+          "t_complete": 451062.2101687,
+          "construct_secs": 0.01506940001854673,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 115,
+          "t_submit": 451062.1952869,
+          "t_complete": 451062.2103087,
+          "construct_secs": 0.015021800005342811,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 116,
+          "t_submit": 451062.1955588,
+          "t_complete": 451062.2105833,
+          "construct_secs": 0.015024499967694283,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 117,
+          "t_submit": 451062.1956212,
+          "t_complete": 451062.2109577,
+          "construct_secs": 0.015336499956902117,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 118,
+          "t_submit": 451062.1959046,
+          "t_complete": 451062.2112937,
+          "construct_secs": 0.015389099949970841,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 119,
+          "t_submit": 451062.1959795,
+          "t_complete": 451062.2115974,
+          "construct_secs": 0.015617900004144758,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 120,
+          "t_submit": 451062.1963884,
+          "t_complete": 451062.2119449,
+          "construct_secs": 0.015556500002276152,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 121,
+          "t_submit": 451062.1966304,
+          "t_complete": 451062.2122974,
+          "construct_secs": 0.015666999970562756,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 122,
+          "t_submit": 451062.1967238,
+          "t_complete": 451062.2126091,
+          "construct_secs": 0.015885300002992153,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 124,
+          "t_submit": 451062.1971886,
+          "t_complete": 451062.2129076,
+          "construct_secs": 0.015718999959062785,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 123,
+          "t_submit": 451062.197133,
+          "t_complete": 451062.2132692,
+          "construct_secs": 0.01613619999261573,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 125,
+          "t_submit": 451062.1975772,
+          "t_complete": 451062.2135945,
+          "construct_secs": 0.01601729996036738,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 127,
+          "t_submit": 451062.1983179,
+          "t_complete": 451062.2139855,
+          "construct_secs": 0.015667599975131452,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        },
+        {
+          "worker_idx": 126,
+          "t_submit": 451062.1976529,
+          "t_complete": 451062.2140559,
+          "construct_secs": 0.01640299998689443,
+          "tx_id": null,
+          "outcome": "funds_pending",
+          "error": "OutputManagerError(FundsPending)"
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-05-30T06:30:29.089206+00:00"
+}
