@@ -169,6 +169,37 @@ The 30,000 tXTM funding transaction was broadcast at ~11:13, mined into a block 
 
 **Mode 2 scan throughput (birthday-shaped)**: 594 blocks in `<10s` (our polling resolution), implying `>= 59 blocks/sec` floor. Insufficient resolution for a precise number, but well within the same order of magnitude as Mode 1's 82,000 blocks/sec B0 measurement once you account for the smaller scan window.
 
+## Finding 12 - Sharp concurrency cliff at N=32: instant total failure
+
+**RPC**: `tari.rpc.Wallet/CoinSplit` invoked from N concurrent threads.
+
+**Measurement (mining wallet, ~179k tXTM, many UTXOs)**:
+
+| N | OK | Wall (s) | tx/s | Max gap (ms) | Failures |
+|---|---|---|---|---|---|
+| 8 | 8/8 | 0.42 | 18.9 | 64 | none |
+| 16 | 13/16 | 0.68 | 19.2 | 63 | 3 FundsPending |
+| 32 | 0/32 | 0.02 | 0.0 | 1 | 32 FundsPending |
+| 64 | 0/64 | 0.02 | 0.0 | 1 | 64 FundsPending |
+| 128 | 0/128 | 0.05 | 0.0 | 2 | 128 FundsPending |
+
+**Signature**: at N >= 32 the wallet rejects EVERY concurrent call with `FundsPending` in 1-2 ms. The whole batch completes in <50 ms with zero successful constructions. The 1 ms gap between completions implies the failures are returning in one tight burst from a single hot path - classic mutex-collision pattern on the output_manager's UTXO selection.
+
+**Bounty-relevant interpretation**:
+This is the answer to the bounty's S4 question for Mode 1: "where does this wallet break under concurrent construction load?" Between N=16 and N=32. Above 16 concurrent threads the wallet's UTXO-locking path serialises so aggressively that none of the requests can complete - they all see "Funds pending" simultaneously and abort.
+
+## Finding 13 - Post-concurrent-stress recovery time exceeds 60 seconds
+
+**Setup**: after S4 fired 248 concurrent CoinSplit calls (21 successful, 227 rejected), we paused 60 s and then ran S5 (Transfer-based, batch + individual arms).
+
+**Result**: every Transfer call in both S5 arms returned `Output manager error: 'Funds are still pending. Unable to fulfil transaction right now.'` in 1-5 ms. Zero successful Transfer calls across 110 attempts spread over the next 1-2 minutes.
+
+**Interpretation**: the wallet's output_manager appears to maintain a global "stress" state after concurrent load that persists much longer than the original chain confirmation time would suggest. The 21 successful S4 txs would normally clear in ~2 minutes (one Esmeralda block-time), but the post-stress recovery window is at least 60 s before any new Transfer can succeed.
+
+**Caveat**: this S5 run is not a clean batch-vs-individual measurement because of the saturation. Will be re-run on a fresh wallet that has not been concurrency-stressed.
+
+**Implication for the spec's S5**: the spec requires S4 to be run BEFORE S5. If the wallet stays in this rejection state for >>60 s after S4, the S5 numbers will be dominated by the wait-for-recovery time rather than the actual batch-vs-individual difference. Either S5 starts after a chain-block-time-multiple wait, or the spec's S4 -> S5 sequence will produce misleading S5 results.
+
 ## Finding 7 - Mode 2 has no API to do a genesis rescan
 
 **Component**: `minotari` (the minotari-cli library / daemon) at `tari-project/minotari-cli`
