@@ -53,6 +53,12 @@ grpc_url = "http://127.0.0.1:18142"
 # Leave false if connecting to an already-running node.
 spawn_local = false
 
+# Mode 1 attach mode: if set, the harness connects to an existing
+# minotari_console_wallet at this gRPC endpoint instead of spawning one.
+# The spawn path's args have not been validated against current
+# console_wallet versions; attach mode is the verified path today.
+mode1_wallet_endpoint = "http://127.0.0.1:18243"
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Scenario parameters - spec defaults
 # ─────────────────────────────────────────────────────────────────────────────

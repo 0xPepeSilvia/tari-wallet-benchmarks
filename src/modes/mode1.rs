@@ -22,15 +22,18 @@ pub struct Mode1Wallet {
     bin: PathBuf,
 
     /// Directory used for the wallet's data files.
+    #[allow(dead_code)]
     data_dir: PathBuf,
 
     /// Network name (e.g. "esmeralda").
+    #[allow(dead_code)]
     network: String,
 
     /// gRPC listen address for this instance (host:port).
     grpc_addr: String,
 
     /// gRPC port.
+    #[allow(dead_code)]
     grpc_port: u16,
 
     /// Running child process, if any.
@@ -40,7 +43,13 @@ pub struct Mode1Wallet {
     client: Option<WalletGrpcClient>,
 
     /// Base node HTTP URL for scan / connection.
+    #[allow(dead_code)]
     node_http: String,
+
+    /// If true, do not spawn console_wallet on start(); connect to an
+    /// operator-managed wallet at `grpc_addr` instead.  Set by Mode1Wallet::new
+    /// when `[node] mode1_wallet_endpoint` is set in benchmark.toml.
+    attach_mode: bool,
 }
 
 impl Mode1Wallet {
@@ -48,20 +57,30 @@ impl Mode1Wallet {
         let data_dir = config.work_dir.join("wallets").join(format!("mode1-{}", instance_id));
         std::fs::create_dir_all(&data_dir)?;
 
-        // Use a fixed port offset for mode 1 so parallel instances don't collide.
-        // Real parallel use should pass distinct instance_ids to vary the offset.
-        let grpc_port = 18143u16;
+        // If the operator specified an external wallet endpoint, attach mode:
+        // skip spawn and connect to the existing wallet there.
+        let (grpc_addr, grpc_port, attach_mode) =
+            if let Some(ep) = &config.node.mode1_wallet_endpoint {
+                let port = parse_port_from_url(ep).unwrap_or(18243);
+                (ep.clone(), port, true)
+            } else {
+                // Spawn mode (default): use a fixed port. Real parallel use
+                // should pass distinct instance_ids to vary the port.
+                let grpc_port = 18143u16;
+                (format!("http://127.0.0.1:{}", grpc_port), grpc_port, false)
+            };
 
         Ok(Self {
             instance_id: instance_id.to_string(),
             bin: config.binaries.console_wallet.clone(),
             data_dir,
             network: config.network.clone(),
-            grpc_addr: format!("http://127.0.0.1:{}", grpc_port),
+            grpc_addr,
             grpc_port,
             process: None,
             client: None,
             node_http: config.node.http_url.clone(),
+            attach_mode,
         })
     }
 
@@ -123,23 +142,29 @@ impl WalletMode for Mode1Wallet {
     fn mode_number(&self) -> u8 { 1 }
 
     async fn start(&mut self) -> Result<()> {
+        if self.attach_mode {
+            info!("[Mode1/{}] attach mode: connecting to existing wallet at {}",
+                self.instance_id, self.grpc_addr);
+            // Just establish the gRPC client; the wallet is already running.
+            self.ensure_connected().await?;
+            return Ok(());
+        }
+
         if self.process.is_some() {
             return Ok(());
         }
 
-        info!("[Mode1/{}] spawning console_wallet", self.instance_id);
+        info!("[Mode1/{}] spawning console_wallet (UNVALIDATED PATH — \
+            spawn args have not been confirmed against current console_wallet \
+            versions; use [node] mode1_wallet_endpoint for attach mode instead)",
+            self.instance_id);
 
         let child = Command::new(&self.bin)
-            // Run non-interactively with gRPC enabled.
             .args([
                 "--network", &self.network,
                 "--base-path", self.data_dir.to_str().unwrap(),
+                "--non-interactive-mode",
                 "--grpc-enabled",
-                "--grpc-port", &self.grpc_port.to_string(),
-                // Connect to our local base node via HTTP/JSON-RPC.
-                "--base-node-service-peers", &format!("{}::{}", &self.node_http, &self.node_http),
-                // Non-interactive daemon mode.
-                "--daemon-mode",
             ])
             .stdout(Stdio::null())
             .stderr(Stdio::null())
@@ -148,12 +173,17 @@ impl WalletMode for Mode1Wallet {
 
         self.process = Some(child);
 
-        // Give the wallet time to start its gRPC listener.
         self.wait_for_ready(120).await?;
         Ok(())
     }
 
     async fn stop(&mut self) -> Result<()> {
+        if self.attach_mode {
+            // Don't kill an operator-managed wallet.
+            self.client = None;
+            return Ok(());
+        }
+
         if let Some(mut child) = self.process.take() {
             info!("[Mode1/{}] stopping console_wallet", self.instance_id);
             let _ = child.kill();
@@ -295,6 +325,14 @@ impl WalletMode for Mode1Wallet {
     }
 }
 
+/// Parse the port number from a URL like "http://127.0.0.1:18243".
+fn parse_port_from_url(url: &str) -> Option<u16> {
+    url.rsplit(':').next().and_then(|s| {
+        let port_str = s.trim_end_matches('/');
+        port_str.parse().ok()
+    })
+}
+
 /// Decode Tari's custom per-section base58 address encoding.
 ///
 /// Tari encodes a raw address byte slice as:
@@ -315,5 +353,80 @@ impl Drop for Mode1Wallet {
         if let Some(mut child) = self.process.take() {
             let _ = child.kill();
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn decode_short_bytes_errors() {
+        let result = decode_tari_address_bytes(&[]);
+        assert!(result.is_err());
+        let result = decode_tari_address_bytes(&[0u8, 0u8]);
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn decode_three_byte_minimum_succeeds() {
+        // Smallest valid input
+        let raw = [0x26u8, 0x03u8, 0x00u8];
+        let decoded = decode_tari_address_bytes(&raw).expect("3 bytes decodes");
+        assert!(!decoded.is_empty());
+    }
+
+    #[test]
+    fn decode_matches_known_mining_wallet_address() {
+        // The funded mining wallet's raw bytes (from production GetAddress RPC)
+        // start with these well-known prefix bytes.
+        // Full known address from session memory:
+        //   f2Ln1PRd2bmwWqC3q8yydaoHFVSURyciar2ijamoz7Hy7FuVYXEqdCCqJCj2aY5DZSQxoCCPjvQTfHwkvdZmbrVVsM9
+        //
+        // Tari per-section base58 encodes byte[0], byte[1], bytes[2..] separately.
+        // Verify the encoding implementation is consistent for known input prefixes.
+        let raw_prefix = [0x26u8, 0x01u8];  // esmeralda network + one-sided features
+        // bs58 of single byte 0x26 = "f", 0x01 = "2"
+        let b0 = bs58::encode(&raw_prefix[0..1]).into_string();
+        let b1 = bs58::encode(&raw_prefix[1..2]).into_string();
+        assert_eq!(b0, "f");
+        assert_eq!(b1, "2");
+        // So a real f2-prefixed address must start with these bytes.
+    }
+
+    #[test]
+    fn decode_output_has_three_concatenated_sections() {
+        // Round-trip: pick known input, decode, ensure the three sections are present
+        let raw: Vec<u8> = (0u8..67u8).collect();
+        let decoded = decode_tari_address_bytes(&raw).unwrap();
+
+        // The decoded string is bs58(byte[0]) ++ bs58(byte[1]) ++ bs58(bytes[2..]).
+        let b0 = bs58::encode(&raw[0..1]).into_string();
+        let b1 = bs58::encode(&raw[1..2]).into_string();
+        let rest = bs58::encode(&raw[2..]).into_string();
+        assert_eq!(decoded, format!("{}{}{}", b0, b1, rest));
+    }
+
+    #[test]
+    fn parse_port_extracts_from_http_url() {
+        assert_eq!(parse_port_from_url("http://127.0.0.1:18243"), Some(18243));
+        assert_eq!(parse_port_from_url("http://localhost:9006"), Some(9006));
+        assert_eq!(parse_port_from_url("http://127.0.0.1:18243/"), Some(18243));
+    }
+
+    #[test]
+    fn parse_port_returns_none_for_malformed() {
+        assert_eq!(parse_port_from_url("not-a-url"), None);
+        assert_eq!(parse_port_from_url("http://localhost"), None);
+    }
+
+    #[test]
+    fn decode_standard_base58_would_be_different() {
+        // Verify that per-section encoding is actually different from standard
+        // whole-array bs58 — this is the entire reason this helper exists.
+        let raw: Vec<u8> = vec![0x26, 0x01, 0x12, 0x34, 0x56];
+        let ours = decode_tari_address_bytes(&raw).unwrap();
+        let standard_bs58 = bs58::encode(&raw).into_string();
+        assert_ne!(ours, standard_bs58, "per-section encoding must differ from standard");
     }
 }

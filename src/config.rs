@@ -74,6 +74,16 @@ pub struct NodeConfig {
     /// Set to false to connect to an already-running node.
     #[serde(default)]
     pub spawn_local: bool,
+
+    /// If set, Mode 1 attaches to this wallet gRPC endpoint instead of spawning
+    /// console_wallet itself. Form: "http://127.0.0.1:18243".
+    ///
+    /// The fully managed spawn path (Mode1Wallet::start spawning console_wallet
+    /// with auto-generated config) is not yet validated against current
+    /// minotari_console_wallet versions; attach mode lets the harness run
+    /// end-to-end against an operator-managed wallet today.
+    #[serde(default)]
+    pub mode1_wallet_endpoint: Option<String>,
 }
 
 /// All scenario tuning knobs from the bounty spec.
@@ -228,5 +238,92 @@ impl BenchmarkConfig {
             anyhow::bail!("params.a_fund must be > 0");
         }
         Ok(())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn minimal_toml() -> &'static str {
+        r#"
+network = "esmeralda"
+modes = [1]
+scenarios = ["B0"]
+
+[binaries]
+console_wallet = "/fake/console_wallet"
+base_node = "/fake/base_node"
+minotari_cli = "/fake/minotari"
+
+[node]
+"#
+    }
+
+    #[test]
+    fn parses_minimal_config() {
+        let cfg: BenchmarkConfig = toml::from_str(minimal_toml()).expect("minimal config parses");
+        assert_eq!(cfg.network, "esmeralda");
+        assert_eq!(cfg.modes, vec![1u8]);
+        assert_eq!(cfg.scenarios, vec!["B0".to_string()]);
+    }
+
+    #[test]
+    fn validate_rejects_empty_modes() {
+        let mut cfg: BenchmarkConfig = toml::from_str(minimal_toml()).unwrap();
+        cfg.modes = vec![];
+        let err = cfg.validate().expect_err("empty modes should fail");
+        assert!(err.to_string().contains("at least one"));
+    }
+
+    #[test]
+    fn validate_rejects_unknown_mode() {
+        let mut cfg: BenchmarkConfig = toml::from_str(minimal_toml()).unwrap();
+        cfg.modes = vec![1, 4];
+        let err = cfg.validate().expect_err("mode=4 should fail");
+        assert!(err.to_string().contains("unknown mode 4"));
+    }
+
+    #[test]
+    fn validate_rejects_unknown_scenario() {
+        let mut cfg: BenchmarkConfig = toml::from_str(minimal_toml()).unwrap();
+        cfg.scenarios = vec!["B0".to_string(), "X9".to_string()];
+        let err = cfg.validate().expect_err("scenario X9 should fail");
+        assert!(err.to_string().contains("X9"));
+    }
+
+    #[test]
+    fn validate_rejects_zero_a_fund() {
+        let mut cfg: BenchmarkConfig = toml::from_str(minimal_toml()).unwrap();
+        cfg.params.a_fund = 0;
+        let err = cfg.validate().expect_err("a_fund=0 should fail");
+        assert!(err.to_string().contains("a_fund"));
+    }
+
+    #[test]
+    fn defaults_match_spec_table() {
+        let cfg: BenchmarkConfig = toml::from_str(minimal_toml()).unwrap();
+        assert_eq!(cfg.params.a_fund, 10_000_000_000, "A_fund spec default 10k tXTM");
+        assert_eq!(cfg.params.c_min, 3, "C_min spec default");
+        assert_eq!(cfg.params.volume_target, 512, "volume_target spec default");
+        assert_eq!(cfg.params.doubling_rounds, 6, "doubling_rounds spec default");
+        assert_eq!(cfg.params.fanout_outputs_per_tx, 8, "fanout outputs spec default");
+        assert_eq!(cfg.params.s4_concurrency_levels, vec![8, 16, 32, 64, 128]);
+        assert_eq!(cfg.params.s4_budget_secs, 900, "S4 T_budget=15min");
+        assert_eq!(cfg.params.s5_m, 100, "S5 M=100 recipients");
+        assert_eq!(cfg.params.s5_k, 10, "S5 K=10 outputs per batch tx");
+    }
+
+    #[test]
+    fn load_committed_benchmark_toml() {
+        let manifest_dir = env!("CARGO_MANIFEST_DIR");
+        let path = std::path::PathBuf::from(manifest_dir).join("benchmark.toml");
+        assert!(path.exists(), "benchmark.toml must exist at repo root");
+        let cfg = BenchmarkConfig::load(&path).expect("repo benchmark.toml must load");
+        assert!(!cfg.modes.is_empty());
+        assert!(!cfg.scenarios.is_empty());
+        for m in &cfg.modes {
+            assert!([1, 2, 3].contains(m));
+        }
     }
 }

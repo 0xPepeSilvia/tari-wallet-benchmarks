@@ -354,3 +354,161 @@ impl EnvironmentInfo {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::time::Duration;
+
+    #[test]
+    fn scenario_result_new_starts_running() {
+        let r = ScenarioResult::new("B0", 1);
+        assert_eq!(r.scenario, "B0");
+        assert_eq!(r.mode, 1);
+        assert_eq!(r.status, ScenarioStatus::Running);
+        assert!(r.error.is_none());
+        assert!(r.finished_at.is_none());
+    }
+
+    #[test]
+    fn scenario_result_complete_marks_passed() {
+        let mut r = ScenarioResult::new("S0", 1);
+        r.complete(Duration::from_secs(42));
+        assert_eq!(r.status, ScenarioStatus::Passed);
+        assert_eq!(r.wall_clock_secs, 42.0);
+        assert!(r.finished_at.is_some());
+    }
+
+    #[test]
+    fn scenario_result_fail_records_error_and_wall_time() {
+        let mut r = ScenarioResult::new("S1", 1);
+        r.fail(Duration::from_secs(5), "boom");
+        assert_eq!(r.status, ScenarioStatus::Failed);
+        assert_eq!(r.error.as_deref(), Some("boom"));
+        assert_eq!(r.wall_clock_secs, 5.0);
+    }
+
+    #[test]
+    fn scenario_result_skip_keeps_zero_wall_clock() {
+        let mut r = ScenarioResult::new("S4", 1);
+        r.skip("blocked by upstream");
+        assert_eq!(r.status, ScenarioStatus::Skipped);
+        assert_eq!(r.wall_clock_secs, 0.0);
+        assert_eq!(r.error.as_deref(), Some("blocked by upstream"));
+    }
+
+    #[test]
+    fn add_timing_stores_labelled_seconds() {
+        let mut r = ScenarioResult::new("B0", 1);
+        r.add_timing("scan", Duration::from_millis(8178));
+        let scan = r.timings.get("scan").copied().expect("scan label stored");
+        assert!((scan - 8.178).abs() < 1e-6);
+    }
+
+    #[test]
+    fn reconcile_balance_computes_delta() {
+        let mut r = ScenarioResult::new("S0", 1);
+        r.balance_after_ut = Some(30_000_000_000);
+        r.reconcile_balance(30_000_000_000);
+        assert_eq!(r.balance_reconciliation_delta_ut, Some(0));
+
+        r.reconcile_balance(30_000_005_000);
+        assert_eq!(r.balance_reconciliation_delta_ut, Some(5_000));
+    }
+
+    #[test]
+    fn benchmark_report_deltas_S2_minus_B0() {
+        let mut report = BenchmarkReport::new(
+            "run-id".to_string(),
+            "esmeralda".to_string(),
+            "sha".to_string(),
+            EnvironmentInfo::capture("local".to_string()),
+            BinaryVersions::default(),
+            serde_json::json!({}),
+        );
+
+        let mut b0 = ScenarioResult::new("B0", 1);
+        b0.add_timing("scan", Duration::from_secs(8));
+        b0.complete(Duration::from_secs(8));
+        report.push(b0);
+
+        let mut s2 = ScenarioResult::new("S2", 1);
+        s2.add_timing("scan", Duration::from_secs(27));
+        s2.complete(Duration::from_secs(27));
+        report.push(s2);
+
+        report.finish();
+
+        let delta = report
+            .deltas
+            .get("mode1_S2_minus_B0_secs")
+            .copied()
+            .expect("S2-B0 delta computed");
+        assert!((delta - 19.0).abs() < 1e-6, "expected ~19s delta, got {}", delta);
+    }
+
+    #[test]
+    fn benchmark_report_S5_throughput_multiplier_pulls_from_batch_result() {
+        let mut report = BenchmarkReport::new(
+            "run".into(),
+            "esmeralda".into(),
+            "sha".into(),
+            EnvironmentInfo::capture("local".into()),
+            BinaryVersions::default(),
+            serde_json::json!({}),
+        );
+
+        let mut s5 = ScenarioResult::new("S5", 1);
+        s5.batch_result = Some(BatchResult {
+            batch_size: 10,
+            batch_tx_count: 10,
+            batch_wall_secs: 8.67,
+            batch_total_fees_ut: 7400,
+            individual_count: 100,
+            individual_wall_secs: 9.30,
+            individual_total_fees_ut: 78775,
+            speedup_factor: 1.07,
+            fee_per_recipient_batch_ut: 74.0,
+            fee_per_recipient_individual_ut: 787.75,
+        });
+        s5.complete(Duration::from_secs(10));
+        report.push(s5);
+        report.finish();
+
+        let mul = report
+            .deltas
+            .get("mode1_S5_throughput_multiplier")
+            .copied()
+            .expect("S5 multiplier in deltas");
+        assert!((mul - 1.07).abs() < 1e-6);
+    }
+
+    #[test]
+    fn scenario_status_serialises_lowercase() {
+        let json = serde_json::to_string(&ScenarioStatus::Passed).unwrap();
+        assert_eq!(json, "\"passed\"");
+        let json = serde_json::to_string(&ScenarioStatus::Failed).unwrap();
+        assert_eq!(json, "\"failed\"");
+    }
+
+    #[test]
+    fn scenario_result_roundtrips_via_json() {
+        let mut r = ScenarioResult::new("S5", 1);
+        r.add_timing("batch_send", Duration::from_secs(8));
+        r.complete(Duration::from_secs(10));
+        let json = serde_json::to_string(&r).unwrap();
+        let back: ScenarioResult = serde_json::from_str(&json).unwrap();
+        assert_eq!(back.scenario, "S5");
+        assert_eq!(back.status, ScenarioStatus::Passed);
+    }
+
+    #[test]
+    fn environment_info_captures_nonempty_fields() {
+        let env = EnvironmentInfo::capture("local".into());
+        assert!(!env.os.is_empty(), "os should not be empty");
+        assert!(env.cpu_cores > 0, "should detect at least one CPU core");
+        assert!(env.total_ram_mb > 0, "should detect some RAM");
+        assert_eq!(env.network_path, "local");
+        assert!(!env.harness_version.is_empty());
+    }
+}

@@ -1,0 +1,96 @@
+{
+  "run_id": "a95ba46d-b2d2-4bc3-b12f-da4bdf185d20",
+  "started_at": "2026-05-31T22:48:39.786737500Z",
+  "finished_at": "2026-05-31T22:48:39.795352500Z",
+  "network": "esmeralda",
+  "config_sha256": "777bc306548331921ad55cd6d6749a270b7f368a6f508a6031fabed497e7fc37",
+  "environment": {
+    "os": "Windows 11 Home",
+    "cpu_model": "AMD Ryzen 9 7900 12-Core Processor             ",
+    "cpu_cores": 24,
+    "total_ram_mb": 31907,
+    "disk_type": "Unknown",
+    "hostname": "DESKTOP-KG8850T",
+    "network_path": "local",
+    "harness_version": "0.1.0"
+  },
+  "binary_versions": {
+    "console_wallet": null,
+    "minotari_cli": null,
+    "base_node": null,
+    "payment_processor": null
+  },
+  "config_snapshot": {
+    "binaries": {
+      "base_node": "C:/tari/minotari_node.exe",
+      "console_wallet": "C:/tari/minotari_console_wallet.exe",
+      "minotari_cli": "C:/tari/minotari.exe",
+      "payment_processor": null
+    },
+    "modes": [
+      1
+    ],
+    "network": "esmeralda",
+    "node": {
+      "grpc_url": "http://127.0.0.1:18142",
+      "http_url": "http://127.0.0.1:18142",
+      "mode1_wallet_endpoint": "http://127.0.0.1:18243",
+      "spawn_local": false
+    },
+    "params": {
+      "a_fund": 10000000000,
+      "c_min": 3,
+      "confirm_poll_secs": 10,
+      "confirm_timeout_secs": 7200,
+      "doubling_rounds": 6,
+      "fanout_outputs_per_tx": 8,
+      "fee_per_gram": 5,
+      "s4_budget_secs": 900,
+      "s4_concurrency_levels": [
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "s5_k": 10,
+      "s5_m": 100,
+      "volume_target": 512
+    },
+    "scenarios": [
+      "S0"
+    ],
+    "work_dir": "./benchmark-work"
+  },
+  "results": [
+    {
+      "scenario": "S0",
+      "mode": 1,
+      "status": "passed",
+      "error": null,
+      "wall_clock_secs": 0.0054216,
+      "timings": {},
+      "utxo_count": null,
+      "txs_sent": 0,
+      "txs_confirmed": 0,
+      "amount_transferred_ut": 0,
+      "balance_before_ut": null,
+      "balance_after_ut": null,
+      "balance_reconciliation_delta_ut": null,
+      "total_fees_ut": null,
+      "peak_rss_mb": null,
+      "peak_cpu_pct": null,
+      "blocks_scanned": null,
+      "scan_from_height": null,
+      "h_tip_start": null,
+      "h_tip_end": null,
+      "blocks_per_sec": null,
+      "concurrency_results": null,
+      "batch_result": null,
+      "per_tx_metrics": null,
+      "started_at": "2026-05-31T22:48:39.789481300Z",
+      "finished_at": "2026-05-31T22:48:39.794903600Z"
+    }
+  ],
+  "deltas": {}
+}
