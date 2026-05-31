@@ -1,0 +1,74 @@
+{
+  "verification_for": "results/S4_mode1_fresh_2026-05-30.json",
+  "endpoint": "http://127.0.0.1:18243",
+  "per_level": [
+    {
+      "N": 8,
+      "claimed_ok": 8,
+      "tx_ids_checked": 8,
+      "actually_mined_confirmed_or_one_sided_confirmed": 8,
+      "terminal_failure": 0,
+      "still_pending": 0,
+      "not_found_or_no_response": 0,
+      "status_breakdown": {
+        "TX_MINED_CONFIRMED": 8
+      }
+    },
+    {
+      "N": 16,
+      "claimed_ok": 16,
+      "tx_ids_checked": 16,
+      "actually_mined_confirmed_or_one_sided_confirmed": 16,
+      "terminal_failure": 0,
+      "still_pending": 0,
+      "not_found_or_no_response": 0,
+      "status_breakdown": {
+        "TX_MINED_CONFIRMED": 16
+      }
+    },
+    {
+      "N": 32,
+      "claimed_ok": 32,
+      "tx_ids_checked": 32,
+      "actually_mined_confirmed_or_one_sided_confirmed": 32,
+      "terminal_failure": 0,
+      "still_pending": 0,
+      "not_found_or_no_response": 0,
+      "status_breakdown": {
+        "TX_MINED_CONFIRMED": 32
+      }
+    },
+    {
+      "N": 64,
+      "claimed_ok": 64,
+      "tx_ids_checked": 64,
+      "actually_mined_confirmed_or_one_sided_confirmed": 64,
+      "terminal_failure": 0,
+      "still_pending": 0,
+      "not_found_or_no_response": 0,
+      "status_breakdown": {
+        "TX_MINED_CONFIRMED": 64
+      }
+    },
+    {
+      "N": 128,
+      "claimed_ok": 128,
+      "tx_ids_checked": 128,
+      "actually_mined_confirmed_or_one_sided_confirmed": 128,
+      "terminal_failure": 0,
+      "still_pending": 0,
+      "not_found_or_no_response": 0,
+      "status_breakdown": {
+        "TX_MINED_CONFIRMED": 128
+      }
+    }
+  ],
+  "overall": {
+    "total_tx_ids_checked": 248,
+    "mined_or_confirmed": 248,
+    "terminal_failure": 0,
+    "still_pending": 0,
+    "not_found_or_no_response": 0,
+    "fraction_verified_mined": 1.0
+  }
+}
