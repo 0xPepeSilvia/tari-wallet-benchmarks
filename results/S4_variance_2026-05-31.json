@@ -1,0 +1,4407 @@
+{
+  "scenario": "S4",
+  "mode": 1,
+  "endpoint": "http://127.0.0.1:18243",
+  "started_at": "2026-05-31T22:52:35.931458+00:00",
+  "config": {
+    "concurrency_levels": [
+      32,
+      32,
+      32,
+      128,
+      128,
+      128
+    ],
+    "budget_secs": 180,
+    "amount_per_output_ut": 1000000
+  },
+  "levels": [
+    {
+      "N": 32,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 5.697002200060524,
+      "txs_constructed_ok": 32,
+      "txs_per_sec_observed": 5.6169892298198585,
+      "max_serialisation_gap_secs": 0.4022879999829456,
+      "failure_breakdown": {},
+      "per_worker_results": [
+        {
+          "worker_idx": 3,
+          "t_submit": 596396.0487912,
+          "t_complete": 596396.2245215,
+          "construct_secs": 0.17573029990307987,
+          "tx_id": 2872486119287455640,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 596396.0485119,
+          "t_complete": 596396.3487739,
+          "construct_secs": 0.3002619999460876,
+          "tx_id": 16254971140461288846,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 596396.0481598,
+          "t_complete": 596396.4874024,
+          "construct_secs": 0.43924259999766946,
+          "tx_id": 9868948187011765219,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 596396.0477416,
+          "t_complete": 596396.6118373,
+          "construct_secs": 0.5640957000432536,
+          "tx_id": 9043229071987977908,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 596396.0490143,
+          "t_complete": 596396.7329758,
+          "construct_secs": 0.6839615000644699,
+          "tx_id": 2631045427619429450,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 596396.0492334,
+          "t_complete": 596396.8566162,
+          "construct_secs": 0.807382799917832,
+          "tx_id": 6094688578162301892,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 596396.0494419,
+          "t_complete": 596397.0269506,
+          "construct_secs": 0.9775086999870837,
+          "tx_id": 8251859569984060008,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 596396.0496044,
+          "t_complete": 596397.1482936,
+          "construct_secs": 1.0986892000073567,
+          "tx_id": 14707169657635820471,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 596396.0498291,
+          "t_complete": 596397.3816624,
+          "construct_secs": 1.3318332999479026,
+          "tx_id": 8342350477823118439,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 596396.0500609,
+          "t_complete": 596397.6464933,
+          "construct_secs": 1.5964323999360204,
+          "tx_id": 640532439801857419,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 596396.0502461,
+          "t_complete": 596397.7681605,
+          "construct_secs": 1.7179143999237567,
+          "tx_id": 10358696545948182416,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 596396.0504085,
+          "t_complete": 596397.9848789,
+          "construct_secs": 1.9344703999813646,
+          "tx_id": 11321833914943668127,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 596396.0505649,
+          "t_complete": 596398.2470557,
+          "construct_secs": 2.1964908000081778,
+          "tx_id": 12037231977106677297,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 596396.050714,
+          "t_complete": 596398.4597976,
+          "construct_secs": 2.409083600039594,
+          "tx_id": 17999013848673531508,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 596396.0508941,
+          "t_complete": 596398.6570159,
+          "construct_secs": 2.6061218000249937,
+          "tx_id": 2225434410058470981,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 596396.0510971,
+          "t_complete": 596398.8563529,
+          "construct_secs": 2.8052558000199497,
+          "tx_id": 7195178101880135883,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 596396.0512907,
+          "t_complete": 596399.0622555,
+          "construct_secs": 3.010964800021611,
+          "tx_id": 5045700878371610102,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 596396.0514564,
+          "t_complete": 596399.2129444,
+          "construct_secs": 3.161488000070676,
+          "tx_id": 9230072004884363857,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 596396.0516435,
+          "t_complete": 596399.4137476,
+          "construct_secs": 3.3621041000587866,
+          "tx_id": 864424252233339789,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 596396.0519094,
+          "t_complete": 596399.5852076,
+          "construct_secs": 3.533298199996352,
+          "tx_id": 10542806154341383475,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 596396.0521448,
+          "t_complete": 596399.7235662,
+          "construct_secs": 3.6714214000385255,
+          "tx_id": 8688306081715094983,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 596396.0523827,
+          "t_complete": 596399.9255146,
+          "construct_secs": 3.873131899978034,
+          "tx_id": 9648109733367657653,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 596396.052552,
+          "t_complete": 596400.0644472,
+          "construct_secs": 4.011895200004801,
+          "tx_id": 1354805892936766850,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 596396.0527315,
+          "t_complete": 596400.4667352,
+          "construct_secs": 4.414003700017929,
+          "tx_id": 16688862054586492890,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 596396.052887,
+          "t_complete": 596400.6836546,
+          "construct_secs": 4.630767600028776,
+          "tx_id": 10938440390605812568,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 596396.0530612,
+          "t_complete": 596400.8833518,
+          "construct_secs": 4.8302906000753865,
+          "tx_id": 2409843293340303967,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 596396.0532544,
+          "t_complete": 596401.0868466,
+          "construct_secs": 5.033592200023122,
+          "tx_id": 17790382792679473253,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 596396.0534085,
+          "t_complete": 596401.2215259,
+          "construct_secs": 5.168117399909534,
+          "tx_id": 14829837723364808894,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 596396.0537444,
+          "t_complete": 596401.4208717,
+          "construct_secs": 5.367127300007269,
+          "tx_id": 12167648173857364202,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 596396.0535638,
+          "t_complete": 596401.62071,
+          "construct_secs": 5.567146200104617,
+          "tx_id": 13471662651751531011,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 596396.0541453,
+          "t_complete": 596401.7424433,
+          "construct_secs": 5.688298000022769,
+          "tx_id": 10158800173386627728,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 596396.053929,
+          "t_complete": 596401.7425335,
+          "construct_secs": 5.688604499911889,
+          "tx_id": 6596342940274006193,
+          "outcome": "ok",
+          "error": null
+        }
+      ]
+    },
+    {
+      "N": 32,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 4.009825199958868,
+      "txs_constructed_ok": 32,
+      "txs_per_sec_observed": 7.98039774909097,
+      "max_serialisation_gap_secs": 0.15503709996119142,
+      "failure_breakdown": {},
+      "per_worker_results": [
+        {
+          "worker_idx": 0,
+          "t_submit": 596411.7468875,
+          "t_complete": 596411.97012,
+          "construct_secs": 0.22323249990586191,
+          "tx_id": 10589140400205314715,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 596411.7475007,
+          "t_complete": 596412.091486,
+          "construct_secs": 0.34398530004546046,
+          "tx_id": 14394704093367115640,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 596411.7472322,
+          "t_complete": 596412.2160731,
+          "construct_secs": 0.4688408999936655,
+          "tx_id": 5625690205462115398,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 596411.7477416,
+          "t_complete": 596412.3391812,
+          "construct_secs": 0.5914395999861881,
+          "tx_id": 16463055752028293027,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 596411.7479645,
+          "t_complete": 596412.4626936,
+          "construct_secs": 0.7147291000001132,
+          "tx_id": 17249699254250049467,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 596411.7483502,
+          "t_complete": 596412.5859828,
+          "construct_secs": 0.837632599985227,
+          "tx_id": 10182275745822816622,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 596411.7486771,
+          "t_complete": 596412.7088659,
+          "construct_secs": 0.9601887998869643,
+          "tx_id": 5709409653121454535,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 596411.7489548,
+          "t_complete": 596412.8490802,
+          "construct_secs": 1.1001254000002518,
+          "tx_id": 8611761575759060620,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 596411.7492411,
+          "t_complete": 596412.9740221,
+          "construct_secs": 1.2247809999389574,
+          "tx_id": 7611822570674710998,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 596411.7495077,
+          "t_complete": 596413.0971813,
+          "construct_secs": 1.3476736000739038,
+          "tx_id": 3991228879093199699,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 596411.749762,
+          "t_complete": 596413.2203308,
+          "construct_secs": 1.4705687999958172,
+          "tx_id": 4829308535504175755,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 596411.7500049,
+          "t_complete": 596413.3437915,
+          "construct_secs": 1.5937865999294445,
+          "tx_id": 103724473728700451,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 596411.7502488,
+          "t_complete": 596413.4687758,
+          "construct_secs": 1.7185269999317825,
+          "tx_id": 70153775427977829,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 596411.7504893,
+          "t_complete": 596413.5930364,
+          "construct_secs": 1.8425471000373363,
+          "tx_id": 17101772727707796178,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 596411.750965,
+          "t_complete": 596413.7156769,
+          "construct_secs": 1.9647118999855593,
+          "tx_id": 1526241053223154176,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 596411.7512527,
+          "t_complete": 596413.8381658,
+          "construct_secs": 2.086913099978119,
+          "tx_id": 14271511881002865108,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 596411.7515614,
+          "t_complete": 596413.9631185,
+          "construct_secs": 2.211557099944912,
+          "tx_id": 11068640294461015995,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 596411.7518703,
+          "t_complete": 596414.0874904,
+          "construct_secs": 2.3356200999114662,
+          "tx_id": 5320936761859000854,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 596411.7521692,
+          "t_complete": 596414.2123913,
+          "construct_secs": 2.4602221000241116,
+          "tx_id": 13611952242816974549,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 596411.7526011,
+          "t_complete": 596414.3354045,
+          "construct_secs": 2.5828034000005573,
+          "tx_id": 7633539101530531996,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 596411.7529441,
+          "t_complete": 596414.4751297,
+          "construct_secs": 2.7221856000833213,
+          "tx_id": 6256783154641945130,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 596411.7532335,
+          "t_complete": 596414.6301668,
+          "construct_secs": 2.876933299936354,
+          "tx_id": 12499912560195991321,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 596411.7535222,
+          "t_complete": 596414.7684997,
+          "construct_secs": 3.014977499959059,
+          "tx_id": 14537309495572142174,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 596411.7537954,
+          "t_complete": 596414.8922771,
+          "construct_secs": 3.1384816999780014,
+          "tx_id": 15669658636988530191,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 596411.7539888,
+          "t_complete": 596415.0170696,
+          "construct_secs": 3.2630808000685647,
+          "tx_id": 12317455585613630630,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 596411.7553508,
+          "t_complete": 596415.1421488,
+          "construct_secs": 3.3867979999631643,
+          "tx_id": 17182134152784684642,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 596411.7556648,
+          "t_complete": 596415.2781211,
+          "construct_secs": 3.522456300095655,
+          "tx_id": 18059925143183247211,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 596411.7559756,
+          "t_complete": 596415.3996185,
+          "construct_secs": 3.643642900045961,
+          "tx_id": 12714295201980547913,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 596411.7562687,
+          "t_complete": 596415.523191,
+          "construct_secs": 3.76692229998298,
+          "tx_id": 15304562525224153641,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 596411.7565657,
+          "t_complete": 596415.646474,
+          "construct_secs": 3.8899082998977974,
+          "tx_id": 12068501557351986394,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 596411.7570664,
+          "t_complete": 596415.7536062,
+          "construct_secs": 3.9965397999621928,
+          "tx_id": 6760236573957807708,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 596411.756842,
+          "t_complete": 596415.7553168,
+          "construct_secs": 3.998474800027907,
+          "tx_id": 12014169620021465956,
+          "outcome": "ok",
+          "error": null
+        }
+      ]
+    },
+    {
+      "N": 32,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 4.244765599956736,
+      "txs_constructed_ok": 32,
+      "txs_per_sec_observed": 7.538696600897386,
+      "max_serialisation_gap_secs": 0.15141069993842393,
+      "failure_breakdown": {},
+      "per_worker_results": [
+        {
+          "worker_idx": 1,
+          "t_submit": 596425.7594559,
+          "t_complete": 596426.102482,
+          "construct_secs": 0.3430260999593884,
+          "tx_id": 11143910582988738074,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 596425.7597047,
+          "t_complete": 596426.2417799,
+          "construct_secs": 0.48207520006690174,
+          "tx_id": 1733219491417039160,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 596425.7591855,
+          "t_complete": 596426.3801011,
+          "construct_secs": 0.6209155999822542,
+          "tx_id": 13700542871149598495,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 596425.7599241,
+          "t_complete": 596426.5174453,
+          "construct_secs": 0.7575211999937892,
+          "tx_id": 9151079055288053691,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 596425.7601736,
+          "t_complete": 596426.6534455,
+          "construct_secs": 0.8932718998985365,
+          "tx_id": 16984667747277806309,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 596425.7604052,
+          "t_complete": 596426.7773062,
+          "construct_secs": 1.0169010000536218,
+          "tx_id": 17866893733142956186,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 596425.760622,
+          "t_complete": 596426.9008307,
+          "construct_secs": 1.1402086999733,
+          "tx_id": 15365164062987432021,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 596425.7608369,
+          "t_complete": 596427.0231048,
+          "construct_secs": 1.262267900048755,
+          "tx_id": 14876938870438400030,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 596425.7610425,
+          "t_complete": 596427.1465024,
+          "construct_secs": 1.385459900018759,
+          "tx_id": 4214934172746314760,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 596425.761238,
+          "t_complete": 596427.2672825,
+          "construct_secs": 1.506044500041753,
+          "tx_id": 14531401324254377838,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 596425.7614076,
+          "t_complete": 596427.3924309,
+          "construct_secs": 1.6310232999967411,
+          "tx_id": 11910587915775097743,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 596425.7616288,
+          "t_complete": 596427.5173733,
+          "construct_secs": 1.7557445000857115,
+          "tx_id": 7162198759651839185,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 596425.761857,
+          "t_complete": 596427.6399333,
+          "construct_secs": 1.8780763000249863,
+          "tx_id": 978628344417298497,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 596425.7621274,
+          "t_complete": 596427.7627962,
+          "construct_secs": 2.000668799970299,
+          "tx_id": 6156165079357874605,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 596425.7624727,
+          "t_complete": 596427.9020974,
+          "construct_secs": 2.1396247000666335,
+          "tx_id": 712611917692959572,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 596425.7627339,
+          "t_complete": 596428.0401812,
+          "construct_secs": 2.277447300031781,
+          "tx_id": 13529752015105739416,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 596425.7629328,
+          "t_complete": 596428.1915919,
+          "construct_secs": 2.4286590999690816,
+          "tx_id": 5010180567262806963,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 596425.763156,
+          "t_complete": 596428.3305576,
+          "construct_secs": 2.5674016000702977,
+          "tx_id": 5601338376433910356,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 596425.7633852,
+          "t_complete": 596428.4545207,
+          "construct_secs": 2.691135499975644,
+          "tx_id": 1366629551130793307,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 596425.7636127,
+          "t_complete": 596428.5937429,
+          "construct_secs": 2.8301301999017596,
+          "tx_id": 15249537076485903730,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 596425.7638763,
+          "t_complete": 596428.731552,
+          "construct_secs": 2.9676757000852376,
+          "tx_id": 18331222401798969648,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 596425.7641066,
+          "t_complete": 596428.8671825,
+          "construct_secs": 3.1030758999986574,
+          "tx_id": 7031193479936413587,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 596425.7643208,
+          "t_complete": 596428.9888226,
+          "construct_secs": 3.224501800024882,
+          "tx_id": 13622185608431268656,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 596425.7645481,
+          "t_complete": 596429.1128454,
+          "construct_secs": 3.348297300050035,
+          "tx_id": 10604017420306630326,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 596425.7647527,
+          "t_complete": 596429.2403151,
+          "construct_secs": 3.475562399951741,
+          "tx_id": 2960077962291657383,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 596425.7650101,
+          "t_complete": 596429.3726485,
+          "construct_secs": 3.6076384000480175,
+          "tx_id": 7493897553586885844,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 596425.7652239,
+          "t_complete": 596429.4952782,
+          "construct_secs": 3.7300543000455946,
+          "tx_id": 11693113119183835482,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 596425.7654559,
+          "t_complete": 596429.6315931,
+          "construct_secs": 3.866137200035155,
+          "tx_id": 1091858357701780516,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 596425.7656607,
+          "t_complete": 596429.7700285,
+          "construct_secs": 4.004367799963802,
+          "tx_id": 12019100963708352754,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 596425.7658594,
+          "t_complete": 596429.8914339,
+          "construct_secs": 4.125574499950744,
+          "tx_id": 15180102633364045207,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 596425.7663249,
+          "t_complete": 596430.0028907,
+          "construct_secs": 4.236565800034441,
+          "tx_id": 17025421649306631152,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 596425.7660988,
+          "t_complete": 596430.0029655,
+          "construct_secs": 4.236866699997336,
+          "tx_id": 1584926636007221062,
+          "outcome": "ok",
+          "error": null
+        }
+      ]
+    },
+    {
+      "N": 128,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 16.761766099953093,
+      "txs_constructed_ok": 128,
+      "txs_per_sec_observed": 7.6364268082918905,
+      "max_serialisation_gap_secs": 0.2188804999459535,
+      "failure_breakdown": {},
+      "per_worker_results": [
+        {
+          "worker_idx": 0,
+          "t_submit": 596440.0096942,
+          "t_complete": 596440.2461716,
+          "construct_secs": 0.23647739994339645,
+          "tx_id": 727187970359731410,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 596440.0100994,
+          "t_complete": 596440.3701761,
+          "construct_secs": 0.3600767001044005,
+          "tx_id": 14378761096090398277,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 596440.0099274,
+          "t_complete": 596440.5105094,
+          "construct_secs": 0.5005820000078529,
+          "tx_id": 12299461853685470197,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 596440.0102586,
+          "t_complete": 596440.6329393,
+          "construct_secs": 0.6226807000348344,
+          "tx_id": 9760933201879781405,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 596440.0104294,
+          "t_complete": 596440.755891,
+          "construct_secs": 0.7454616000177339,
+          "tx_id": 12381424668338651773,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 596440.0106583,
+          "t_complete": 596440.8781775,
+          "construct_secs": 0.8675191999645904,
+          "tx_id": 2816140641076498941,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 596440.010841,
+          "t_complete": 596441.0010168,
+          "construct_secs": 0.9901757999323308,
+          "tx_id": 2145627594801985676,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 596440.0109988,
+          "t_complete": 596441.1217743,
+          "construct_secs": 1.1107754999538884,
+          "tx_id": 3766892722641549798,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 596440.0111364,
+          "t_complete": 596441.2447909,
+          "construct_secs": 1.2336544999852777,
+          "tx_id": 5415288477631344259,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 596440.0113541,
+          "t_complete": 596441.3686941,
+          "construct_secs": 1.3573399999877438,
+          "tx_id": 14549333502861169046,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 596440.0115938,
+          "t_complete": 596441.5235671,
+          "construct_secs": 1.5119733000174165,
+          "tx_id": 10359814675784898823,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 596440.0118687,
+          "t_complete": 596441.6621229,
+          "construct_secs": 1.6502541999798268,
+          "tx_id": 12716203286811706366,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 596440.0121433,
+          "t_complete": 596441.8024203,
+          "construct_secs": 1.7902769999345765,
+          "tx_id": 907384020951499794,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 596440.0124957,
+          "t_complete": 596441.9264457,
+          "construct_secs": 1.9139499999582767,
+          "tx_id": 6306246956743050542,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 596440.012755,
+          "t_complete": 596442.0638562,
+          "construct_secs": 2.0511011999333277,
+          "tx_id": 15028518557781652344,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 596440.0129589,
+          "t_complete": 596442.1870867,
+          "construct_secs": 2.1741278000408784,
+          "tx_id": 8789249650360645034,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 596440.0131686,
+          "t_complete": 596442.3097262,
+          "construct_secs": 2.2965575999114662,
+          "tx_id": 12362576566232535093,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 596440.0133597,
+          "t_complete": 596442.4314952,
+          "construct_secs": 2.418135500047356,
+          "tx_id": 15519645796396594721,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 596440.0135218,
+          "t_complete": 596442.5544316,
+          "construct_secs": 2.5409097999799997,
+          "tx_id": 5683434284565400307,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 596440.0136994,
+          "t_complete": 596442.6790107,
+          "construct_secs": 2.665311299962923,
+          "tx_id": 5928620020488448111,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 596440.0138585,
+          "t_complete": 596442.8025067,
+          "construct_secs": 2.788648199988529,
+          "tx_id": 10808174931618736153,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 596440.0140118,
+          "t_complete": 596442.9254362,
+          "construct_secs": 2.9114243999356404,
+          "tx_id": 10389658607046569200,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 596440.0142808,
+          "t_complete": 596443.0504027,
+          "construct_secs": 3.0361218999605626,
+          "tx_id": 18247278295124574243,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 596440.0144969,
+          "t_complete": 596443.1736068,
+          "construct_secs": 3.1591099000070244,
+          "tx_id": 6839481215076920734,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 596440.0146931,
+          "t_complete": 596443.2970026,
+          "construct_secs": 3.2823095000348985,
+          "tx_id": 9402451551331375074,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 596440.0149313,
+          "t_complete": 596443.4203689,
+          "construct_secs": 3.405437600100413,
+          "tx_id": 8467297381517435418,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 596440.0151523,
+          "t_complete": 596443.5449222,
+          "construct_secs": 3.5297699000220746,
+          "tx_id": 9530119079359037316,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 596440.0153974,
+          "t_complete": 596443.6714548,
+          "construct_secs": 3.6560573999304324,
+          "tx_id": 1382274645189968095,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 596440.0155685,
+          "t_complete": 596443.7943017,
+          "construct_secs": 3.778733199927956,
+          "tx_id": 4917745559411993060,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 596440.0157532,
+          "t_complete": 596443.9188923,
+          "construct_secs": 3.903139099944383,
+          "tx_id": 12314036207696704013,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 596440.0159707,
+          "t_complete": 596444.0426499,
+          "construct_secs": 4.026679200003855,
+          "tx_id": 4163092370840920412,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 596440.0162139,
+          "t_complete": 596444.1676455,
+          "construct_secs": 4.151431600097567,
+          "tx_id": 12092607913357881999,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 32,
+          "t_submit": 596440.0164411,
+          "t_complete": 596444.2892836,
+          "construct_secs": 4.272842500009574,
+          "tx_id": 12131257950322249044,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 33,
+          "t_submit": 596440.0166373,
+          "t_complete": 596444.4251279,
+          "construct_secs": 4.4084905999479815,
+          "tx_id": 3967071028592758302,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 34,
+          "t_submit": 596440.0168247,
+          "t_complete": 596444.5493868,
+          "construct_secs": 4.532562099979259,
+          "tx_id": 14349338082869645733,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 35,
+          "t_submit": 596440.0170417,
+          "t_complete": 596444.6708318,
+          "construct_secs": 4.653790100011975,
+          "tx_id": 3686086512286452779,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 36,
+          "t_submit": 596440.0172169,
+          "t_complete": 596444.7952563,
+          "construct_secs": 4.778039400000125,
+          "tx_id": 16883930055665412438,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 37,
+          "t_submit": 596440.0174254,
+          "t_complete": 596444.9183309,
+          "construct_secs": 4.900905500049703,
+          "tx_id": 7031957691376209183,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 38,
+          "t_submit": 596440.017603,
+          "t_complete": 596445.0420206,
+          "construct_secs": 5.024417600012384,
+          "tx_id": 4815035431644767905,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 39,
+          "t_submit": 596440.017745,
+          "t_complete": 596445.1648339,
+          "construct_secs": 5.147088900092058,
+          "tx_id": 11196531333376080500,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 40,
+          "t_submit": 596440.0178928,
+          "t_complete": 596445.2886858,
+          "construct_secs": 5.270793000003323,
+          "tx_id": 3343504626350551340,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 41,
+          "t_submit": 596440.0180368,
+          "t_complete": 596445.4131653,
+          "construct_secs": 5.395128500065766,
+          "tx_id": 16673503562290745595,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 42,
+          "t_submit": 596440.018247,
+          "t_complete": 596445.5354762,
+          "construct_secs": 5.5172291999915615,
+          "tx_id": 14181069743720871754,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 43,
+          "t_submit": 596440.0184635,
+          "t_complete": 596445.6592369,
+          "construct_secs": 5.640773400082253,
+          "tx_id": 13488474104803406835,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 44,
+          "t_submit": 596440.0186671,
+          "t_complete": 596445.7832527,
+          "construct_secs": 5.7645856000017375,
+          "tx_id": 16004170108278117845,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 45,
+          "t_submit": 596440.0189142,
+          "t_complete": 596445.9045422,
+          "construct_secs": 5.885628000018187,
+          "tx_id": 15466130903995183032,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 46,
+          "t_submit": 596440.0191222,
+          "t_complete": 596446.0278605,
+          "construct_secs": 6.008738300064579,
+          "tx_id": 16706347039848149182,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 47,
+          "t_submit": 596440.019366,
+          "t_complete": 596446.1525635,
+          "construct_secs": 6.133197500021197,
+          "tx_id": 4813193117242392217,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 48,
+          "t_submit": 596440.0195898,
+          "t_complete": 596446.2775187,
+          "construct_secs": 6.2579288999550045,
+          "tx_id": 18012788207388695413,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 49,
+          "t_submit": 596440.0198351,
+          "t_complete": 596446.4000343,
+          "construct_secs": 6.3801992000080645,
+          "tx_id": 8574933122016279472,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 50,
+          "t_submit": 596440.02008,
+          "t_complete": 596446.6189148,
+          "construct_secs": 6.598834799951874,
+          "tx_id": 7352973219084572438,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 51,
+          "t_submit": 596440.0202737,
+          "t_complete": 596446.7392587,
+          "construct_secs": 6.718985000043176,
+          "tx_id": 464786911927363937,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 52,
+          "t_submit": 596440.0204629,
+          "t_complete": 596446.8637426,
+          "construct_secs": 6.843279699911363,
+          "tx_id": 18161884006682050678,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 53,
+          "t_submit": 596440.0206606,
+          "t_complete": 596446.9868154,
+          "construct_secs": 6.966154799913056,
+          "tx_id": 18343278222331347875,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 54,
+          "t_submit": 596440.0208422,
+          "t_complete": 596447.1096651,
+          "construct_secs": 7.088822899968363,
+          "tx_id": 480495276542793692,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 55,
+          "t_submit": 596440.0210332,
+          "t_complete": 596447.2312454,
+          "construct_secs": 7.210212200065143,
+          "tx_id": 6408422909571411339,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 56,
+          "t_submit": 596440.0211906,
+          "t_complete": 596447.3559374,
+          "construct_secs": 7.334746800013818,
+          "tx_id": 9409997161736534452,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 57,
+          "t_submit": 596440.0219589,
+          "t_complete": 596447.4793915,
+          "construct_secs": 7.457432599971071,
+          "tx_id": 630697429638263147,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 58,
+          "t_submit": 596440.0221337,
+          "t_complete": 596447.6043902,
+          "construct_secs": 7.5822565000271425,
+          "tx_id": 6818095765490661427,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 59,
+          "t_submit": 596440.0223146,
+          "t_complete": 596447.7286866,
+          "construct_secs": 7.706372000044212,
+          "tx_id": 853929295755390528,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 60,
+          "t_submit": 596440.0224677,
+          "t_complete": 596447.8529384,
+          "construct_secs": 7.830470700049773,
+          "tx_id": 15122849261860113548,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 61,
+          "t_submit": 596440.0226309,
+          "t_complete": 596447.9904079,
+          "construct_secs": 7.967776999925263,
+          "tx_id": 17146655737712134437,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 62,
+          "t_submit": 596440.0228188,
+          "t_complete": 596448.1149104,
+          "construct_secs": 8.092091600061394,
+          "tx_id": 9759457586542299532,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 63,
+          "t_submit": 596440.0229892,
+          "t_complete": 596448.2398783,
+          "construct_secs": 8.216889100032859,
+          "tx_id": 3666686460717353409,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 64,
+          "t_submit": 596440.0231467,
+          "t_complete": 596448.3634813,
+          "construct_secs": 8.340334599954076,
+          "tx_id": 2515582877762225983,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 65,
+          "t_submit": 596440.0232909,
+          "t_complete": 596448.5020829,
+          "construct_secs": 8.478791999979876,
+          "tx_id": 10428333040245625414,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 66,
+          "t_submit": 596440.0234412,
+          "t_complete": 596448.6720013,
+          "construct_secs": 8.648560100002214,
+          "tx_id": 2621334561601491416,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 67,
+          "t_submit": 596440.0236464,
+          "t_complete": 596448.8553414,
+          "construct_secs": 8.831695000058971,
+          "tx_id": 11648461709263282593,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 68,
+          "t_submit": 596440.0238042,
+          "t_complete": 596448.9943768,
+          "construct_secs": 8.970572600024752,
+          "tx_id": 8184125262169553299,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 69,
+          "t_submit": 596440.0239685,
+          "t_complete": 596449.1344718,
+          "construct_secs": 9.110503299976699,
+          "tx_id": 4058771542842444180,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 70,
+          "t_submit": 596440.0241382,
+          "t_complete": 596449.2736978,
+          "construct_secs": 9.249559600022621,
+          "tx_id": 18230247229770254503,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 71,
+          "t_submit": 596440.024297,
+          "t_complete": 596449.3979871,
+          "construct_secs": 9.373690099921077,
+          "tx_id": 8725728501507315250,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 72,
+          "t_submit": 596440.0244483,
+          "t_complete": 596449.5375486,
+          "construct_secs": 9.513100299984217,
+          "tx_id": 13848237636087135572,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 73,
+          "t_submit": 596440.0245986,
+          "t_complete": 596449.6771171,
+          "construct_secs": 9.652518499991857,
+          "tx_id": 11866847015911459769,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 74,
+          "t_submit": 596440.0247657,
+          "t_complete": 596449.8181284,
+          "construct_secs": 9.793362700031139,
+          "tx_id": 12031538938472788930,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 75,
+          "t_submit": 596440.024916,
+          "t_complete": 596449.9579891,
+          "construct_secs": 9.933073100051843,
+          "tx_id": 3209177774490656800,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 76,
+          "t_submit": 596440.0250626,
+          "t_complete": 596450.1262136,
+          "construct_secs": 10.10115100000985,
+          "tx_id": 259246833907565885,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 77,
+          "t_submit": 596440.0253232,
+          "t_complete": 596450.265376,
+          "construct_secs": 10.24005279992707,
+          "tx_id": 12722838447112986644,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 78,
+          "t_submit": 596440.0255831,
+          "t_complete": 596450.4030008,
+          "construct_secs": 10.37741770001594,
+          "tx_id": 1290655282193766883,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 79,
+          "t_submit": 596440.0258596,
+          "t_complete": 596450.5439154,
+          "construct_secs": 10.518055799999274,
+          "tx_id": 12961070369903501030,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 80,
+          "t_submit": 596440.0261825,
+          "t_complete": 596450.6810805,
+          "construct_secs": 10.654898000066169,
+          "tx_id": 9455325326228726532,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 81,
+          "t_submit": 596440.0264621,
+          "t_complete": 596450.8216018,
+          "construct_secs": 10.795139700057916,
+          "tx_id": 4960986512915065547,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 82,
+          "t_submit": 596440.0266643,
+          "t_complete": 596450.9604638,
+          "construct_secs": 10.933799499995075,
+          "tx_id": 18412867919168323660,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 83,
+          "t_submit": 596440.0268312,
+          "t_complete": 596451.1029541,
+          "construct_secs": 11.07612290000543,
+          "tx_id": 3984678518037568679,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 84,
+          "t_submit": 596440.0270117,
+          "t_complete": 596451.2423763,
+          "construct_secs": 11.215364600066096,
+          "tx_id": 4304321798998773286,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 85,
+          "t_submit": 596440.0271651,
+          "t_complete": 596451.3806006,
+          "construct_secs": 11.353435500059277,
+          "tx_id": 10105699420347163233,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 86,
+          "t_submit": 596440.0273545,
+          "t_complete": 596451.5193309,
+          "construct_secs": 11.491976400022395,
+          "tx_id": 15873875474463520905,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 87,
+          "t_submit": 596440.0276259,
+          "t_complete": 596451.6576982,
+          "construct_secs": 11.630072299973108,
+          "tx_id": 13040838198437570367,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 88,
+          "t_submit": 596440.0278191,
+          "t_complete": 596451.7981225,
+          "construct_secs": 11.770303400000557,
+          "tx_id": 16873663581115552780,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 89,
+          "t_submit": 596440.0279923,
+          "t_complete": 596451.9482024,
+          "construct_secs": 11.9202101000119,
+          "tx_id": 2247916068590329263,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 90,
+          "t_submit": 596440.0281521,
+          "t_complete": 596452.0709565,
+          "construct_secs": 12.042804399970919,
+          "tx_id": 5939599549353782057,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 91,
+          "t_submit": 596440.0283212,
+          "t_complete": 596452.2703588,
+          "construct_secs": 12.242037599906325,
+          "tx_id": 5602523415561260214,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 92,
+          "t_submit": 596440.0284917,
+          "t_complete": 596452.3955651,
+          "construct_secs": 12.367073400062509,
+          "tx_id": 2089139707653474677,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 93,
+          "t_submit": 596440.0286661,
+          "t_complete": 596452.5192564,
+          "construct_secs": 12.490590299945325,
+          "tx_id": 5545409890676968105,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 94,
+          "t_submit": 596440.0288424,
+          "t_complete": 596452.6441701,
+          "construct_secs": 12.615327700041234,
+          "tx_id": 288070424542850857,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 95,
+          "t_submit": 596440.0289849,
+          "t_complete": 596452.7829204,
+          "construct_secs": 12.753935500048101,
+          "tx_id": 8353367850728586559,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 96,
+          "t_submit": 596440.0291549,
+          "t_complete": 596452.90623,
+          "construct_secs": 12.877075099968351,
+          "tx_id": 465615748767510117,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 97,
+          "t_submit": 596440.0294386,
+          "t_complete": 596453.0302239,
+          "construct_secs": 13.00078530004248,
+          "tx_id": 13998622085669912943,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 98,
+          "t_submit": 596440.0296304,
+          "t_complete": 596453.1689498,
+          "construct_secs": 13.13931939995382,
+          "tx_id": 11541950791834373530,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 99,
+          "t_submit": 596440.0297992,
+          "t_complete": 596453.2927974,
+          "construct_secs": 13.262998200021684,
+          "tx_id": 13837065781255336608,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 100,
+          "t_submit": 596440.0299813,
+          "t_complete": 596453.4168218,
+          "construct_secs": 13.38684050005395,
+          "tx_id": 2586773006100466993,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 101,
+          "t_submit": 596440.0302838,
+          "t_complete": 596453.5557944,
+          "construct_secs": 13.525510600069538,
+          "tx_id": 11494815251543960162,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 102,
+          "t_submit": 596440.0304975,
+          "t_complete": 596453.6798873,
+          "construct_secs": 13.649389800033532,
+          "tx_id": 8138853322007702171,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 103,
+          "t_submit": 596440.0307284,
+          "t_complete": 596453.8155842,
+          "construct_secs": 13.784855799982324,
+          "tx_id": 8965604958210782745,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 104,
+          "t_submit": 596440.0309788,
+          "t_complete": 596453.9391933,
+          "construct_secs": 13.908214499941096,
+          "tx_id": 8524273060768807298,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 105,
+          "t_submit": 596440.0311753,
+          "t_complete": 596454.0793383,
+          "construct_secs": 14.04816300002858,
+          "tx_id": 1834450018216217304,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 106,
+          "t_submit": 596440.0313487,
+          "t_complete": 596454.2017492,
+          "construct_secs": 14.1704004999483,
+          "tx_id": 14466998046254611462,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 107,
+          "t_submit": 596440.031567,
+          "t_complete": 596454.3257267,
+          "construct_secs": 14.294159700046293,
+          "tx_id": 10865005199867250268,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 108,
+          "t_submit": 596440.031786,
+          "t_complete": 596454.4496852,
+          "construct_secs": 14.417899199994281,
+          "tx_id": 7562130316802679256,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 109,
+          "t_submit": 596440.0319559,
+          "t_complete": 596454.5727561,
+          "construct_secs": 14.540800199960358,
+          "tx_id": 6284984692715482258,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 110,
+          "t_submit": 596440.0321361,
+          "t_complete": 596454.6956854,
+          "construct_secs": 14.663549300050363,
+          "tx_id": 1345869621946478165,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 111,
+          "t_submit": 596440.032332,
+          "t_complete": 596454.8178116,
+          "construct_secs": 14.785479600075632,
+          "tx_id": 2957272243055212017,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 112,
+          "t_submit": 596440.0325662,
+          "t_complete": 596454.9428225,
+          "construct_secs": 14.91025630000513,
+          "tx_id": 6306209495388463197,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 113,
+          "t_submit": 596440.0327924,
+          "t_complete": 596455.0670254,
+          "construct_secs": 15.034233000013046,
+          "tx_id": 11732520564091626975,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 114,
+          "t_submit": 596440.0330018,
+          "t_complete": 596455.1901574,
+          "construct_secs": 15.157155600027181,
+          "tx_id": 13329716341784046020,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 115,
+          "t_submit": 596440.0332049,
+          "t_complete": 596455.3599419,
+          "construct_secs": 15.326737000024877,
+          "tx_id": 9887341605070834721,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 116,
+          "t_submit": 596440.0335042,
+          "t_complete": 596455.4813749,
+          "construct_secs": 15.447870699921623,
+          "tx_id": 16689815681406244439,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 117,
+          "t_submit": 596440.0337382,
+          "t_complete": 596455.6216646,
+          "construct_secs": 15.587926400010474,
+          "tx_id": 11906783769367881928,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 118,
+          "t_submit": 596440.0339292,
+          "t_complete": 596455.7601806,
+          "construct_secs": 15.726251399959438,
+          "tx_id": 2662145630535543276,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 119,
+          "t_submit": 596440.0341108,
+          "t_complete": 596455.8867831,
+          "construct_secs": 15.852672299952246,
+          "tx_id": 18358303214831774304,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 120,
+          "t_submit": 596440.0342842,
+          "t_complete": 596456.0269415,
+          "construct_secs": 15.992657299968414,
+          "tx_id": 428685869567612981,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 121,
+          "t_submit": 596440.034471,
+          "t_complete": 596456.1639885,
+          "construct_secs": 16.129517500055954,
+          "tx_id": 8823754483812318198,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 122,
+          "t_submit": 596440.0347016,
+          "t_complete": 596456.2888222,
+          "construct_secs": 16.25412060006056,
+          "tx_id": 16367879670822006663,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 123,
+          "t_submit": 596440.0349198,
+          "t_complete": 596456.4121019,
+          "construct_secs": 16.377182099968195,
+          "tx_id": 13281776544963003452,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 124,
+          "t_submit": 596440.0350787,
+          "t_complete": 596456.5355142,
+          "construct_secs": 16.500435499940068,
+          "tx_id": 12765499532536774805,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 125,
+          "t_submit": 596440.0352285,
+          "t_complete": 596456.6594811,
+          "construct_secs": 16.62425260001328,
+          "tx_id": 448367348091916458,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 126,
+          "t_submit": 596440.0354337,
+          "t_complete": 596456.7676151,
+          "construct_secs": 16.732181400060654,
+          "tx_id": 10679298482188874448,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 127,
+          "t_submit": 596440.035613,
+          "t_complete": 596456.7676808,
+          "construct_secs": 16.732067800010554,
+          "tx_id": 9769466181412473671,
+          "outcome": "ok",
+          "error": null
+        }
+      ]
+    },
+    {
+      "N": 128,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 16.098911399953067,
+      "txs_constructed_ok": 128,
+      "txs_per_sec_observed": 7.950848154886619,
+      "max_serialisation_gap_secs": 0.2777374000288546,
+      "failure_breakdown": {},
+      "per_worker_results": [
+        {
+          "worker_idx": 3,
+          "t_submit": 596466.7789798,
+          "t_complete": 596466.9936277,
+          "construct_secs": 0.21464790008030832,
+          "tx_id": 11460153801355162114,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 596466.7785901,
+          "t_complete": 596467.1168625,
+          "construct_secs": 0.33827239996753633,
+          "tx_id": 11671067919408203464,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 2,
+          "t_submit": 596466.7787836,
+          "t_complete": 596467.2402556,
+          "construct_secs": 0.46147199999541044,
+          "tx_id": 13529430726570026143,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 596466.7783795,
+          "t_complete": 596467.3489341,
+          "construct_secs": 0.5705545999808237,
+          "tx_id": 618336307250193572,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 596466.7791924,
+          "t_complete": 596467.4719115,
+          "construct_secs": 0.6927190999267623,
+          "tx_id": 8737748814919125457,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 596466.7793643,
+          "t_complete": 596467.5958279,
+          "construct_secs": 0.8164636000292376,
+          "tx_id": 16832761820588503108,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 596466.7795646,
+          "t_complete": 596467.717887,
+          "construct_secs": 0.938322399975732,
+          "tx_id": 516934799251551284,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 596466.7797442,
+          "t_complete": 596467.8412082,
+          "construct_secs": 1.0614640000276268,
+          "tx_id": 12777837385065693888,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 596466.7799703,
+          "t_complete": 596467.9805345,
+          "construct_secs": 1.2005641999421641,
+          "tx_id": 5283522964223428955,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 596466.780161,
+          "t_complete": 596468.1039854,
+          "construct_secs": 1.3238244000822306,
+          "tx_id": 10133040582907284541,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 596466.780351,
+          "t_complete": 596468.2259109,
+          "construct_secs": 1.4455599000211805,
+          "tx_id": 8350508378001471973,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 596466.7805397,
+          "t_complete": 596468.3488057,
+          "construct_secs": 1.5682660000165924,
+          "tx_id": 2343221812942690100,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 596466.7807124,
+          "t_complete": 596468.4725294,
+          "construct_secs": 1.6918170000426471,
+          "tx_id": 15257197282873632393,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 596466.780939,
+          "t_complete": 596468.5963977,
+          "construct_secs": 1.8154587000608444,
+          "tx_id": 5506471735226033094,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 596466.7811325,
+          "t_complete": 596468.720662,
+          "construct_secs": 1.9395294999703765,
+          "tx_id": 10710771573263843686,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 596466.7813101,
+          "t_complete": 596468.8446854,
+          "construct_secs": 2.0633753000292927,
+          "tx_id": 15638553344682906716,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 596466.7814952,
+          "t_complete": 596468.9673866,
+          "construct_secs": 2.1858913999749348,
+          "tx_id": 17295323231781550489,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 596466.7820331,
+          "t_complete": 596469.0927464,
+          "construct_secs": 2.3107133000157773,
+          "tx_id": 17841092229270124126,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 596466.7822695,
+          "t_complete": 596469.2152011,
+          "construct_secs": 2.4329316000221297,
+          "tx_id": 14825152113800004567,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 596466.7824645,
+          "t_complete": 596469.340561,
+          "construct_secs": 2.558096499997191,
+          "tx_id": 4058339488335021498,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 596466.7826446,
+          "t_complete": 596469.464561,
+          "construct_secs": 2.6819163999753073,
+          "tx_id": 5371514816262160824,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 596466.7828556,
+          "t_complete": 596469.5877002,
+          "construct_secs": 2.8048446000320837,
+          "tx_id": 9110571296227987775,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 596466.7830297,
+          "t_complete": 596469.7094526,
+          "construct_secs": 2.9264228999381885,
+          "tx_id": 707805680129924984,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 596466.7831761,
+          "t_complete": 596469.833755,
+          "construct_secs": 3.050578900030814,
+          "tx_id": 1533421442255136998,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 596466.7833668,
+          "t_complete": 596469.954969,
+          "construct_secs": 3.1716021999018267,
+          "tx_id": 5478592228526787287,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 596466.7835552,
+          "t_complete": 596470.0799357,
+          "construct_secs": 3.2963805000763386,
+          "tx_id": 17694557900247984420,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 596466.7837746,
+          "t_complete": 596470.2051769,
+          "construct_secs": 3.421402300009504,
+          "tx_id": 6217153093690659701,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 596466.7839668,
+          "t_complete": 596470.3288323,
+          "construct_secs": 3.544865500065498,
+          "tx_id": 13859852916503090654,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 596466.7842182,
+          "t_complete": 596470.4535362,
+          "construct_secs": 3.669317999971099,
+          "tx_id": 16580569294989673378,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 596466.7843932,
+          "t_complete": 596470.5777738,
+          "construct_secs": 3.793380600051023,
+          "tx_id": 10651272765765876936,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 596466.7845822,
+          "t_complete": 596470.7034696,
+          "construct_secs": 3.9188873999519274,
+          "tx_id": 13098384803165983191,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 596466.7847549,
+          "t_complete": 596470.8258574,
+          "construct_secs": 4.041102499933913,
+          "tx_id": 5729627596667213244,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 32,
+          "t_submit": 596466.7849231,
+          "t_complete": 596470.9511108,
+          "construct_secs": 4.166187700000592,
+          "tx_id": 7116382388194439375,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 33,
+          "t_submit": 596466.7851237,
+          "t_complete": 596471.0741643,
+          "construct_secs": 4.289040599949658,
+          "tx_id": 9276631158794984828,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 34,
+          "t_submit": 596466.7852884,
+          "t_complete": 596471.1969643,
+          "construct_secs": 4.41167589998804,
+          "tx_id": 18004712574371485349,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 35,
+          "t_submit": 596466.7854739,
+          "t_complete": 596471.322039,
+          "construct_secs": 4.536565099959262,
+          "tx_id": 5187303773580184462,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 36,
+          "t_submit": 596466.7856366,
+          "t_complete": 596471.4466014,
+          "construct_secs": 4.660964800044894,
+          "tx_id": 8736206167072459637,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 37,
+          "t_submit": 596466.7857952,
+          "t_complete": 596471.5706924,
+          "construct_secs": 4.784897199948318,
+          "tx_id": 7758025430246665393,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 38,
+          "t_submit": 596466.7859343,
+          "t_complete": 596471.6950837,
+          "construct_secs": 4.909149399958551,
+          "tx_id": 12655008797725070579,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 39,
+          "t_submit": 596466.7860696,
+          "t_complete": 596471.8189291,
+          "construct_secs": 5.032859499915503,
+          "tx_id": 11983235231614379245,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 40,
+          "t_submit": 596466.7862787,
+          "t_complete": 596471.9414379,
+          "construct_secs": 5.1551591999595985,
+          "tx_id": 8007979731549612014,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 41,
+          "t_submit": 596466.7864424,
+          "t_complete": 596472.0645213,
+          "construct_secs": 5.278078900068067,
+          "tx_id": 6492803607774243287,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 42,
+          "t_submit": 596466.786575,
+          "t_complete": 596472.2537373,
+          "construct_secs": 5.467162300017662,
+          "tx_id": 17737605704842451484,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 43,
+          "t_submit": 596466.7867206,
+          "t_complete": 596472.3896427,
+          "construct_secs": 5.6029220999917015,
+          "tx_id": 3942308990871407148,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 44,
+          "t_submit": 596466.78688,
+          "t_complete": 596472.5139901,
+          "construct_secs": 5.727110099978745,
+          "tx_id": 15837319815094383142,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 45,
+          "t_submit": 596466.7870763,
+          "t_complete": 596472.6354781,
+          "construct_secs": 5.848401800030842,
+          "tx_id": 17269545742826465881,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 46,
+          "t_submit": 596466.7872594,
+          "t_complete": 596472.7596694,
+          "construct_secs": 5.972410000045784,
+          "tx_id": 17396060823804595016,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 47,
+          "t_submit": 596466.7874176,
+          "t_complete": 596472.8817903,
+          "construct_secs": 6.094372699968517,
+          "tx_id": 14655679036390124736,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 48,
+          "t_submit": 596466.7876042,
+          "t_complete": 596473.0040121,
+          "construct_secs": 6.216407900094055,
+          "tx_id": 3684273227811574266,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 49,
+          "t_submit": 596466.78778,
+          "t_complete": 596473.1271813,
+          "construct_secs": 6.339401299948804,
+          "tx_id": 8536294184497898116,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 50,
+          "t_submit": 596466.7879478,
+          "t_complete": 596473.2655345,
+          "construct_secs": 6.4775866999989375,
+          "tx_id": 14040454907972531467,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 51,
+          "t_submit": 596466.7881663,
+          "t_complete": 596473.4055175,
+          "construct_secs": 6.617351199965924,
+          "tx_id": 8368783950440754831,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 52,
+          "t_submit": 596466.7883612,
+          "t_complete": 596473.5426925,
+          "construct_secs": 6.754331300035119,
+          "tx_id": 1295864276974514406,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 53,
+          "t_submit": 596466.7885778,
+          "t_complete": 596473.6658307,
+          "construct_secs": 6.8772528999252245,
+          "tx_id": 5822179576114292241,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 54,
+          "t_submit": 596466.7887873,
+          "t_complete": 596473.7888203,
+          "construct_secs": 7.000033000018448,
+          "tx_id": 110852835941389626,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 55,
+          "t_submit": 596466.7889772,
+          "t_complete": 596473.9133332,
+          "construct_secs": 7.12435599998571,
+          "tx_id": 18193218653168399891,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 56,
+          "t_submit": 596466.7891824,
+          "t_complete": 596474.0225915,
+          "construct_secs": 7.233409099979326,
+          "tx_id": 14099935117209127222,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 57,
+          "t_submit": 596466.7894037,
+          "t_complete": 596474.1480007,
+          "construct_secs": 7.358597000013106,
+          "tx_id": 15815394776360817338,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 58,
+          "t_submit": 596466.7895953,
+          "t_complete": 596474.2570548,
+          "construct_secs": 7.467459500068799,
+          "tx_id": 16852091385027589516,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 59,
+          "t_submit": 596466.7897965,
+          "t_complete": 596474.3796164,
+          "construct_secs": 7.589819899993017,
+          "tx_id": 11776857510554391384,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 60,
+          "t_submit": 596466.7899817,
+          "t_complete": 596474.5045915,
+          "construct_secs": 7.714609800023027,
+          "tx_id": 14399880415722422224,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 61,
+          "t_submit": 596466.7901649,
+          "t_complete": 596474.6267949,
+          "construct_secs": 7.836630000034347,
+          "tx_id": 16976801146589177326,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 62,
+          "t_submit": 596466.7904096,
+          "t_complete": 596474.7503136,
+          "construct_secs": 7.959903999930248,
+          "tx_id": 3966282469366151275,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 63,
+          "t_submit": 596466.7906379,
+          "t_complete": 596474.8734979,
+          "construct_secs": 8.082859999965876,
+          "tx_id": 9612050329047112131,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 64,
+          "t_submit": 596466.7908273,
+          "t_complete": 596474.9951417,
+          "construct_secs": 8.204314399976283,
+          "tx_id": 16404226566418894538,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 65,
+          "t_submit": 596466.7910012,
+          "t_complete": 596475.1200456,
+          "construct_secs": 8.329044400015846,
+          "tx_id": 10135066630386349665,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 66,
+          "t_submit": 596466.7911863,
+          "t_complete": 596475.243164,
+          "construct_secs": 8.451977699995041,
+          "tx_id": 16336084529445543127,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 67,
+          "t_submit": 596466.7913575,
+          "t_complete": 596475.3664,
+          "construct_secs": 8.57504250004422,
+          "tx_id": 16256162513578621421,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 68,
+          "t_submit": 596466.7915192,
+          "t_complete": 596475.4906532,
+          "construct_secs": 8.699133999994956,
+          "tx_id": 4129688920245403998,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 69,
+          "t_submit": 596466.7916718,
+          "t_complete": 596475.614559,
+          "construct_secs": 8.822887200047262,
+          "tx_id": 9741106584877348408,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 70,
+          "t_submit": 596466.7918595,
+          "t_complete": 596475.7391076,
+          "construct_secs": 8.947248099953867,
+          "tx_id": 7076612327591833935,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 71,
+          "t_submit": 596466.7919921,
+          "t_complete": 596475.8630946,
+          "construct_secs": 9.071102500078268,
+          "tx_id": 13081090026418259126,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 72,
+          "t_submit": 596466.7921337,
+          "t_complete": 596475.9871821,
+          "construct_secs": 9.195048399968073,
+          "tx_id": 9132810948241643195,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 73,
+          "t_submit": 596466.7923127,
+          "t_complete": 596476.0954619,
+          "construct_secs": 9.303149200044572,
+          "tx_id": 11805353596949519270,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 74,
+          "t_submit": 596466.7924659,
+          "t_complete": 596476.217534,
+          "construct_secs": 9.425068100099452,
+          "tx_id": 1660209237830661997,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 75,
+          "t_submit": 596466.7926703,
+          "t_complete": 596476.3402176,
+          "construct_secs": 9.54754729999695,
+          "tx_id": 14879344634778103598,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 76,
+          "t_submit": 596466.792853,
+          "t_complete": 596476.4642664,
+          "construct_secs": 9.67141339997761,
+          "tx_id": 14295552481217974524,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 77,
+          "t_submit": 596466.7930016,
+          "t_complete": 596476.5874298,
+          "construct_secs": 9.79442819999531,
+          "tx_id": 2301575522957843413,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 78,
+          "t_submit": 596466.7931427,
+          "t_complete": 596476.7123027,
+          "construct_secs": 9.919160000048578,
+          "tx_id": 12908820917625926786,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 79,
+          "t_submit": 596466.7932937,
+          "t_complete": 596476.8200491,
+          "construct_secs": 10.026755400002003,
+          "tx_id": 10763264021313293350,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 80,
+          "t_submit": 596466.7934395,
+          "t_complete": 596476.9419964,
+          "construct_secs": 10.148556899977848,
+          "tx_id": 14029479441966280178,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 81,
+          "t_submit": 596466.7935918,
+          "t_complete": 596477.0506721,
+          "construct_secs": 10.257080300012603,
+          "tx_id": 15967709180083638407,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 82,
+          "t_submit": 596466.7937234,
+          "t_complete": 596477.1766953,
+          "construct_secs": 10.382971900049597,
+          "tx_id": 16385360320023089760,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 83,
+          "t_submit": 596466.7938552,
+          "t_complete": 596477.299553,
+          "construct_secs": 10.505697799962945,
+          "tx_id": 2531172962345902671,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 84,
+          "t_submit": 596466.7940188,
+          "t_complete": 596477.4246394,
+          "construct_secs": 10.630620599957183,
+          "tx_id": 9359543433515855637,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 85,
+          "t_submit": 596466.7941558,
+          "t_complete": 596477.5485568,
+          "construct_secs": 10.754400999983773,
+          "tx_id": 9501544368451437099,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 86,
+          "t_submit": 596466.7943292,
+          "t_complete": 596477.6690689,
+          "construct_secs": 10.874739699997008,
+          "tx_id": 6961060188030008532,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 87,
+          "t_submit": 596466.7945201,
+          "t_complete": 596477.7770007,
+          "construct_secs": 10.982480600010604,
+          "tx_id": 16865787553675832218,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 88,
+          "t_submit": 596466.794746,
+          "t_complete": 596478.0547381,
+          "construct_secs": 11.259992100065574,
+          "tx_id": 5164492352911772601,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 89,
+          "t_submit": 596466.7949196,
+          "t_complete": 596478.1789499,
+          "construct_secs": 11.384030299959704,
+          "tx_id": 4397078474235030842,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 90,
+          "t_submit": 596466.7951027,
+          "t_complete": 596478.3010289,
+          "construct_secs": 11.505926199955866,
+          "tx_id": 9360999163965003922,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 91,
+          "t_submit": 596466.7953067,
+          "t_complete": 596478.4250752,
+          "construct_secs": 11.629768499988131,
+          "tx_id": 11363255059229046204,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 92,
+          "t_submit": 596466.7955417,
+          "t_complete": 596478.5484712,
+          "construct_secs": 11.752929500071332,
+          "tx_id": 17045580325545717261,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 93,
+          "t_submit": 596466.7957896,
+          "t_complete": 596478.6731273,
+          "construct_secs": 11.877337699988857,
+          "tx_id": 8407363041661897645,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 94,
+          "t_submit": 596466.7960106,
+          "t_complete": 596478.7970378,
+          "construct_secs": 12.001027199905366,
+          "tx_id": 3653680339518764735,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 95,
+          "t_submit": 596466.7963138,
+          "t_complete": 596478.9211797,
+          "construct_secs": 12.124865899910219,
+          "tx_id": 4244261106757185742,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 96,
+          "t_submit": 596466.7965397,
+          "t_complete": 596479.0446609,
+          "construct_secs": 12.248121200012974,
+          "tx_id": 17298274746625957961,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 97,
+          "t_submit": 596466.7967944,
+          "t_complete": 596479.1706508,
+          "construct_secs": 12.373856400023215,
+          "tx_id": 17485634671333181472,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 98,
+          "t_submit": 596466.7969964,
+          "t_complete": 596479.2947417,
+          "construct_secs": 12.49774530006107,
+          "tx_id": 1450243419018528291,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 99,
+          "t_submit": 596466.7972411,
+          "t_complete": 596479.417928,
+          "construct_secs": 12.62068689998705,
+          "tx_id": 5049626260764758768,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 100,
+          "t_submit": 596466.7974919,
+          "t_complete": 596479.5551979,
+          "construct_secs": 12.757706000003964,
+          "tx_id": 1121630943725348592,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 101,
+          "t_submit": 596466.7977012,
+          "t_complete": 596479.6825519,
+          "construct_secs": 12.884850700036623,
+          "tx_id": 12411908567351304643,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 102,
+          "t_submit": 596466.7979158,
+          "t_complete": 596479.8052527,
+          "construct_secs": 13.007336899987422,
+          "tx_id": 8576445111544970969,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 103,
+          "t_submit": 596466.798113,
+          "t_complete": 596480.0695306,
+          "construct_secs": 13.271417599986307,
+          "tx_id": 11489373380809943532,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 104,
+          "t_submit": 596466.7982837,
+          "t_complete": 596480.191696,
+          "construct_secs": 13.393412300036289,
+          "tx_id": 17722244244809366875,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 105,
+          "t_submit": 596466.7984251,
+          "t_complete": 596480.3138518,
+          "construct_secs": 13.515426700003445,
+          "tx_id": 16911422785461838852,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 106,
+          "t_submit": 596466.7986308,
+          "t_complete": 596480.4362596,
+          "construct_secs": 13.637628800002858,
+          "tx_id": 2578529965449773197,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 107,
+          "t_submit": 596466.7987764,
+          "t_complete": 596480.5589804,
+          "construct_secs": 13.760203999932855,
+          "tx_id": 9473675417947164748,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 108,
+          "t_submit": 596466.7989278,
+          "t_complete": 596480.6832257,
+          "construct_secs": 13.884297900018282,
+          "tx_id": 13312128969111379465,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 109,
+          "t_submit": 596466.7990839,
+          "t_complete": 596480.8077364,
+          "construct_secs": 14.008652499993332,
+          "tx_id": 17897165257579359194,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 110,
+          "t_submit": 596466.7992472,
+          "t_complete": 596480.932666,
+          "construct_secs": 14.133418799960054,
+          "tx_id": 13450393103408307358,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 111,
+          "t_submit": 596466.7994446,
+          "t_complete": 596481.0555468,
+          "construct_secs": 14.256102200015448,
+          "tx_id": 6306134185465618495,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 112,
+          "t_submit": 596466.7996726,
+          "t_complete": 596481.1792204,
+          "construct_secs": 14.379547800053842,
+          "tx_id": 7954497291402500276,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 113,
+          "t_submit": 596466.7998618,
+          "t_complete": 596481.3018618,
+          "construct_secs": 14.50199999997858,
+          "tx_id": 5510249980549557381,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 114,
+          "t_submit": 596466.800021,
+          "t_complete": 596481.4247176,
+          "construct_secs": 14.62469660001807,
+          "tx_id": 2334618885962905762,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 115,
+          "t_submit": 596466.8002205,
+          "t_complete": 596481.5483231,
+          "construct_secs": 14.74810259998776,
+          "tx_id": 6412290666540127215,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 116,
+          "t_submit": 596466.8004466,
+          "t_complete": 596481.6710654,
+          "construct_secs": 14.870618800050579,
+          "tx_id": 3411951059236352378,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 117,
+          "t_submit": 596466.8006667,
+          "t_complete": 596481.7940767,
+          "construct_secs": 14.993409999995492,
+          "tx_id": 12668134980924642015,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 118,
+          "t_submit": 596466.8008518,
+          "t_complete": 596481.916722,
+          "construct_secs": 15.115870199981146,
+          "tx_id": 6097485791695166163,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 119,
+          "t_submit": 596466.801005,
+          "t_complete": 596482.0402694,
+          "construct_secs": 15.239264399977401,
+          "tx_id": 12585472455315135929,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 120,
+          "t_submit": 596466.8011524,
+          "t_complete": 596482.1637991,
+          "construct_secs": 15.362646699999459,
+          "tx_id": 1967788824884603078,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 121,
+          "t_submit": 596466.8012854,
+          "t_complete": 596482.2870039,
+          "construct_secs": 15.485718499985524,
+          "tx_id": 16498395920300923822,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 122,
+          "t_submit": 596466.8014448,
+          "t_complete": 596482.4103512,
+          "construct_secs": 15.608906400040723,
+          "tx_id": 2222452973791571491,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 124,
+          "t_submit": 596466.8017779,
+          "t_complete": 596482.5111933,
+          "construct_secs": 15.709415400051512,
+          "tx_id": 1850454826450765766,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 123,
+          "t_submit": 596466.8016149,
+          "t_complete": 596482.51131,
+          "construct_secs": 15.709695099969395,
+          "tx_id": 6994739233871563259,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 125,
+          "t_submit": 596466.8019235,
+          "t_complete": 596482.7499539,
+          "construct_secs": 15.948030399973504,
+          "tx_id": 8776955708953909695,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 127,
+          "t_submit": 596466.8022515,
+          "t_complete": 596482.8739665,
+          "construct_secs": 16.071715000085533,
+          "tx_id": 10617294972060933914,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 126,
+          "t_submit": 596466.8020904,
+          "t_complete": 596482.8740268,
+          "construct_secs": 16.07193640002515,
+          "tx_id": 2523790315950720009,
+          "outcome": "ok",
+          "error": null
+        }
+      ]
+    },
+    {
+      "N": 128,
+      "amount_per_output_ut": 1000000,
+      "wall_secs": 16.534742400050163,
+      "txs_constructed_ok": 128,
+      "txs_per_sec_observed": 7.74127572738065,
+      "max_serialisation_gap_secs": 0.19850339996628463,
+      "failure_breakdown": {},
+      "per_worker_results": [
+        {
+          "worker_idx": 2,
+          "t_submit": 596492.8838416,
+          "t_complete": 596493.0959119,
+          "construct_secs": 0.21207030001096427,
+          "tx_id": 15002955888807412201,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 1,
+          "t_submit": 596492.8837224,
+          "t_complete": 596493.2214161,
+          "construct_secs": 0.33769370010122657,
+          "tx_id": 17517790990930387024,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 3,
+          "t_submit": 596492.8839645,
+          "t_complete": 596493.3448526,
+          "construct_secs": 0.46088809997309,
+          "tx_id": 4724486238295125523,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 0,
+          "t_submit": 596492.8835124,
+          "t_complete": 596493.4700705,
+          "construct_secs": 0.5865581000689417,
+          "tx_id": 14148316891750218057,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 4,
+          "t_submit": 596492.884207,
+          "t_complete": 596493.5927021,
+          "construct_secs": 0.7084951000288129,
+          "tx_id": 12077498231601926009,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 5,
+          "t_submit": 596492.8844361,
+          "t_complete": 596493.7193776,
+          "construct_secs": 0.8349414999829605,
+          "tx_id": 128246055057304293,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 6,
+          "t_submit": 596492.8846666,
+          "t_complete": 596493.8447009,
+          "construct_secs": 0.9600342999910936,
+          "tx_id": 14810428725869287472,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 7,
+          "t_submit": 596492.8848463,
+          "t_complete": 596493.9691817,
+          "construct_secs": 1.084335400024429,
+          "tx_id": 17853722282763583163,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 8,
+          "t_submit": 596492.8850404,
+          "t_complete": 596494.0944448,
+          "construct_secs": 1.2094044000841677,
+          "tx_id": 14614767027498989689,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 9,
+          "t_submit": 596492.8852218,
+          "t_complete": 596494.2200984,
+          "construct_secs": 1.3348766000708565,
+          "tx_id": 13303846192808578965,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 10,
+          "t_submit": 596492.8854377,
+          "t_complete": 596494.3454074,
+          "construct_secs": 1.459969700081274,
+          "tx_id": 7785093421510806725,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 11,
+          "t_submit": 596492.8856995,
+          "t_complete": 596494.4694881,
+          "construct_secs": 1.5837886000517756,
+          "tx_id": 12808078442621027739,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 12,
+          "t_submit": 596492.8858973,
+          "t_complete": 596494.5922172,
+          "construct_secs": 1.7063198999967426,
+          "tx_id": 17768867842521680923,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 13,
+          "t_submit": 596492.886127,
+          "t_complete": 596494.716351,
+          "construct_secs": 1.8302240000339225,
+          "tx_id": 6967376954232876936,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 14,
+          "t_submit": 596492.8863339,
+          "t_complete": 596494.8395566,
+          "construct_secs": 1.9532226999290287,
+          "tx_id": 5244783770833878209,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 15,
+          "t_submit": 596492.8865376,
+          "t_complete": 596494.9807093,
+          "construct_secs": 2.094171700067818,
+          "tx_id": 8838740452315427516,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 16,
+          "t_submit": 596492.886735,
+          "t_complete": 596495.1472678,
+          "construct_secs": 2.2605328001081944,
+          "tx_id": 3086798910192065726,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 17,
+          "t_submit": 596492.8869709,
+          "t_complete": 596495.2865623,
+          "construct_secs": 2.3995914000552148,
+          "tx_id": 2311525412954513612,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 18,
+          "t_submit": 596492.8871045,
+          "t_complete": 596495.4254252,
+          "construct_secs": 2.5383207000559196,
+          "tx_id": 470727689172405875,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 19,
+          "t_submit": 596492.887272,
+          "t_complete": 596495.5502953,
+          "construct_secs": 2.6630233000032604,
+          "tx_id": 4387693410517683781,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 20,
+          "t_submit": 596492.8874136,
+          "t_complete": 596495.6893599,
+          "construct_secs": 2.8019462999654934,
+          "tx_id": 17968231605974296741,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 21,
+          "t_submit": 596492.8875574,
+          "t_complete": 596495.8118585,
+          "construct_secs": 2.924301099963486,
+          "tx_id": 10165306323289524523,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 23,
+          "t_submit": 596492.8878769,
+          "t_complete": 596495.9512177,
+          "construct_secs": 3.0633407999994233,
+          "tx_id": 11954243716406950614,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 22,
+          "t_submit": 596492.887729,
+          "t_complete": 596496.08907,
+          "construct_secs": 3.2013410000363365,
+          "tx_id": 8307184167230703406,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 24,
+          "t_submit": 596492.888041,
+          "t_complete": 596496.2288129,
+          "construct_secs": 3.340771900024265,
+          "tx_id": 16149910415069635340,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 25,
+          "t_submit": 596492.8882009,
+          "t_complete": 596496.3540769,
+          "construct_secs": 3.4658760000020266,
+          "tx_id": 4750773643718409332,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 26,
+          "t_submit": 596492.8883567,
+          "t_complete": 596496.478063,
+          "construct_secs": 3.5897063000593334,
+          "tx_id": 11957640652445018136,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 27,
+          "t_submit": 596492.8885175,
+          "t_complete": 596496.6172597,
+          "construct_secs": 3.72874219994992,
+          "tx_id": 17442227809724997472,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 28,
+          "t_submit": 596492.8887198,
+          "t_complete": 596496.7538242,
+          "construct_secs": 3.8651043999707326,
+          "tx_id": 2127528240854811651,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 29,
+          "t_submit": 596492.8888706,
+          "t_complete": 596496.8760641,
+          "construct_secs": 3.987193499924615,
+          "tx_id": 14703583657146016898,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 30,
+          "t_submit": 596492.8890337,
+          "t_complete": 596497.0164467,
+          "construct_secs": 4.127412999980152,
+          "tx_id": 7534699339333585211,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 31,
+          "t_submit": 596492.8892312,
+          "t_complete": 596497.1418521,
+          "construct_secs": 4.252620900049806,
+          "tx_id": 2272768075334822040,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 32,
+          "t_submit": 596492.8894112,
+          "t_complete": 596497.2826647,
+          "construct_secs": 4.3932534999912605,
+          "tx_id": 10653387095092219102,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 33,
+          "t_submit": 596492.8895887,
+          "t_complete": 596497.4068333,
+          "construct_secs": 4.517244599992409,
+          "tx_id": 2468478714900253537,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 34,
+          "t_submit": 596492.8897446,
+          "t_complete": 596497.5474019,
+          "construct_secs": 4.657657300005667,
+          "tx_id": 8552970864838743430,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 35,
+          "t_submit": 596492.8898938,
+          "t_complete": 596497.6714655,
+          "construct_secs": 4.781571700004861,
+          "tx_id": 899119493721498377,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 36,
+          "t_submit": 596492.8900516,
+          "t_complete": 596497.8075902,
+          "construct_secs": 4.917538599926047,
+          "tx_id": 15930576434634687607,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 37,
+          "t_submit": 596492.8902254,
+          "t_complete": 596497.950259,
+          "construct_secs": 5.06003359996248,
+          "tx_id": 15829572626348845575,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 38,
+          "t_submit": 596492.8903794,
+          "t_complete": 596498.0901605,
+          "construct_secs": 5.199781100032851,
+          "tx_id": 7180107787393241435,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 39,
+          "t_submit": 596492.890518,
+          "t_complete": 596498.215095,
+          "construct_secs": 5.324576999992132,
+          "tx_id": 14682088609037201082,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 40,
+          "t_submit": 596492.8907088,
+          "t_complete": 596498.3549483,
+          "construct_secs": 5.464239499997348,
+          "tx_id": 3764877998606132025,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 41,
+          "t_submit": 596492.8908665,
+          "t_complete": 596498.4957673,
+          "construct_secs": 5.604900800040923,
+          "tx_id": 16698845841407706023,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 42,
+          "t_submit": 596492.8909989,
+          "t_complete": 596498.6341828,
+          "construct_secs": 5.74318389990367,
+          "tx_id": 3254011291413344256,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 43,
+          "t_submit": 596492.8911617,
+          "t_complete": 596498.7731319,
+          "construct_secs": 5.881970199989155,
+          "tx_id": 5276341675414309993,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 44,
+          "t_submit": 596492.8913239,
+          "t_complete": 596498.9131741,
+          "construct_secs": 6.021850200020708,
+          "tx_id": 2235323958115055573,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 45,
+          "t_submit": 596492.8914938,
+          "t_complete": 596499.1116775,
+          "construct_secs": 6.220183699973859,
+          "tx_id": 7963994423180608358,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 46,
+          "t_submit": 596492.8916282,
+          "t_complete": 596499.2323392,
+          "construct_secs": 6.340711000026204,
+          "tx_id": 5322126195591119582,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 47,
+          "t_submit": 596492.8917782,
+          "t_complete": 596499.3685341,
+          "construct_secs": 6.476755899959244,
+          "tx_id": 12611077479887689277,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 48,
+          "t_submit": 596492.891925,
+          "t_complete": 596499.4927213,
+          "construct_secs": 6.600796299986541,
+          "tx_id": 14160641978009886503,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 49,
+          "t_submit": 596492.8920644,
+          "t_complete": 596499.6302543,
+          "construct_secs": 6.7381898999447,
+          "tx_id": 16052797170116935634,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 50,
+          "t_submit": 596492.8922209,
+          "t_complete": 596499.7526427,
+          "construct_secs": 6.8604217999381945,
+          "tx_id": 6756122711086222364,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 51,
+          "t_submit": 596492.8924189,
+          "t_complete": 596499.8731969,
+          "construct_secs": 6.980777999968268,
+          "tx_id": 1457381050916018830,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 52,
+          "t_submit": 596492.8925859,
+          "t_complete": 596499.9963755,
+          "construct_secs": 7.103789599961601,
+          "tx_id": 11818628483028482015,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 53,
+          "t_submit": 596492.8927652,
+          "t_complete": 596500.1184947,
+          "construct_secs": 7.225729499943554,
+          "tx_id": 3100050772093644145,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 54,
+          "t_submit": 596492.892924,
+          "t_complete": 596500.2583081,
+          "construct_secs": 7.365384100005031,
+          "tx_id": 8688258164477812961,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 55,
+          "t_submit": 596492.8930843,
+          "t_complete": 596500.382887,
+          "construct_secs": 7.489802700001746,
+          "tx_id": 5644609037549217914,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 56,
+          "t_submit": 596492.8932852,
+          "t_complete": 596500.5050366,
+          "construct_secs": 7.611751400050707,
+          "tx_id": 15120133747959614655,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 57,
+          "t_submit": 596492.8935215,
+          "t_complete": 596500.6293569,
+          "construct_secs": 7.735835399944335,
+          "tx_id": 15166767011031554506,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 58,
+          "t_submit": 596492.8937123,
+          "t_complete": 596500.752867,
+          "construct_secs": 7.859154699952342,
+          "tx_id": 10767190394054879642,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 59,
+          "t_submit": 596492.8939247,
+          "t_complete": 596500.8938738,
+          "construct_secs": 7.999949100078084,
+          "tx_id": 13445489565369178761,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 60,
+          "t_submit": 596492.8941101,
+          "t_complete": 596501.0178551,
+          "construct_secs": 8.123744999989867,
+          "tx_id": 12542189953677092763,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 61,
+          "t_submit": 596492.8942922,
+          "t_complete": 596501.1431146,
+          "construct_secs": 8.248822399997152,
+          "tx_id": 13089924674594614981,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 62,
+          "t_submit": 596492.8945141,
+          "t_complete": 596501.2670135,
+          "construct_secs": 8.372499399934895,
+          "tx_id": 5920889127394056582,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 63,
+          "t_submit": 596492.8946932,
+          "t_complete": 596501.3903927,
+          "construct_secs": 8.495699499966577,
+          "tx_id": 10394331056381179412,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 64,
+          "t_submit": 596492.894862,
+          "t_complete": 596501.5120701,
+          "construct_secs": 8.617208100040443,
+          "tx_id": 14288977993181276662,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 65,
+          "t_submit": 596492.8950334,
+          "t_complete": 596501.636961,
+          "construct_secs": 8.741927600000054,
+          "tx_id": 3392328382543299021,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 66,
+          "t_submit": 596492.89523,
+          "t_complete": 596501.7613205,
+          "construct_secs": 8.866090500028804,
+          "tx_id": 11331100499992499965,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 67,
+          "t_submit": 596492.8954038,
+          "t_complete": 596501.8868299,
+          "construct_secs": 8.99142610002309,
+          "tx_id": 12313259423020972846,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 68,
+          "t_submit": 596492.8955898,
+          "t_complete": 596502.0081936,
+          "construct_secs": 9.112603800022043,
+          "tx_id": 16986381704695529874,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 69,
+          "t_submit": 596492.8957921,
+          "t_complete": 596502.1324351,
+          "construct_secs": 9.236643000040203,
+          "tx_id": 8675087068132067325,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 70,
+          "t_submit": 596492.8959934,
+          "t_complete": 596502.2548385,
+          "construct_secs": 9.358845100039616,
+          "tx_id": 6249019479028596727,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 71,
+          "t_submit": 596492.8962019,
+          "t_complete": 596502.377529,
+          "construct_secs": 9.48132710007485,
+          "tx_id": 10507979017991840168,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 72,
+          "t_submit": 596492.8963783,
+          "t_complete": 596502.5007796,
+          "construct_secs": 9.604401299962774,
+          "tx_id": 9684538731313869520,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 73,
+          "t_submit": 596492.8966507,
+          "t_complete": 596502.6258598,
+          "construct_secs": 9.729209100012667,
+          "tx_id": 528182253704857907,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 74,
+          "t_submit": 596492.896842,
+          "t_complete": 596502.7508753,
+          "construct_secs": 9.854033300071023,
+          "tx_id": 17829447799574241252,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 75,
+          "t_submit": 596492.8970197,
+          "t_complete": 596502.8734879,
+          "construct_secs": 9.976468199980445,
+          "tx_id": 10959264586660875189,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 76,
+          "t_submit": 596492.8972214,
+          "t_complete": 596502.9988829,
+          "construct_secs": 10.101661499938928,
+          "tx_id": 8941309434593671783,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 77,
+          "t_submit": 596492.8974128,
+          "t_complete": 596503.1241688,
+          "construct_secs": 10.226755999960005,
+          "tx_id": 14811774567222474550,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 78,
+          "t_submit": 596492.8976097,
+          "t_complete": 596503.2475271,
+          "construct_secs": 10.349917400046252,
+          "tx_id": 5213615130229754911,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 79,
+          "t_submit": 596492.8977606,
+          "t_complete": 596503.3717525,
+          "construct_secs": 10.473991899983957,
+          "tx_id": 6439877546658854197,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 80,
+          "t_submit": 596492.8979456,
+          "t_complete": 596503.4956974,
+          "construct_secs": 10.597751799970865,
+          "tx_id": 3365260960147333277,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 81,
+          "t_submit": 596492.8981218,
+          "t_complete": 596503.6207068,
+          "construct_secs": 10.722584999981336,
+          "tx_id": 15059273730500831854,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 82,
+          "t_submit": 596492.8983011,
+          "t_complete": 596503.7437904,
+          "construct_secs": 10.845489299972542,
+          "tx_id": 10634015212473132527,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 83,
+          "t_submit": 596492.8984659,
+          "t_complete": 596503.8842649,
+          "construct_secs": 10.985799000016414,
+          "tx_id": 7483039715738297527,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 84,
+          "t_submit": 596492.8986872,
+          "t_complete": 596504.0077029,
+          "construct_secs": 11.109015699941665,
+          "tx_id": 13612460091612291062,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 85,
+          "t_submit": 596492.8988531,
+          "t_complete": 596504.1788052,
+          "construct_secs": 11.279952100012451,
+          "tx_id": 7469358578758903331,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 86,
+          "t_submit": 596492.8990235,
+          "t_complete": 596504.2772404,
+          "construct_secs": 11.37821689993143,
+          "tx_id": 16981175440320787712,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 87,
+          "t_submit": 596492.899216,
+          "t_complete": 596504.423606,
+          "construct_secs": 11.524390000035055,
+          "tx_id": 5093616791772537807,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 88,
+          "t_submit": 596492.8994743,
+          "t_complete": 596504.5467488,
+          "construct_secs": 11.647274499991909,
+          "tx_id": 13554305011962653398,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 89,
+          "t_submit": 596492.8996606,
+          "t_complete": 596504.6692634,
+          "construct_secs": 11.769602800020948,
+          "tx_id": 404634629920606121,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 90,
+          "t_submit": 596492.8998342,
+          "t_complete": 596504.7929884,
+          "construct_secs": 11.893154199933633,
+          "tx_id": 8883749166262755430,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 91,
+          "t_submit": 596492.9000421,
+          "t_complete": 596504.9174577,
+          "construct_secs": 12.01741560001392,
+          "tx_id": 10690713561792511271,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 92,
+          "t_submit": 596492.9002697,
+          "t_complete": 596505.0564832,
+          "construct_secs": 12.156213500071317,
+          "tx_id": 2674185684149260500,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 93,
+          "t_submit": 596492.9004667,
+          "t_complete": 596505.1669355,
+          "construct_secs": 12.266468800022267,
+          "tx_id": 4822395528189390267,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 94,
+          "t_submit": 596492.9006569,
+          "t_complete": 596505.3054662,
+          "construct_secs": 12.40480929997284,
+          "tx_id": 10186940089283217571,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 95,
+          "t_submit": 596492.9009018,
+          "t_complete": 596505.4317747,
+          "construct_secs": 12.530872899922542,
+          "tx_id": 6491371625667250241,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 96,
+          "t_submit": 596492.9010913,
+          "t_complete": 596505.5549545,
+          "construct_secs": 12.653863200102933,
+          "tx_id": 10018428653004521920,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 97,
+          "t_submit": 596492.9012588,
+          "t_complete": 596505.6930128,
+          "construct_secs": 12.791754000005312,
+          "tx_id": 5955510141656944493,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 98,
+          "t_submit": 596492.9014404,
+          "t_complete": 596505.8176502,
+          "construct_secs": 12.916209799936041,
+          "tx_id": 7407037199934880512,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 99,
+          "t_submit": 596492.9016481,
+          "t_complete": 596505.9569228,
+          "construct_secs": 13.055274700047448,
+          "tx_id": 12987097249924455637,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 100,
+          "t_submit": 596492.9018423,
+          "t_complete": 596506.0968093,
+          "construct_secs": 13.194967000046745,
+          "tx_id": 2562944355856805637,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 101,
+          "t_submit": 596492.9020387,
+          "t_complete": 596506.2191637,
+          "construct_secs": 13.317125000059605,
+          "tx_id": 6405263206632206209,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 102,
+          "t_submit": 596492.9022153,
+          "t_complete": 596506.3601541,
+          "construct_secs": 13.457938799983822,
+          "tx_id": 5408276247590053930,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 103,
+          "t_submit": 596492.9023792,
+          "t_complete": 596506.4854063,
+          "construct_secs": 13.583027100074105,
+          "tx_id": 10297992510394453365,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 104,
+          "t_submit": 596492.9025679,
+          "t_complete": 596506.6075748,
+          "construct_secs": 13.70500690001063,
+          "tx_id": 14686335728367947257,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 105,
+          "t_submit": 596492.9027556,
+          "t_complete": 596506.7297705,
+          "construct_secs": 13.827014899929054,
+          "tx_id": 11155904544338853734,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 106,
+          "t_submit": 596492.9029669,
+          "t_complete": 596506.8693858,
+          "construct_secs": 13.966418899944983,
+          "tx_id": 9544246395116149830,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 107,
+          "t_submit": 596492.9031212,
+          "t_complete": 596506.9939216,
+          "construct_secs": 14.090800400008447,
+          "tx_id": 8967020988347462136,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 108,
+          "t_submit": 596492.9033199,
+          "t_complete": 596507.115842,
+          "construct_secs": 14.212522099958733,
+          "tx_id": 16163420233998655220,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 109,
+          "t_submit": 596492.9035044,
+          "t_complete": 596507.2388723,
+          "construct_secs": 14.335367899970151,
+          "tx_id": 7482613890399550368,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 110,
+          "t_submit": 596492.903712,
+          "t_complete": 596507.363649,
+          "construct_secs": 14.459936999948695,
+          "tx_id": 17678418695425564393,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 111,
+          "t_submit": 596492.9039174,
+          "t_complete": 596507.4876133,
+          "construct_secs": 14.583695899927989,
+          "tx_id": 15561282748780456504,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 112,
+          "t_submit": 596492.9041248,
+          "t_complete": 596507.611606,
+          "construct_secs": 14.70748119999189,
+          "tx_id": 16533476956016058148,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 113,
+          "t_submit": 596492.9043276,
+          "t_complete": 596507.733914,
+          "construct_secs": 14.82958639995195,
+          "tx_id": 3008723818046367204,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 114,
+          "t_submit": 596492.9045132,
+          "t_complete": 596507.8721572,
+          "construct_secs": 14.967643999960274,
+          "tx_id": 15225927286055412423,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 115,
+          "t_submit": 596492.9046943,
+          "t_complete": 596507.9959775,
+          "construct_secs": 15.091283199959435,
+          "tx_id": 8085021325823796589,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 116,
+          "t_submit": 596492.9049168,
+          "t_complete": 596508.1347975,
+          "construct_secs": 15.229880700004287,
+          "tx_id": 15878159055164815053,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 117,
+          "t_submit": 596492.9052123,
+          "t_complete": 596508.2584801,
+          "construct_secs": 15.35326779994648,
+          "tx_id": 12910196354383069393,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 118,
+          "t_submit": 596492.9054175,
+          "t_complete": 596508.3827771,
+          "construct_secs": 15.477359600015916,
+          "tx_id": 2608829726382528592,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 119,
+          "t_submit": 596492.9056604,
+          "t_complete": 596508.5079974,
+          "construct_secs": 15.602336999960244,
+          "tx_id": 16937733275491067863,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 120,
+          "t_submit": 596492.9058754,
+          "t_complete": 596508.6321976,
+          "construct_secs": 15.726322199916467,
+          "tx_id": 16805959139489147895,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 121,
+          "t_submit": 596492.9060938,
+          "t_complete": 596508.7566241,
+          "construct_secs": 15.850530300056562,
+          "tx_id": 6288962353830971079,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 122,
+          "t_submit": 596492.9063126,
+          "t_complete": 596508.8953398,
+          "construct_secs": 15.989027200033888,
+          "tx_id": 13972416638309195460,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 123,
+          "t_submit": 596492.906515,
+          "t_complete": 596509.0207562,
+          "construct_secs": 16.11424119991716,
+          "tx_id": 708933695806891098,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 124,
+          "t_submit": 596492.9068262,
+          "t_complete": 596509.1742162,
+          "construct_secs": 16.26739000005182,
+          "tx_id": 10850926628734491718,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 125,
+          "t_submit": 596492.9070931,
+          "t_complete": 596509.3128139,
+          "construct_secs": 16.40572079992853,
+          "tx_id": 6430395675074567238,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 126,
+          "t_submit": 596492.9073478,
+          "t_complete": 596509.4146882,
+          "construct_secs": 16.507340400014073,
+          "tx_id": 16822162878493811896,
+          "outcome": "ok",
+          "error": null
+        },
+        {
+          "worker_idx": 127,
+          "t_submit": 596492.9075394,
+          "t_complete": 596509.4147963,
+          "construct_secs": 16.50725689996034,
+          "tx_id": 15428404417636851515,
+          "outcome": "ok",
+          "error": null
+        }
+      ]
+    }
+  ],
+  "finished_at": "2026-05-31T22:54:39.314368+00:00"
+}

@@ -1,0 +1,1469 @@
+{
+  "scenario": "S5_distinct_recipients",
+  "mode": 1,
+  "endpoint": "http://127.0.0.1:18243",
+  "started_at": "2026-06-01T09:29:54.656893+00:00",
+  "config": {
+    "M": 100,
+    "K": 10,
+    "amount_per_recipient_ut": 1000000,
+    "recipients_distinct": true,
+    "addresses_source": "results/distinct_addresses_100.json"
+  },
+  "balance_before_ut": 29998782215,
+  "arm_a_batch": {
+    "batch_count": 10,
+    "outputs_per_tx": 10,
+    "wall_secs": 27.249383899965324,
+    "per_call_secs": [
+      1.8297866000793874,
+      2.1322661999147385,
+      2.1541594000300393,
+      2.127140299999155,
+      1.8547083000885323,
+      2.521715500042774,
+      3.810133000020869,
+      5.682312200078741,
+      2.659833300043829,
+      2.4753257000120357
+    ],
+    "results": [
+      {
+        "call_idx": 0,
+        "elapsed_secs": 1.8297866000793874,
+        "results": [
+          [
+            1922410873619307458,
+            true,
+            ""
+          ],
+          [
+            14001350649974678117,
+            true,
+            ""
+          ],
+          [
+            11690325002030673755,
+            true,
+            ""
+          ],
+          [
+            4308245779981755197,
+            true,
+            ""
+          ],
+          [
+            18131649188730815284,
+            true,
+            ""
+          ],
+          [
+            3749590402967676287,
+            true,
+            ""
+          ],
+          [
+            7886068757288217082,
+            true,
+            ""
+          ],
+          [
+            2456187316126237825,
+            true,
+            ""
+          ],
+          [
+            2292052826078216105,
+            true,
+            ""
+          ],
+          [
+            9392216652834049577,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2DQYutpp4V9UbAWYatvp7Hx8ssSGvVKiTn7ueBrqW9U8otmu6DCNUbu7Aj7SncqPebkNQPLKBWHVLwungLCQAsCoSg",
+          "f2AZeDtQ6k32S99YYoUtVcgSBJNmKzuHiz1abmq2Z9tHxywWhyr71KtVbBkm9qLCrteaBNib6AiYQVgQG7yMgMgCVrA",
+          "f254czCn18Z8mDBCJkCtezneGu4wWeGLvphggpE4LW6XjUzy4SX68hwDnRYY7gyUtyUxJXj8rAExxjqxvFMKVfmVW4A",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 1,
+        "elapsed_secs": 2.1322661999147385,
+        "results": [
+          [
+            1484291187984271036,
+            true,
+            ""
+          ],
+          [
+            8182427707489520995,
+            true,
+            ""
+          ],
+          [
+            14553873998759288241,
+            true,
+            ""
+          ],
+          [
+            11642853737900378018,
+            true,
+            ""
+          ],
+          [
+            4424263673081981389,
+            true,
+            ""
+          ],
+          [
+            17816219778282548651,
+            true,
+            ""
+          ],
+          [
+            6784218096490105461,
+            true,
+            ""
+          ],
+          [
+            5783143963474599197,
+            true,
+            ""
+          ],
+          [
+            5926711855377236935,
+            true,
+            ""
+          ],
+          [
+            14281439510442794767,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2E8d24AHk2dq7DkGNJqRM88uyMksEMvpTA3dKdgazV2Si6JXEfru3dvGfo7BbHXuLpN16AyY4BoPkMy1D6P4LaQLuX",
+          "f2EJXfbqKWSUL9bHhtKkVGJzBaVQipqHLbgTg4if68aQjczZ5ycNPSQ3FnHYsFZFBPaWnwxQAPzVwhLauYt8Lc1AAs8",
+          "f261wbNjWHZAwttNTK1dveqWgmuJF5eqtc5ctx4mzoBZWwv1wg1HJkMC4aSffNpjbLJw1J2U31TZvCvQTScAPazuRJV",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 2,
+        "elapsed_secs": 2.1541594000300393,
+        "results": [
+          [
+            5508474190893840702,
+            true,
+            ""
+          ],
+          [
+            9294647982488424627,
+            true,
+            ""
+          ],
+          [
+            10565192179935455919,
+            true,
+            ""
+          ],
+          [
+            10176383260284402595,
+            true,
+            ""
+          ],
+          [
+            10436494722549352396,
+            true,
+            ""
+          ],
+          [
+            3581662385052578184,
+            true,
+            ""
+          ],
+          [
+            4161000969588939869,
+            true,
+            ""
+          ],
+          [
+            6055830320239511099,
+            true,
+            ""
+          ],
+          [
+            1103006146246758026,
+            true,
+            ""
+          ],
+          [
+            6018885371651381543,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f23WrJU1njetCjNTvhjSM8T3pxw3rPvzuvU5sq4VGG2B1pHPKmjpsk9G4eFhoqQT95qW9YM8DjxxqVyivn7NeiKrgMX",
+          "f2BbTCrkSRGJwXfNRAEymwar7YT9FhJnMcWMLXponenJpsBf43Xieg5PhmxzgX6555o9sLX92maoXuENgwyFNXSzJJE",
+          "f2BqWQBYVG1H834gRsYmLWXX155qm2sZgX96bcu8y4Z8a7kfXjPTmSErbdgkRrbGXsJZUzSCgXNTHcjd9rKWKeEiBw2",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 3,
+        "elapsed_secs": 2.127140299999155,
+        "results": [
+          [
+            13782084370501552999,
+            true,
+            ""
+          ],
+          [
+            9538458530718796625,
+            true,
+            ""
+          ],
+          [
+            15416419067963879156,
+            true,
+            ""
+          ],
+          [
+            15187611577200383861,
+            true,
+            ""
+          ],
+          [
+            4373883577955516003,
+            true,
+            ""
+          ],
+          [
+            2655852467076330182,
+            true,
+            ""
+          ],
+          [
+            10014956688429159254,
+            true,
+            ""
+          ],
+          [
+            9363391514624639391,
+            true,
+            ""
+          ],
+          [
+            1188314991936231315,
+            true,
+            ""
+          ],
+          [
+            5849107907895215178,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2KbQ45ysAAJnT3gmcF1J5GbgqVssZFbz3Fbkmq2nCFQNCG3TWswMpLoGj3Ea9MshQ1KwQ1FtpAzo44CDNa7WxyiMZz",
+          "f22V19c5eAuzzpkZeAomc44jAAj3PLBxMZHTCYs9bmosbETkps2HjmqsvMfUAZtExaAHjJe1NMcn3ayEtuoKwWpTVj8",
+          "f26swVzEPp8L8bLVT41EQBg3CVdE9sngPYfSyzA91TjeYuX3UaVkCyWv7TmbZGgir3QAtscBEjEijhpbE8pKuCM9s1G",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 4,
+        "elapsed_secs": 1.8547083000885323,
+        "results": [
+          [
+            2597547858441113649,
+            true,
+            ""
+          ],
+          [
+            13969555290783432921,
+            true,
+            ""
+          ],
+          [
+            17675577702048995467,
+            true,
+            ""
+          ],
+          [
+            1426061475222896817,
+            true,
+            ""
+          ],
+          [
+            3358613499816100425,
+            true,
+            ""
+          ],
+          [
+            6250294020794904288,
+            true,
+            ""
+          ],
+          [
+            11095684310598427887,
+            true,
+            ""
+          ],
+          [
+            16646292323480269470,
+            true,
+            ""
+          ],
+          [
+            4284295785484261143,
+            true,
+            ""
+          ],
+          [
+            2820048705484082403,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2AthCEqSkqCZoHuEMmwz5TSuNFDiU1wH8wYcCdoGzS917G4ReTQ4mVmx72wopFPQZPMHMpxtb9sM3dsLkXRnBEU6WU",
+          "f262SvrMLezqpgRikTU73PaBveCWuTDK84c68STJiEPXaMfFkYqDiWfYRhgLNzD4RbK4CuBe5EyLFe2FiVWEeB2RpDM",
+          "f285FYRz9H5tAAvP278yWHP2bgzZPCsPcJ8oDQdBq9yXshMFdoNSDuZtigvLkWXzmoVjdydQ9hNfxd6MY3GY3vccWgS",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 5,
+        "elapsed_secs": 2.521715500042774,
+        "results": [
+          [
+            6840868088999685718,
+            true,
+            ""
+          ],
+          [
+            17172700999722991713,
+            true,
+            ""
+          ],
+          [
+            14253174561219611080,
+            true,
+            ""
+          ],
+          [
+            13388563197502621727,
+            true,
+            ""
+          ],
+          [
+            13443552797182893862,
+            true,
+            ""
+          ],
+          [
+            6925412791403648154,
+            true,
+            ""
+          ],
+          [
+            12639765660575738416,
+            true,
+            ""
+          ],
+          [
+            10991199874271814409,
+            true,
+            ""
+          ],
+          [
+            7074306756110917258,
+            true,
+            ""
+          ],
+          [
+            15011101852772528892,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f27D8CxP8zuPh1nzYJPFWEdaBcJ6FGZNhCAJiPpNE3vmdotEjcNhoFRFEqcu5yhpzB1Qk3JBuGEQAPGSwmtFyQjyt7a",
+          "f2DS8hrEDHogtfojFfjDSnhGkBXA3yFpdAmn1BywdQm29QdBqberSFQhHSxPgrD5gm2kEuCoT8QUgJ6PjaVHBQ4HC7y",
+          "f255T2h4dCqiXTgva4TVrAbxGhMvxP5qUKtb7pfpLyDk2WMUWvaT4v42CDWvkGPHKqBqhWSXXmiN1VAhgjqQ34HJC74",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 6,
+        "elapsed_secs": 3.810133000020869,
+        "results": [
+          [
+            10390422829159618652,
+            true,
+            ""
+          ],
+          [
+            17929201976117358547,
+            true,
+            ""
+          ],
+          [
+            5150580733509919992,
+            true,
+            ""
+          ],
+          [
+            7888633755103923474,
+            true,
+            ""
+          ],
+          [
+            4926728695464576623,
+            true,
+            ""
+          ],
+          [
+            18045352661007098083,
+            true,
+            ""
+          ],
+          [
+            2624279045133279614,
+            true,
+            ""
+          ],
+          [
+            5082204936019641358,
+            true,
+            ""
+          ],
+          [
+            1914297911890856317,
+            true,
+            ""
+          ],
+          [
+            9913559896009812534,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2KNBgcyVAv7F5RoVdSdnk7Ku98oY3jT5njb5ocsRSRv1gGd19ZzQwivi9ipKNkvi9a3Lyg4VEfDL8LGsS32oDu2LL3",
+          "f2CWn4uV4DDxr39RBYnZ2qPnji7e9vsXu2nJvLQMCnHiNUgHYMfawZP6Peu42K6Xa7LrF8hwk26D857K4w5RjZVmdY1",
+          "f2P5mP1XiGWxcJ1rhY3numxXfvi4Gn9M9FxBXWKkuojk91AotqnVFXoiQF3UPPwc4e4ek9bQjU5JzQYgYv9mCs3ricG",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 7,
+        "elapsed_secs": 5.682312200078741,
+        "results": [
+          [
+            14075479419490895676,
+            true,
+            ""
+          ],
+          [
+            16028629965346548252,
+            true,
+            ""
+          ],
+          [
+            341977362386252726,
+            true,
+            ""
+          ],
+          [
+            9587405450252071090,
+            true,
+            ""
+          ],
+          [
+            9113027652681072518,
+            true,
+            ""
+          ],
+          [
+            4025825194908305333,
+            true,
+            ""
+          ],
+          [
+            7112892369926809428,
+            true,
+            ""
+          ],
+          [
+            15952495147850459463,
+            true,
+            ""
+          ],
+          [
+            7180578690055353413,
+            true,
+            ""
+          ],
+          [
+            9562413470201083545,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2NDNvMS7wLfH6W4HQo5XRP1FRhoNntXaqUSWyqwbviAmScWNuGSGQ8DRwVBCTRATwbo5MuXR42WNMjFB96k7cHvnGo",
+          "f25woq2aPHAK2GkVhP8HNQp2EfmVdCr8pNWp7ffjZmVwJCSNnS6Ux4pzLD4hk86MJsAASVSQDN76XUEyjGjngdonFDM",
+          "f2EcdN9mQeXaPBbQPXTFXeoRJESc7j7GNrXehuNeSZJT4nXbQyuVju7r9YV8sYtNYGDUUNGSTiJjC3QUGg4k9ePGRxr",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 8,
+        "elapsed_secs": 2.659833300043829,
+        "results": [
+          [
+            5737844939831680461,
+            true,
+            ""
+          ],
+          [
+            2499942456809712946,
+            true,
+            ""
+          ],
+          [
+            4365838882135798454,
+            true,
+            ""
+          ],
+          [
+            18237993947085550890,
+            true,
+            ""
+          ],
+          [
+            1660079513180423734,
+            true,
+            ""
+          ],
+          [
+            10669766860008270172,
+            true,
+            ""
+          ],
+          [
+            13166951163043191313,
+            true,
+            ""
+          ],
+          [
+            11132177507373470369,
+            true,
+            ""
+          ],
+          [
+            17786550223048053093,
+            true,
+            ""
+          ],
+          [
+            2925659425009026263,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2MtzXxB8YYYUjzp3N5Yr3aoTYtJPKHa5bBaQsEr2tMtqg84KixQzn5tVuRe981AEJZPizGzxCkwBikpowocPLGsPze",
+          "f2CZLWyYRByx7EzbGQZwJPtFdb6aGthmB5e63gMaQFxyyfd6EWcA1EMcciobTyFVzBWoMPe2CHfJ7bBDCkqpFgj6hXD",
+          "f29CobHgdat19tgroDrSzKKaKHeFpbYZajpzL485wyudCWBzigeZtVf5fAZFtBMvVGujiBiwuNsSU6yi4Ld6K4mugEz",
+          "..."
+        ]
+      },
+      {
+        "call_idx": 9,
+        "elapsed_secs": 2.4753257000120357,
+        "results": [
+          [
+            12803225377256396827,
+            true,
+            ""
+          ],
+          [
+            14026198165917125177,
+            true,
+            ""
+          ],
+          [
+            4752361506825901282,
+            true,
+            ""
+          ],
+          [
+            8178897079522398516,
+            true,
+            ""
+          ],
+          [
+            7727603092820389249,
+            true,
+            ""
+          ],
+          [
+            6647733889809911812,
+            true,
+            ""
+          ],
+          [
+            8166217512989619193,
+            true,
+            ""
+          ],
+          [
+            7744996279312222432,
+            true,
+            ""
+          ],
+          [
+            7935181853985991178,
+            true,
+            ""
+          ],
+          [
+            12045400787447216867,
+            true,
+            ""
+          ]
+        ],
+        "recipients_used": [
+          "f2JWkWnGWNGs2XSYf87dhSGd7U7gVRnDt97FCHxqEigBj1Xm8uNgT4pW2sa8Fnr6Ly8XgP9EhK1jq6BgrxeMVZWcXzx",
+          "f2MWHcgUNbT6z5h2N5y8bS5eTEiNtVeG3CwR1RgUfhoPewq41ytR9pfvmoNdrizg7hxVvYvaJBp1i3tfagBuXbcQ8Xy",
+          "f2FUzxHJMKKDvTRdVSsWtZ4auSKMEuCjn4JqLowSRB92ditJQAMdzYZuxTRu41QRzry3XEa5MQZB9RTJzmYvg26Lpzs",
+          "..."
+        ]
+      }
+    ]
+  },
+  "arm_b_individual": {
+    "tx_count": 100,
+    "wall_secs": 18.464917200035416,
+    "per_call_secs": [
+      0.2938511000247672,
+      0.19253220001701266,
+      0.15273810003418475,
+      0.29259069997351617,
+      0.16989030002150685,
+      0.30896269995719194,
+      0.17160349991172552,
+      0.17135059996508062,
+      0.2927771999966353,
+      0.156819999916479,
+      0.32393359998241067,
+      0.1716010000091046,
+      0.29760100005660206,
+      0.17325170000549406,
+      0.16788269998505712,
+      0.31397039990406483,
+      0.18442700000014156,
+      0.3269521000329405,
+      0.17036439990624785,
+      0.35563709994312376,
+      0.16910529998131096,
+      0.16778390004765242,
+      0.3074461999349296,
+      0.176224899943918,
+      0.20798299997113645,
+      0.17147790000308305,
+      0.15643430000636727,
+      0.18665970000438392,
+      0.15558090002741665,
+      0.15539229998830706,
+      0.15646809991449118,
+      0.15533430001232773,
+      0.15506220003589988,
+      0.15717009990476072,
+      0.15553620003629476,
+      0.17146119999233633,
+      0.15626109996810555,
+      0.17074490000959486,
+      0.15791080007329583,
+      0.15933340007904917,
+      0.16357229999266565,
+      0.1526436998974532,
+      0.1542261999566108,
+      0.17152099998202175,
+      0.22957200009841472,
+      0.16919749998487532,
+      0.15366519999224693,
+      0.1718666999367997,
+      0.15642709995154291,
+      0.1695291999494657,
+      0.16945060004945844,
+      0.2467388000804931,
+      0.15575160004664212,
+      0.16928959998767823,
+      0.17018970008939505,
+      0.17094950005412102,
+      0.16961040010210127,
+      0.15664420009125024,
+      0.15776980004739016,
+      0.15506540006026626,
+      0.15447850001510233,
+      0.15623100008815527,
+      0.17085350002162158,
+      0.17035519995260984,
+      0.28042009996715933,
+      0.1714464999968186,
+      0.17067430005408823,
+      0.16855639999266714,
+      0.17101119994185865,
+      0.16965080006048083,
+      0.17081860010512173,
+      0.15596260002348572,
+      0.1559094999684021,
+      0.16853829997126013,
+      0.16943640005774796,
+      0.16628130001481622,
+      0.15595859999302775,
+      0.16905179992318153,
+      0.17070609994698316,
+      0.16922319994773716,
+      0.23055700003169477,
+      0.17121499998029321,
+      0.16874890006147325,
+      0.1555104999570176,
+      0.17236199998296797,
+      0.1565358000807464,
+      0.16943510004784912,
+      0.15373439993709326,
+      0.1555224999319762,
+      0.15517849999014288,
+      0.17328089999500662,
+      0.16902269993443042,
+      0.1897014999995008,
+      0.16963629995007068,
+      0.1553754999767989,
+      0.17033470002934337,
+      0.24982040002942085,
+      0.17185009992681444,
+      0.17023569997400045,
+      0.166851699934341
+    ],
+    "results": [
+      {
+        "call_idx": 0,
+        "elapsed_secs": 0.2938511000247672,
+        "tx_id": 2916176846168388012,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 1,
+        "elapsed_secs": 0.19253220001701266,
+        "tx_id": 4388548610346482640,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 2,
+        "elapsed_secs": 0.15273810003418475,
+        "tx_id": 2878435007933370303,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 3,
+        "elapsed_secs": 0.29259069997351617,
+        "tx_id": 8249550962586819531,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 4,
+        "elapsed_secs": 0.16989030002150685,
+        "tx_id": 5389080866992197122,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 5,
+        "elapsed_secs": 0.30896269995719194,
+        "tx_id": 15302999203948872935,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 6,
+        "elapsed_secs": 0.17160349991172552,
+        "tx_id": 7144921343396961241,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 7,
+        "elapsed_secs": 0.17135059996508062,
+        "tx_id": 15010829143558410303,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 8,
+        "elapsed_secs": 0.2927771999966353,
+        "tx_id": 10500056456019369332,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 9,
+        "elapsed_secs": 0.156819999916479,
+        "tx_id": 2570140402124249389,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 10,
+        "elapsed_secs": 0.32393359998241067,
+        "tx_id": 3974900284327881167,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 11,
+        "elapsed_secs": 0.1716010000091046,
+        "tx_id": 14420773459072700685,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 12,
+        "elapsed_secs": 0.29760100005660206,
+        "tx_id": 16629303157232444688,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 13,
+        "elapsed_secs": 0.17325170000549406,
+        "tx_id": 3170586117503688486,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 14,
+        "elapsed_secs": 0.16788269998505712,
+        "tx_id": 1696335494823006733,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 15,
+        "elapsed_secs": 0.31397039990406483,
+        "tx_id": 3851271504300689623,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 16,
+        "elapsed_secs": 0.18442700000014156,
+        "tx_id": 11702281551125349254,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 17,
+        "elapsed_secs": 0.3269521000329405,
+        "tx_id": 11408494828691395512,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 18,
+        "elapsed_secs": 0.17036439990624785,
+        "tx_id": 14707529952330682686,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 19,
+        "elapsed_secs": 0.35563709994312376,
+        "tx_id": 6095451010202645088,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 20,
+        "elapsed_secs": 0.16910529998131096,
+        "tx_id": 6642500773153422683,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 21,
+        "elapsed_secs": 0.16778390004765242,
+        "tx_id": 9266591915314757778,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 22,
+        "elapsed_secs": 0.3074461999349296,
+        "tx_id": 10337508224236323843,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 23,
+        "elapsed_secs": 0.176224899943918,
+        "tx_id": 16201608150502149145,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 24,
+        "elapsed_secs": 0.20798299997113645,
+        "tx_id": 11063052002548120960,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 25,
+        "elapsed_secs": 0.17147790000308305,
+        "tx_id": 13213175196014219627,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 26,
+        "elapsed_secs": 0.15643430000636727,
+        "tx_id": 6923471856013282273,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 27,
+        "elapsed_secs": 0.18665970000438392,
+        "tx_id": 6631145585017995868,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 28,
+        "elapsed_secs": 0.15558090002741665,
+        "tx_id": 15618244375992671930,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 29,
+        "elapsed_secs": 0.15539229998830706,
+        "tx_id": 14632858087406649598,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 30,
+        "elapsed_secs": 0.15646809991449118,
+        "tx_id": 14478484164171818915,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 31,
+        "elapsed_secs": 0.15533430001232773,
+        "tx_id": 9026761958826367499,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 32,
+        "elapsed_secs": 0.15506220003589988,
+        "tx_id": 16878832400550050798,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 33,
+        "elapsed_secs": 0.15717009990476072,
+        "tx_id": 14694682979335326883,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 34,
+        "elapsed_secs": 0.15553620003629476,
+        "tx_id": 18148223290963781467,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 35,
+        "elapsed_secs": 0.17146119999233633,
+        "tx_id": 8449436400524459320,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 36,
+        "elapsed_secs": 0.15626109996810555,
+        "tx_id": 15994070280594414494,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 37,
+        "elapsed_secs": 0.17074490000959486,
+        "tx_id": 13853502126991360530,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 38,
+        "elapsed_secs": 0.15791080007329583,
+        "tx_id": 15267658767806057241,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 39,
+        "elapsed_secs": 0.15933340007904917,
+        "tx_id": 13983773396288600322,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 40,
+        "elapsed_secs": 0.16357229999266565,
+        "tx_id": 16214512442331945337,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 41,
+        "elapsed_secs": 0.1526436998974532,
+        "tx_id": 3606441573727839839,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 42,
+        "elapsed_secs": 0.1542261999566108,
+        "tx_id": 18332541757541145953,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 43,
+        "elapsed_secs": 0.17152099998202175,
+        "tx_id": 12665584850562386424,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 44,
+        "elapsed_secs": 0.22957200009841472,
+        "tx_id": 9361037525717174736,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 45,
+        "elapsed_secs": 0.16919749998487532,
+        "tx_id": 10529761408209426093,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 46,
+        "elapsed_secs": 0.15366519999224693,
+        "tx_id": 7016434206013634102,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 47,
+        "elapsed_secs": 0.1718666999367997,
+        "tx_id": 11964527287184286569,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 48,
+        "elapsed_secs": 0.15642709995154291,
+        "tx_id": 12160134573410093403,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 49,
+        "elapsed_secs": 0.1695291999494657,
+        "tx_id": 18354761408265186738,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 50,
+        "elapsed_secs": 0.16945060004945844,
+        "tx_id": 7891176356588502683,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 51,
+        "elapsed_secs": 0.2467388000804931,
+        "tx_id": 9643653200436973152,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 52,
+        "elapsed_secs": 0.15575160004664212,
+        "tx_id": 11131089247632009442,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 53,
+        "elapsed_secs": 0.16928959998767823,
+        "tx_id": 18433068867928005694,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 54,
+        "elapsed_secs": 0.17018970008939505,
+        "tx_id": 15996057437932422146,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 55,
+        "elapsed_secs": 0.17094950005412102,
+        "tx_id": 7499186463570725482,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 56,
+        "elapsed_secs": 0.16961040010210127,
+        "tx_id": 4929245544086479492,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 57,
+        "elapsed_secs": 0.15664420009125024,
+        "tx_id": 15248794437887863362,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 58,
+        "elapsed_secs": 0.15776980004739016,
+        "tx_id": 12795725081206718872,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 59,
+        "elapsed_secs": 0.15506540006026626,
+        "tx_id": 2252820829378483943,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 60,
+        "elapsed_secs": 0.15447850001510233,
+        "tx_id": 13826496072007457665,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 61,
+        "elapsed_secs": 0.15623100008815527,
+        "tx_id": 14092638208913994862,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 62,
+        "elapsed_secs": 0.17085350002162158,
+        "tx_id": 12740354595942467790,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 63,
+        "elapsed_secs": 0.17035519995260984,
+        "tx_id": 9079165803609660321,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 64,
+        "elapsed_secs": 0.28042009996715933,
+        "tx_id": 5060929899852673649,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 65,
+        "elapsed_secs": 0.1714464999968186,
+        "tx_id": 13219309826626768603,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 66,
+        "elapsed_secs": 0.17067430005408823,
+        "tx_id": 6697614721752840529,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 67,
+        "elapsed_secs": 0.16855639999266714,
+        "tx_id": 2853986446371587590,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 68,
+        "elapsed_secs": 0.17101119994185865,
+        "tx_id": 6702454911205308887,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 69,
+        "elapsed_secs": 0.16965080006048083,
+        "tx_id": 1116497822212655924,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 70,
+        "elapsed_secs": 0.17081860010512173,
+        "tx_id": 12650834812426237903,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 71,
+        "elapsed_secs": 0.15596260002348572,
+        "tx_id": 2104482211840994790,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 72,
+        "elapsed_secs": 0.1559094999684021,
+        "tx_id": 6688926072628545163,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 73,
+        "elapsed_secs": 0.16853829997126013,
+        "tx_id": 16843316292161987052,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 74,
+        "elapsed_secs": 0.16943640005774796,
+        "tx_id": 13874058685795932302,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 75,
+        "elapsed_secs": 0.16628130001481622,
+        "tx_id": 11754598529932140370,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 76,
+        "elapsed_secs": 0.15595859999302775,
+        "tx_id": 5172431759468178764,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 77,
+        "elapsed_secs": 0.16905179992318153,
+        "tx_id": 345125094271375181,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 78,
+        "elapsed_secs": 0.17070609994698316,
+        "tx_id": 14862204562504476607,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 79,
+        "elapsed_secs": 0.16922319994773716,
+        "tx_id": 5334557299893904021,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 80,
+        "elapsed_secs": 0.23055700003169477,
+        "tx_id": 7029399809167906664,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 81,
+        "elapsed_secs": 0.17121499998029321,
+        "tx_id": 14158246485532020521,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 82,
+        "elapsed_secs": 0.16874890006147325,
+        "tx_id": 12105822648814723775,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 83,
+        "elapsed_secs": 0.1555104999570176,
+        "tx_id": 16512895328446659559,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 84,
+        "elapsed_secs": 0.17236199998296797,
+        "tx_id": 9998086039040222183,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 85,
+        "elapsed_secs": 0.1565358000807464,
+        "tx_id": 5312343588544597864,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 86,
+        "elapsed_secs": 0.16943510004784912,
+        "tx_id": 16500572774548147234,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 87,
+        "elapsed_secs": 0.15373439993709326,
+        "tx_id": 10120640293233205489,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 88,
+        "elapsed_secs": 0.1555224999319762,
+        "tx_id": 3543578227849502794,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 89,
+        "elapsed_secs": 0.15517849999014288,
+        "tx_id": 7074548475907068722,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 90,
+        "elapsed_secs": 0.17328089999500662,
+        "tx_id": 11820300230289005229,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 91,
+        "elapsed_secs": 0.16902269993443042,
+        "tx_id": 7735957710736336132,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 92,
+        "elapsed_secs": 0.1897014999995008,
+        "tx_id": 5039828790573400210,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 93,
+        "elapsed_secs": 0.16963629995007068,
+        "tx_id": 15435250599006843327,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 94,
+        "elapsed_secs": 0.1553754999767989,
+        "tx_id": 6066118709474805495,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 95,
+        "elapsed_secs": 0.17033470002934337,
+        "tx_id": 13162242311564231578,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 96,
+        "elapsed_secs": 0.24982040002942085,
+        "tx_id": 12321176747950047593,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 97,
+        "elapsed_secs": 0.17185009992681444,
+        "tx_id": 4639178838071604871,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 98,
+        "elapsed_secs": 0.17023569997400045,
+        "tx_id": 10124896370653384609,
+        "ok": true,
+        "msg": ""
+      },
+      {
+        "call_idx": 99,
+        "elapsed_secs": 0.166851699934341,
+        "tx_id": 17691671387078541278,
+        "ok": true,
+        "msg": ""
+      }
+    ]
+  },
+  "headline": {
+    "throughput_multiplier_individual_over_batch": 0.6776269609552131,
+    "batch_avg_call_secs": 2.72473805003101,
+    "individual_avg_call_secs": 0.1846226169972215,
+    "recipients_distinct": true
+  },
+  "finished_at": "2026-06-01T09:31:40.390745+00:00",
+  "balance_after_ut": 3773337405
+}

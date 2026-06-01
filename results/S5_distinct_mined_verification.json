@@ -1,0 +1,21 @@
+{
+  "verification_for": "results/S5_distinct_recipients.json",
+  "endpoint": "http://127.0.0.1:18243",
+  "arm_a_batch": {
+    "tx_ids_checked": 10,
+    "verified_mined": 10,
+    "terminal_failure": 0,
+    "status_breakdown": {
+      "TX_MINED_CONFIRMED": 6,
+      "TX_MINED_UNCONFIRMED": 4
+    }
+  },
+  "arm_b_individual": {
+    "tx_ids_checked": 100,
+    "verified_mined": 0,
+    "terminal_failure": 0,
+    "status_breakdown": {
+      "TX_BROADCAST": 100
+    }
+  }
+}
