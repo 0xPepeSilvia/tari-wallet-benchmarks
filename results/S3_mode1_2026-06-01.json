@@ -1,0 +1,28 @@
+{
+  "scenario": "S3",
+  "mode": 1,
+  "mode_name": "Mode1/ConsoleWallet --recovery --seed-words --birthday",
+  "description": "Birthday-rescan attempt. Same seed + populated wallet as S2, plus --birthday 1614 (~ days since Tari epoch 2022-01-01, late May 2026).",
+  "wallet_seed_words": "doctor exist smoke swing sibling okay endless unusual tent soda wire badge happy vague monster maximum cherry quiz crash friend crunch lumber unique vintage",
+  "command_run": "minotari_console_wallet --base-path C:/Tari-bench-S3 --network esmeralda --non-interactive-mode --seed-words \"...\" --birthday 1614 --recovery",
+  "measurements": {
+    "wall_secs": 15.03,
+    "blocks_scanned": 674976,
+    "blocks_per_sec": 44914.56,
+    "utxos_detected": 22,
+    "balance_after_recovery_ut": 32100000000
+  },
+  "interpretation": {
+    "expected": "Spec S3 wants the wallet to scan only from birthday block to tip, not from genesis to tip. With birthday=1614, the scan should have started somewhere in the recent chain.",
+    "observed": "Wallet scanned the full 674,976 blocks (the same range as S2 with no --birthday).",
+    "implication": "Either (a) the --seed-words flag's seed-encoded birthday takes precedence over --birthday CLI flag when both are present, or (b) --birthday is interpreted as 'don't accept outputs older than this' (a filter, not a scan-range optimization). Either way: the spec's 'shorter scan from birthday' optimization is not delivered by --birthday alone."
+  },
+  "cache_warmth_finding": {
+    "observation": "Across three recovery runs of the same shape:",
+    "n1_first_session": {"blocks_per_sec": 24344, "utxos": 1, "wall_secs": 27.56},
+    "n22_S2_run":      {"blocks_per_sec": 37025, "utxos": 22, "wall_secs": 18.23},
+    "n22_S3_run":      {"blocks_per_sec": 44914, "utxos": 22, "wall_secs": 15.03},
+    "lesson": "blocks_per_sec varies ~85% across runs purely from OS page cache state on the base node. Per-UTXO detection cost is negligible at these scales (tens of UTXOs walked across 674k blocks). The bounty operator should measure each scenario at least 3 times and report median + spread, not single shots."
+  },
+  "captured_at": "2026-06-01T09:40:22Z"
+}

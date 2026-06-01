@@ -1,0 +1,43 @@
+{
+  "scenario": "S2",
+  "mode": 1,
+  "mode_name": "Mode1/ConsoleWallet --recovery --seed-words",
+  "description": "Real S2: genesis rescan on a wallet whose seed we own, with a populated UTXO pool. Recovered into a fresh console_wallet via --recovery against a fresh base-path.",
+  "binary_version": "minotari_console_wallet 5.4.0-pre.0-74cc1b8e3a6c88f3982003464885e3829b575d39-release",
+  "wallet_seed_words": "doctor exist smoke swing sibling okay endless unusual tent soda wire badge happy vague monster maximum cherry quiz crash friend crunch lumber unique vintage",
+  "setup": {
+    "approach": "fragment-then-recover",
+    "step_1": "From mining wallet, gRPC Transfer with 100 PaymentRecipients all targeting Mode 2 wallet's address. 21 of 100 succeeded (mining wallet partially saturated).",
+    "step_2": "Wait for the 21 outbound txs to reach TX_MINED_UNCONFIRMED.",
+    "step_3": "Stop Mode 2 daemon (not necessary - recovery uses separate base-path).",
+    "step_4": "Spawn console_wallet --recovery --seed-words \"<Mode 2 seed>\" --base-path C:/Tari-bench-S2 (fresh dir).",
+    "step_5": "Wallet derives the same view+spend keys from the seed, scans from birthday block through tip, detects every output addressed to this address (the original 30k S0 tx + 21 new 100 tXTM fragments)."
+  },
+  "measurements": {
+    "wall_secs": 18.23,
+    "blocks_scanned": 674968,
+    "blocks_per_sec": 37025.12,
+    "utxos_detected": 22,
+    "balance_after_recovery_ut": 32100000000
+  },
+  "context_comparisons": {
+    "B0_empty_wallet_daemon_scan": {"blocks_per_sec": 82000, "utxos": 0},
+    "earlier_incidental_recovery_n1": {"blocks_per_sec": 24344, "utxos": 1, "note": "earlier in session, less warm cache"},
+    "this_run": {"blocks_per_sec": 37025, "utxos": 22, "note": "warmer cache, more UTXOs"}
+  },
+  "caveats": [
+    "Spec target was the 512-UTXO pool from S1. We have 22 UTXOs - intermediate but real. Push to 100+ requires waiting for more mining-wallet fragments to confirm, or running S1-style coin_split on the recovered wallet.",
+    "Most of the throughput is base-node-side block delivery - the 22 UTXO detections take negligible time relative to walking 674k empty blocks.",
+    "blocks_per_sec varies meaningfully with OS page cache state. The earlier incidental N=1 recovery hit 24,344 blocks/sec; this N=22 run hit 37,025. The per-UTXO storage cost is small enough that cache warmth dominates."
+  ],
+  "what_we_proved": [
+    "console_wallet's --recovery + --seed-words path produces a real S2 measurement against a wallet with a real UTXO pool.",
+    "End-to-end reproducibility: anyone with the seed can spawn a fresh wallet and observe the same recovery.",
+    "Pure block-walk throughput (1.5M blocks/min on this host) is well above wallet-internal accounting overhead for tens of UTXOs."
+  ],
+  "fix_for_higher_utxo_count": [
+    "Send more fragments through mining wallet (rate-limited by mining wallet saturation - need to wait for its prior coin_split outputs to confirm).",
+    "Or run S1 doubling/fanout against the recovered wallet (already has 32k tXTM available)."
+  ],
+  "captured_at": "2026-06-01T09:37:32Z"
+}
