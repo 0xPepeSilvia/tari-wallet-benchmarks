@@ -1,152 +1,103 @@
 # tari-wallet-benchmarks
 
-Reproducible wallet performance test harness for the Tari project.
+Performance test harness + results for the Tari wallet stack, run against Esmeralda testnet.
+Submission for [`tari-project/wallet-benchmarks#1`](https://github.com/tari-project/wallet-benchmarks/issues/1).
 
-Implements scenarios **B0** and **S0-S7** across three wallet modes as specified
-in the [Wallet Performance Benchmarks bounty](https://github.com/tari-project/rfcs/issues/171).
+## What's in this repo
 
-## Modes
+| Path | Status | Purpose |
+|---|---|---|
+| `scripts/*.py` | **runnable** | Python drivers that produced every measurement. The runnable harness today. |
+| `src/` (Rust binary) | **partially runnable** | Cargo project with 33 unit tests (`cargo test`) + an end-to-end runner that works against an attached wallet. See "Rust harness status" below. |
+| `results/*.json` | **real measurements** | Every result JSON in here was produced by running the corresponding script against the running Esmeralda wallets. Includes mined-confirmation verification for every claimed-ok tx. |
+| `results/wallet_pain_findings.md` | **8 sharp findings** | Each tied to a concrete upstream change a Tari maintainer can act on. |
 
-| Mode | Stack | How it works |
-|------|-------|--------------|
-| 1 | `minotari_console_wallet` | Spawns the daemon, drives via `tari.rpc.Wallet` gRPC |
-| 2 | `minotari` (minotari-cli) | Subprocess: `create-unsigned-transaction` -> `sign-transaction` -> POST JSON-RPC. Library path (intended target) is documented in `src/modes/mode2.rs` and behind feature flag `minotari-lib` (TODO). |
-| 3 | `minotari_payment_processor` | Spawns the service from [tari-project/minotari_payment_processor](https://github.com/tari-project/minotari_payment_processor); feeds it payment instructions via a PAYMENT_RECEIVER stub. Scan scenarios (B0, S2, S3, S6, S7) are skipped - the processor does not own a scanning wallet. |
+## Headline numbers (Mode 1, Esmeralda testnet)
 
-## Scenarios
+| Scenario | Result | Backed by |
+|---|---|---|
+| **B0** scan, empty wallet, genesis→tip | **8.18 s for 670,375 blocks (~82,000 blocks/s)** | `results/B0_mode1_2026-05-30.json` |
+| **S0** fund broadcast→confirmed | **150 s** for 30k tXTM one-sided | `results/S0_mode1_2026-05-30.json` |
+| **S1** UTXO doubling, 63 successful txs | **41 ms/tx construct**, 15.5 min wall (chain-wait dominated) | `results/S1_mode1_v4_2026-05-30.json`, `S1_mode1_summary_2026-05-30.md` |
+| **S2** recovery rescan, N=22 UTXOs | **18.23 s for 674,968 blocks (37,025 blocks/s)** | `results/S2_mode1_2026-06-01.json` |
+| **S3** birthday rescan attempt | **15.03 s** (74,914 blocks/s, but `--birthday` flag did NOT shorten the scan) | `results/S3_mode1_2026-06-01.json` |
+| **S4** concurrent CoinSplit N=128 | **3 runs: 7.64 / 7.74 / 7.95 tx/s (stdev 0.16)** | `results/S4_variance_2026-05-31.json` (+ `S4_mined_verification.json`: 248/248 in chain) |
+| **S5** batch vs individual, **self-sends** | wall 1.07× B/A, fee ratio 10.65× | `results/S5_mode1_fresh_2026-05-30_with_fees.json` |
+| **S5** batch vs individual, **distinct recipients** | **wall 0.68× B/A (individual 47% faster), fee ratio 9.60×** | `results/S5_distinct_with_fees.json` (+ `S5_distinct_mined_verification.json`) |
 
-| Scenario | Description |
-|----------|-------------|
-| B0 | Baseline genesis scan on empty wallet |
-| S0 | Fund wallet to `a_fund` µT, wait for confirmation |
-| S1 | UTXO build-up: 6 doubling rounds + fan-out to 512 UTXOs |
-| S2 | Full genesis rescan (checkpoint 1, after S1) |
-| S3 | Birthday rescan (checkpoint 1, after S1) |
-| S4 | Concurrent construction: sweep N={8,16,32,64,128} workers |
-| S5 | Payment processor: batch M=100 vs K=10 individual sends |
-| S6 | Full genesis rescan (checkpoint 2, after S4/S5) |
-| S7 | Birthday rescan (checkpoint 2, after S4/S5) |
+Distinct recipients flip the S5 throughput story. Self-sends were the friendliest case for batching.
 
-## Quick start
+## Modes covered
 
-### 1. Edit `benchmark.toml`
+| Mode | Stack | What ran | What's blocked |
+|---|---|---|---|
+| 1 | `minotari_console_wallet` via `tari.rpc.Wallet` gRPC | **B0, S0, S1, S2, S3, S4 (3× variance), S5 (self-send and distinct), Rust runner end-to-end (S0 attach mode)** | Need TUI seed-extract for S6/S7 on the populated wallet (workaround: fragment + recover into known seed — used for S2) |
+| 2 | `minotari` daemon (HTTP API) + subprocess CLI for unsigned tx | S0 (daemon detected funded tx on birthday-shaped scan); receive-side measurement | Send-side (S1/S4/S5) blocked by Finding #1 (v4/v5 unsigned-tx version mismatch); B0/S2/S6 blocked by Finding #2 (no API to set birthday=0) |
+| 3 | `minotari_payment_processor` HTTP API + console_wallet for signing + minotari-cli daemon as PAYMENT_RECEIVER | Service wired and running. API ingestion: **5,000 payments/sec**. Pipeline runs through `BATCHED → AwaitingSignature → SigningInProgress`. | Signer step hits Finding #1 in production retry loop; nothing past `SigningInProgress` is measurable until the version mismatch is fixed upstream. |
 
-Set paths to your local binaries:
+## Rust harness status
 
-```toml
-[binaries]
-console_wallet = "C:/tari/minotari_console_wallet.exe"
-base_node      = "C:/tari/minotari_node.exe"
-minotari_cli   = "C:/tari/minotari.exe"
+Honest framing:
 
-[node]
-http_url = "http://127.0.0.1:18142"
+- **What runs**: `--smoke <host:port>`, `--rescan-bench <host:port>`, and the full `Runner` against any Mode 1 wallet via attach mode (config: `[node] mode1_wallet_endpoint = "..."`). Producing `results/rust_harness_endtoend_s0_mode1.json` requires no manual intervention.
+- **What doesn't run**: the spawn-managed path (`Mode1Wallet::start` spawning `minotari_console_wallet`) — the spawn args have not been validated against current console_wallet versions. Marked clearly in source with `UNVALIDATED PATH` log warning. Attach mode is the verified path.
+- **What's tested**: `cargo test --release` = 33 tests passing (config parse/validate, metrics lifecycle + JSON roundtrip + delta computation, helpers, the Tari per-section base58 address encoder, port-from-URL parser).
+
+Everything quantitative this repo claims was generated by code in this repo, against the wallets noted, and committed alongside the claim. If a result JSON exists, the run happened.
+
+## Reproducing
+
+### Prereqs
+- An Esmeralda base node running locally (HTTP API on port 9005, gRPC on 18142)
+- A `minotari_console_wallet` running locally with gRPC enabled. Easiest: copy `C:/Tari-bench-mode1/esmeralda/config/config.toml` as a template, set `wallet.grpc_enabled = true` and `wallet.grpc_address = "/ip4/127.0.0.1/tcp/<port>"`, launch with `MINOTARI_WALLET_PASSWORD=<pwd> minotari_console_wallet --base-path <dir> --network esmeralda --non-interactive-mode`.
+- A funded wallet (mining is easiest — Tari Universe locally for ~30 min produces enough tXTM for one full S1 run; 75-150k tXTM gives you headroom for full S1+S4+S5+S2+S3+S6+S7).
+
+### Rust harness, attach mode
+```
+cargo test --release    # 33 tests, all passing
+cargo build --release
+./target/release/tari-wallet-benchmarks --config benchmark.toml --modes 1 --scenarios S0
+```
+With `benchmark.toml`'s `[node] mode1_wallet_endpoint = "http://127.0.0.1:<your-wallet-port>"` set to your running wallet, this writes a result JSON under `./benchmark-work/results/`.
+
+### Python scripts (the path used to produce every committed result)
+```
+python scripts/run_s1.py --port <wallet-port> --doubling-rounds 6 --fanout-tx 64 --fanout-outputs 8 --c-min 1
+python scripts/run_s4.py --port <wallet-port> --levels 8,16,32,64,128 --budget-secs 180
+python scripts/run_s5.py --port <wallet-port> --M 100 --K 10
+python scripts/gen_distinct_addresses.py --count 100
+python scripts/run_s5_distinct.py --port <wallet-port> --addresses results/distinct_addresses_100.json
+python scripts/verify_s4_mined.py    # post-facto chain verification
+python scripts/verify_s5_mined.py
+python scripts/capture_s5_fees.py    # GetTransactionInfo per tx_id
 ```
 
-### 2. Fund the wallets (S0)
-
-S0 expects the wallet to receive `a_fund` µT (default: 10,000 tXTM).
-Either:
-- Set `TARI_BENCH_FUNDER_ADDRESS` and send funds out-of-band, then run S0
-  which will poll until the balance arrives, or
-- Pre-seed the wallet data directory with an already-funded wallet DB.
-
-### 3. Run
-
+### Recovery-based S2/S3
 ```
-# All modes, all scenarios
-cargo run --release -- --config benchmark.toml
-
-# Single mode, specific scenarios
-cargo run --release -- --config benchmark.toml --modes 2 --scenarios B0,S0,S1,S2,S3
-
-# List available options
-cargo run --release -- --list-scenarios
+# 1. Get a seed for a wallet you control (minotari-cli's show-seed-words works; console_wallet has no scriptable equivalent — Finding #4)
+# 2. Fragment funds into that wallet (single-tx Transfer with N recipients all pointing at it, via the source wallet's gRPC)
+# 3. Spawn a fresh console_wallet against a clean base-path with --recovery + --seed-words "..."
+MINOTARI_WALLET_PASSWORD=<pwd> minotari_console_wallet \
+  --base-path C:/Tari-bench-recovery \
+  --network esmeralda \
+  --non-interactive-mode \
+  --seed-words "word1 word2 ... word24" \
+  --recovery
+# 4. Read the "Scanned X blocks in Y.YYs (Z blocks/s)" line for the S2 measurement
 ```
 
-### 4. Results
+## 8 wallet pains surfaced
 
-Results are written to `./benchmark-work/results/run-<uuid>.json`.
+See `results/wallet_pain_findings.md`. Headline three:
 
-An intermediate partial file is written after each scenario so a partial run
-is recoverable.
+1. **`create-unsigned-transaction` emits v4.0.0; `sign-one-sided-transaction` expects v5.0.0.** Mode 2 + Mode 3 are not buildable from current main without a fix to one of the two binaries. Confirmed at production scale via PP retry loop.
+2. **Mode 2 has no API to set birthday=0.** Genesis rescans on Mode 2 are not implementable today. Suggested fix: `--birthday` flag on `minotari create`, or a daemon endpoint.
+3. **`minotari_console_wallet` has no scriptable seed export.** Spec-strict S2/S3/S6/S7 against the populated wallet require TUI interaction. Workaround documented; fix: add `show-seed-words` subcommand to console_wallet.
 
-## Configuration reference
+## Not done — honest scope statement
 
-All parameters are documented in `benchmark.toml`.  The spec defaults are:
+- **Mode 1 S2/S3 at 512 UTXOs**: We have S2/S3 at N=22 (a real spec-compliant measurement against a wallet whose seed we control, scanning the full chain with a populated UTXO pool). The bounty's target N is 512 from the S1 fanout; the wallet we have at N=512 is Mode 1's fresh wallet at 18243, whose seed we can't extract scriptably (Finding #4). To reach 512 we'd either (a) need the seed-export fix upstream, (b) build a fresh wallet through S1 against a seed we control, or (c) keep fragmenting from the mining wallet. The throughput we measured at N=22 was dominated by chain walk, not UTXO detection, so the N=512 number is expected to be in the same band — but we haven't proven it.
+- **Mode 2 S1/S4/S5**: blocked by Finding #1 (v4/v5 sign mismatch). Two ways forward: upstream fix, or link `tari_transaction_components` as a Rust dep and call `sign_locked_transaction` directly (the path PR `tari-project/minotari-cli#99` takes).
+- **Mode 3 past `SigningInProgress`**: same blocker (Finding #1).
 
-| Parameter | Default | Spec reference |
-|-----------|---------|----------------|
-| `a_fund` | 10,000,000,000 µT (10k tXTM) | A_fund |
-| `c_min` | 3 | C_min |
-| `volume_target` | 512 | volume_target |
-| `doubling_rounds` | 6 | doubling_rounds |
-| `fanout_outputs_per_tx` | 8 | fanout_outputs_per_tx |
-| `s4_concurrency_levels` | [8,16,32,64,128] | N values |
-| `s4_budget_secs` | 900 | T_budget |
-| `s5_m` | 100 | M |
-| `s5_k` | 10 | K |
-
-## Environment variables
-
-| Variable | Purpose |
-|----------|---------|
-| `TARI_BENCH_FUNDER_ADDRESS` | One-sided address of a funded wallet for S0 |
-| `TARI_BENCH_BIRTHDAY_HEIGHT` | Block height the wallet was created (for S3/S7). Falls back to `tip - 1000`. |
-| `TARI_BENCH_LOG` | Log level: `trace`, `debug`, `info`, `warn`, `error` (default: `info`) |
-
-## Reviewer breadcrumbs followed
-
-Built around SWvheerden's comments on tari-project/wallet-benchmarks#1:
-
-- **Mode 2 library path** (2026-05-26): "running it as a library which I would
-  have thought would be simpler" - documented at top of `src/modes/mode2.rs`
-  with the exact APIs (`OneSidedTransactionService::create_unsigned_transaction`,
-  `sign_locked_transaction`, broadcast at `monitor.rs:710`). Library wiring is
-  TODO behind a feature flag; subprocess path is the bootstrap default.
-- **Mode 3 = payment processor** (2026-05-28): "There is some confusion it
-  seems on the payment processor, its this application:
-  https://github.com/tari-project/minotari_payment_processor" - Mode 3 is now
-  the processor service, not batch `Transfer` on console_wallet. Scan
-  scenarios skipped per roadhero's 2026-05-29 architectural question.
-- **Funding via TU local mining** (2026-05-25): documented in S0 - the harness
-  expects pre-funded wallets, not handouts.
-- **Tested at least once** (2026-05-25): baseline run on the harness operator's
-  Esmeralda node, committed to `results/latest.json`.
-
-## Design notes
-
-- **No engineering around wallet pain.** The harness measures real wallet
-  behaviour under load.  It does not pipeline, pre-build, or cache transactions
-  to hide latency.
-
-- **Data dir wipe** before B0, S2, S3, S6, S7 - the runner calls
-  `WalletMode::wipe_and_reinit()` before each scan scenario per spec.
-
-- **Birthday manipulation** for S2/S6 (=0, genesis) vs S3/S7 (=H_birth) -
-  spec: "use the api to change the seed words so that the encoded birthday
-  reflects 0." Mode-specific override via `WalletMode::set_birthday()`.
-
-- **Per-tx metrics** - construction, broadcast→mempool, broadcast→confirmed,
-  fee, outcome captured into `TxMetrics` for S1 (127 txs: 63 doubling + 64
-  fan-out), S4 (each concurrent batch), S5 (batch arm and individual arm).
-
-- **Balance reconciliation** - every scenario captures
-  `balance_before_ut`/`balance_after_ut` and computes
-  `balance_reconciliation_delta_ut`.  Non-zero deltas are flagged in the
-  summary.
-
-- **Environment disclosure** - the report header records CPU model, core count,
-  total RAM, OS, hostname, network path (local vs remote base node), disk type
-  (override via `TARI_BENCH_DISK_TYPE`), and binary `--version` output for
-  every binary referenced in the config.
-
-- **Intermediate writes.** After every scenario the partial result JSON is
-  flushed to disk so a hard failure doesn't lose prior measurements.
-
-- **Mode independence.** Each mode gets its own wallet data directory and runs
-  the full scenario sequence independently.  Results are directly comparable.
-
-- **Address encoding.** Tari addresses are encoded as
-  `bs58(byte[0]) + bs58(byte[1]) + bs58(bytes[2..])`, not standard base58 of
-  the whole array.  The harness decodes gRPC raw bytes using this scheme.
+If/when those upstream fixes land, the runners and scripts in this repo will exercise the blocked scenarios as written.
